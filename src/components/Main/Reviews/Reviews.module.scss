@@ -1,0 +1,71 @@
+.reviewsSection {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 90px 0 119px 58px;
+}
+
+.reviewsTitle {
+  margin-bottom: 40px;
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 45px;
+  color: var(--purple);
+}
+
+.swiperWrapper {
+  position: relative;
+  padding-left: 111px;
+  padding-right: 122px;
+}
+
+.reviewsFigure {
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.reviewsAvatar {
+  width: 140px;
+  height: 140px;
+  margin-bottom: 10px;
+}
+
+.reviewsName {
+  margin-bottom: 9px;
+  font-family: 'Nunito';
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 130%;
+  color: var(--purple);
+}
+
+.reviewsBlockqoute {
+  max-width: 250px;
+  text-align: center;
+  font-family: 'Nunito';
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 130%;
+  color: var(--purple);
+}
+
+.reviewsBtnPrev,
+.reviewsBtnNext {
+  position: absolute;
+  border: none;
+  background-color: transparent;
+}
+
+.reviewsBtnPrev {
+  top: 33.8%;
+  left: 4.1%;
+}
+
+.reviewsBtnNext {
+  top: 33.8%;
+  right: 7.5%;
+}

@@ -1,17 +1,15 @@
 import React from 'react';
-import { Form } from './module/Form/Form';
-import { Modal } from './module/Modal/Modal';
-import { Table } from './module/Table/Table';
-import { Title } from './module/Title/Title';
+import Footer from './components/Footer';
+import Header from './components/Header';
+import Main from './components/Main';
 
 function App() {
   return (
-    <div className='app-container vh-100 w-100 d-flex align-items-center justify-content-center flex-column'>
-      <Modal />
-      <Title />
-      <Form />
-      <Table />
-    </div>
+    <>
+      <Header />
+      <Main />
+      <Footer />
+    </>
   );
 }
 

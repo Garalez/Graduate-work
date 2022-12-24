@@ -1,0 +1,30 @@
+.copyrightsWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-right: 58px;
+}
+
+.copyrightsLogoWrapper {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 226px;
+}
+
+.copyrightsPlatformName {
+  padding-top: 4px;
+  color: var(--white);
+  font-family: 'Nunito';
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 30px;
+}
+
+.copyrights {
+  color: var(--white);
+  font-family: 'Nunito';
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 130%;
+}

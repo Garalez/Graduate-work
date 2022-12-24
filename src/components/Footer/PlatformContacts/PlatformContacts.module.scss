@@ -1,0 +1,22 @@
+.contactsWrapper {
+  max-width: 264px;
+  margin-right: 16px;
+}
+
+.contactsList {
+  display: flex;
+  flex-direction: column;
+  gap: 14.5px;
+  padding-top: 8px;
+  margin-bottom: 19px;
+  color: var(--white);
+  font-family: 'Nunito';
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 130%;
+}
+
+.contactsSocialList {
+  display: flex;
+  gap: 18px;
+}

@@ -1,8 +1,7 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { userDataReducer } from './userData/userDataReducer';
 
 const rootReducer = combineReducers({
-  userData: userDataReducer,
+  // userData: userDataReducer,
 });
 
 export const store = configureStore({

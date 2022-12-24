@@ -1,0 +1,68 @@
+.infoSection {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  padding: 16px 0 50px 58px;
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  margin-right: 89px;
+  max-width: 471px;
+  align-self: center;
+  padding-top: 135px;
+}
+
+.title {
+  margin-bottom: 20px;
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 45px;
+}
+
+.subtitle {
+  max-width: 380px;
+  margin-bottom: 50px;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 130%;
+}
+
+.registrationBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 380px;
+  height: 70px;
+  background: var(--main-gradient);
+  color: var(--white);
+  border-radius: 10px;
+  border: none;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.rectangle {
+  position: absolute;
+  top: -129px;
+  right: -157px;
+  width: 1031.71px;
+  height: 565.53px;
+  background: linear-gradient(
+    87.4deg,
+    #2e00b1 -11.74%,
+    #8100bd 48.81%,
+    #a400be 113.27%
+  );
+  border-radius: 0px 0px 0px 150px;
+  transform: rotate(21.28deg);
+  z-index: -1;
+}
