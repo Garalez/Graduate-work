@@ -7,9 +7,8 @@ import { ReactComponent as ActiveTab3 } from './img/activeTab3.svg';
 // import {ReactComponent as InactiveTab3} from './img/inactiveTab3.svg';
 
 export const Registration = () => {
-  console.log(style);
   return (
-    <section className={style.registrationSection}>
+    <section className={style.registrationSection} id='registration'>
       <div className={style.registrationWrapper}>
         <h2 className={style.registrationTitle}>
           Как зарегистрироваться на платформе

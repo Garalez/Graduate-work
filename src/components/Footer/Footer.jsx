@@ -8,10 +8,15 @@ export const Footer = () => {
   return (
     <footer className={style.footer}>
       <div className={style.footerWrapper}>
-        <PlatformCopyrights />
-        <PlatformLinks />
-        <PlatformContacts />
-        <PlatformOnMap />
+        <div className={style.footerInfo}>
+          <div className={style.footerLinksWrapper}>
+            <PlatformCopyrights />
+            <PlatformLinks />
+          </div>
+          <PlatformContacts />
+          <PlatformOnMap />
+        </div>
+        <p className={style.copyrights}>© C-Money, 2022</p>
       </div>
     </footer>
   );

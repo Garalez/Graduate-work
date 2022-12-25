@@ -1,6 +1,6 @@
 .contactsWrapper {
   max-width: 264px;
-  margin-right: 16px;
+  margin-right: 1.15vw;
 }
 
 .contactsList {
@@ -19,4 +19,28 @@
 .contactsSocialList {
   display: flex;
   gap: 18px;
+}
+
+@media (max-width: 1024px) {
+  .contactsWrapper {
+    width: 181px;
+    margin-right: 2vw;
+  }
+
+  .contactsStreet {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .contactsWrapper {
+    width: 340px;
+    max-width: 340px;
+    margin-right: 0vw;
+  }
+
+  .contactsList {
+    padding-top: 68px;
+    margin-bottom: 19px;
+  }
 }

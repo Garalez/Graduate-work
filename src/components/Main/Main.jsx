@@ -6,11 +6,11 @@ import Reviews from './Reviews';
 
 export const Main = () => {
   return (
-    <div className={style.wrapper}>
+    <main className={style.wrapper}>
       <PlatformInfo />
       <Profit />
       <Registration />
       <Reviews />
-    </div>
+    </main>
   );
 };

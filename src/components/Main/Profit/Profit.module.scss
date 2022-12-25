@@ -1,7 +1,7 @@
 .profitSection {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 52px 0 90px 58px;
+  padding: 52px 0 90px 50px;
   color: var(--purple);
 }
 
@@ -16,6 +16,8 @@
 
 .profitList {
   display: flex;
+  flex-wrap: wrap;
+  row-gap: 25px;
 }
 
 .profitItem {
@@ -41,7 +43,7 @@
 .profitText {
   max-width: 216px;
   margin-bottom: 14px;
-  align-self:flex-end;
+  align-self: flex-end;
   font-family: 'Nunito';
   font-style: normal;
   font-weight: 400;
@@ -57,26 +59,95 @@
   background: var(--main-gradient);
 }
 
-.profitStatistics {
-  margin-right: 51px;
-}
-
-.profitSafety {
-  margin-right: 51px;
-}
-
-.profitSafetyText {
-  margin-bottom: 37px;
-}
-
+.profitStatistics,
+.profitSafety,
 .profitExchange {
   margin-right: 51px;
 }
 
-.profitExchangeText {
+.profitSafetyText,
+.profitExchangeText,
+.profitComfortText {
   margin-bottom: 37px;
 }
 
-.profitComfortText {
-  margin-bottom: 37px;
+@media (max-width: 1024px) {
+  .profitSection {
+    padding: 40px 0 90px 22px;
+  }
+
+  .subtitle {
+    padding-top: 4px;
+    font-size: 24px;
+  }
+  
+  .profitItem {
+    width: 241px;
+  }
+  
+  .profitText {
+    max-width: 213px;
+    margin-bottom: 0px;
+    align-self: center;
+    padding-left: 27px;
+  }
+
+  .profitUnderline {
+    width: 180px;
+    height: 4px;
+    align-self: center;
+    margin: 0 0 0 20px;
+  }
+
+  .profitStatistics,
+  .profitSafety,
+  .profitExchange {
+    margin-right: 12px;
+  }
+
+  .profitStatisticsText,
+  .profitExchangeText {
+    margin-bottom: 14px;
+  }
+
+  .profitComfortText,
+  .profitSafetyText {
+    margin-bottom: 37px;
+  }
+}
+
+@media (max-width: 768px) {
+  .profitSection {
+    padding: 30px 0 80px 94px;
+  }
+
+  .profitTitle {
+    max-width: 380px;
+    margin-bottom: 40px;
+  }
+
+  .profitList {
+    row-gap: 40px;
+    column-gap: 54px;
+  }
+  
+  .profitItem {
+    width: 257px;
+  }
+  
+  .profitText {
+    max-width: 216px;
+    padding-left: 0px;
+    align-self: flex-end;
+  }
+
+  .profitUnderline {
+    width: 215px;
+    align-self: flex-end;
+    margin: 0 1px 0 0;
+  }
+
+  .profitComfortText {
+    margin-bottom: 14px;
+  }
 }

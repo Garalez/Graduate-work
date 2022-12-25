@@ -1,15 +1,9 @@
-.copyrightsWrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-right: 58px;
-}
-
 .copyrightsLogoWrapper {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-bottom: 226px;
+  align-items: flex-start;
+  margin-right: 4.25vw;
 }
 
 .copyrightsPlatformName {
@@ -21,10 +15,27 @@
   line-height: 30px;
 }
 
-.copyrights {
-  color: var(--white);
-  font-family: 'Nunito';
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 130%;
+
+@media (max-width: 1024px) {
+  .copyrightsLogo {
+    margin-right: 10px;
+  }
+
+  .copyrightsLogoWrapper {
+    margin-right: 4.44vw;
+    gap: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .copyrightsLogo {
+    margin-right: 10px;
+  }
+
+  .copyrightsLogoWrapper {
+    justify-content: start;
+    margin-bottom: 22px;
+    margin-right: 0;
+    gap: 0;
+  }
 }

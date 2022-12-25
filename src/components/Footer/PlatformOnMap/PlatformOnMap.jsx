@@ -1,7 +1,6 @@
 import style from './PlatformOnMap.module.scss';
 
 export const PlatformOnMap = () => {
-  console.log(style);
   return (
     <div className={style.mapWrapper}>
       <iframe className={style.map}

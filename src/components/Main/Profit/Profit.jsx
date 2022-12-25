@@ -6,7 +6,7 @@ import { ReactComponent as CheckCircle } from './img/CheckCircle.svg';
 
 export const Profit = () => {
   return (
-    <section className={style.profitSection}>
+    <section className={style.profitSection} id='profit'>
       <h2 className={style.profitTitle}>Почему с нами выгодно?</h2>
       <ul className={style.profitList}>
         <li className={`${style.profitItem} ${style.profitStatistics}`}>

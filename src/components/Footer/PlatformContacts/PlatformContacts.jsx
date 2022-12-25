@@ -3,7 +3,6 @@ import { ReactComponent as TelegramLogo } from './img/TelegramSocial.svg';
 import { ReactComponent as TwitterLogo } from './img/TwitterSocial.svg';
 
 export const PlatformContacts = () => {
-  console.log(style);
   return (
     <div className={style.contactsWrapper}>
       <ul className={style.contactsList}>
@@ -11,7 +10,7 @@ export const PlatformContacts = () => {
         <li className={style.contactsItem}>+7 921 347-49-97</li>
         <li className={style.contactsItem}>C-Money@gmail.com</li>
         <li className={style.contactsItem}>
-          г. Москва ул. Новослободская 120/2 54
+          г. Москва <span className={style.contactsStreet}>ул. Новослободская</span> 120/2 54
         </li>
       </ul>
       <ul className={style.contactsSocialList}>

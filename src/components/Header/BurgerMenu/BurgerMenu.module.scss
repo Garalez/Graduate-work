@@ -1,0 +1,53 @@
+.burgerWrapper {
+  position: absolute;
+  width: 100vw;
+  height: 228px;
+  top: 0;
+  left: 0;
+  background-color: var(--white);
+  padding-left: 94px;
+  padding-top: 20px;
+}
+
+.logoWrapper {
+  margin-bottom: 36px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--purple);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.item {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.logoName {
+  color: var(--purple);
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 30px;
+}
+
+.burgerBtnOpen,
+.burgerBtnClose {
+  border: none;
+  background-color: transparent;
+}
+
+.burgerBtnClose {
+  position: absolute;
+  top: 27px;
+  right: 94px;
+}

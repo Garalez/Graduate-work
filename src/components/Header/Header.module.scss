@@ -8,8 +8,8 @@
 .headerWrapper {
   display: flex;
   justify-content: space-between;
-  padding-left: 58px;
-  padding-right: 43px;
+  padding-left: 50px;
+  padding-right: 51px;
 }
 
 .logoWrapper {
@@ -26,4 +26,18 @@
   font-weight: 600;
   font-size: 22px;
   line-height: 30px;
+}
+
+@media (max-width: 1024px) {
+  .headerWrapper {
+    padding-left: 22px;
+    padding-right: 23px;
+  }
+}
+
+@media (max-width: 768px) {
+  .headerWrapper {
+    padding-left: 94px;
+    padding-right: 94px;
+  }
 }
