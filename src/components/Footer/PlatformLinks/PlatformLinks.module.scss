@@ -27,3 +27,14 @@
     margin-right: 0;
   }
 }
+
+@media (max-width: 320px) {
+  .linksList {
+    gap: 2px;
+  }
+
+  .linksHref {
+    font-size: 14px;
+    line-height: 130%;
+  }
+}

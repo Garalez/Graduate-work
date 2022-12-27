@@ -34,6 +34,7 @@ export const BurgerMenu = () => {
               </li>
             </ul>
           </nav>
+          <div className={style.underline} />
           <button
             className={style.burgerBtnClose}
             onClick={() => setIsBurgerActive(!isBurgerActive)}

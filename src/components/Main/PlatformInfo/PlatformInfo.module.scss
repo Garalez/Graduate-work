@@ -122,3 +122,53 @@
     border-radius: 0px 0px 0px 100px;
   }
 }
+
+@media (max-width: 320px) {
+  .infoSection {
+    padding: 11px 0 30px 0px;
+  }
+
+  .img {
+    width: 290px;
+    height: 260px;
+  }
+
+  .imageWrapper {
+    margin-bottom: 40px;
+  }
+
+  .textWrapper {
+    margin-right: 0;
+    max-width: 471px;
+    padding-top: 0;
+    align-items: center;
+  }
+
+  .title {
+    margin-bottom: 11px;
+    font-size: 19px;
+    line-height: 21px;
+  }
+  
+  .subtitle {
+    max-width: 290px;
+    margin-bottom: 29px;
+    font-size: 14px;
+  }
+
+  .rectangle {
+    top: -24.13%;
+    right: -117%;
+    width: 104.7%;
+    height: 1058px;
+    transform: rotate(37.65deg);
+    border-radius: 0px 0px 0px 80px;
+  }
+
+  .registrationBtn {  
+    width: 290px;
+    height: 50px;
+    font-size: 16px;
+    line-height: 22px;
+  }
+}

@@ -45,9 +45,7 @@
 
 @media (max-width: 768px) {
   .footerWrapper {
-    padding-left: 94px;
-    padding-top: 60px;
-    padding-bottom: 26px;
+    padding: 60px 0 26px 94px;
   }
 
   .footerInfo {
@@ -58,5 +56,26 @@
   .footerLinksWrapper {
     flex-direction: column;
     margin-right: 3.9vw;
+  }
+}
+
+
+@media (max-width: 320px) {
+  .footerWrapper {
+    padding: 40px 0 11px 15px;
+  }
+
+  .footerInfo {
+    margin-bottom: 34px;
+    row-gap: 18px;
+  }
+
+  .footerLinksWrapper {
+    flex-direction: column;
+    margin-right: 3.9vw;
+  }
+
+  .copyrights {
+    font-size: 14px;
   }
 }

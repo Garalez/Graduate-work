@@ -167,3 +167,66 @@
     width: 100%;
   }
 }
+
+@media (max-width: 320px) {
+  .registrationSection {
+    padding: 40px 25px 40px 15px;
+  }
+
+  .registrationTitle {
+    max-width: 290px;
+    margin-bottom: 11px;
+    font-size: 19px;
+    line-height: 21px;
+  }
+
+  .registrationTabsList {
+    padding-left: 10px;
+    gap: 3px;
+    margin-bottom: 0px;
+  }
+
+  .registrationText {
+    max-width: 210px;
+    margin-bottom: 17px;
+    font-size: 17px;
+  }
+
+  .registrationTabsBtn {
+    height: 33px;
+    width: 33px;
+  }
+
+  .registrationLabel {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .registrationInputList {
+    margin-bottom: 29px;
+  }
+
+  .registrationInput {
+    width: 280px;
+    height: 50px;
+    padding-left: 18px;
+    padding-bottom: 3px;
+    font-size: 9px;
+    border: 1px solid var(--inactive-input-border);
+  }
+
+  .registrationInputList {
+    gap: 10px;
+  }
+
+  .registrationInputItem {
+    gap: 6px;
+  }
+
+  .nextBtn {
+    width: 100%;
+    height: 50px;
+    font-size: 16px;
+    line-height: 22px;
+  }
+}

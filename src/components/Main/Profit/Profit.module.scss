@@ -80,11 +80,11 @@
     padding-top: 4px;
     font-size: 24px;
   }
-  
+
   .profitItem {
     width: 241px;
   }
-  
+
   .profitText {
     max-width: 213px;
     margin-bottom: 0px;
@@ -130,11 +130,11 @@
     row-gap: 40px;
     column-gap: 54px;
   }
-  
+
   .profitItem {
     width: 257px;
   }
-  
+
   .profitText {
     max-width: 216px;
     padding-left: 0px;
@@ -149,5 +149,58 @@
 
   .profitComfortText {
     margin-bottom: 14px;
+  }
+}
+
+@media (max-width: 320px) {
+  .profitSection {
+    padding: 30px 0 60px 15px;
+  }
+
+  .profitTitle {
+    max-width: 240px;
+    margin-bottom: 20px;
+    font-size: 19px;
+    line-height: 21px;
+  }
+
+  .profitList {
+    row-gap: 20px;
+    column-gap: 0;
+  }
+
+  .profitItem {
+    width: 261px;
+  }
+
+  .subtitleWrapper {
+    margin-bottom: 0px;
+  }
+  
+  .subtitle {
+    align-self:center;
+    padding-top: 1px;
+    font-size: 17px;
+  }
+  
+  .profitText {
+    max-width: 220px;
+    margin-bottom: 9px;
+    font-size: 14px;
+  }
+  
+  .profitUnderline {
+    width: 200px;
+    height: 2px;
+    margin-right: 20px;
+  }
+
+  .profitExchangeText {
+    margin-bottom: 9px;
+  }
+
+  .profitComfortText,
+  .profitSafetyText {
+    margin-bottom: 10px;
   }
 }

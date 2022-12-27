@@ -23,3 +23,14 @@
     margin-bottom: 36px;
   }
 }
+
+@media (max-width: 320px) {
+  .map {
+    width: 290px;
+    height: 180px;
+  }
+
+  .mapWrapper {
+    margin-bottom: 0;
+  }
+}

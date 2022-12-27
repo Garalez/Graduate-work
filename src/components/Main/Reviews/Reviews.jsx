@@ -23,7 +23,7 @@ export const Reviews = () => {
         <Swiper
           modules={[Navigation]}
           loop
-          slidesPerView={width > 768 ? 3 : 2}
+          slidesPerView={width > 768 ? 3 : width < 321 ? 1 : 2}
           onInit={(swiper) => {
             swiper.params.navigation.prevEl = prevSlide.current;
             swiper.params.navigation.nextEl = nextSlide.current;
@@ -74,10 +74,10 @@ export const Reviews = () => {
           </SwiperSlide>
         </Swiper>
         <button className={style.reviewsBtnPrev} ref={prevSlide}>
-          <PrevArrow />
+          <PrevArrow className={style.reviewsArrowImg} />
         </button>
         <button className={style.reviewsBtnNext} ref={nextSlide}>
-          <NextArrow />
+          <NextArrow className={style.reviewsArrowImg} />
         </button>
       </div>
     </section>
