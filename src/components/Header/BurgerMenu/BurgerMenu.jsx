@@ -6,9 +6,10 @@ import { ReactComponent as BurgerLogo } from './img/Menu.svg';
 
 export const BurgerMenu = () => {
   const [isBurgerActive, setIsBurgerActive] = useState(false);
+  
   return (
     <>
-      {isBurgerActive ? (
+      {!isBurgerActive ? (
         <button
           className={style.burgerBtnOpen}
           onClick={() => setIsBurgerActive(!isBurgerActive)}

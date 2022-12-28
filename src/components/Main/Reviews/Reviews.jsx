@@ -23,7 +23,7 @@ export const Reviews = () => {
         <Swiper
           modules={[Navigation]}
           loop
-          slidesPerView={width > 768 ? 3 : width < 321 ? 1 : 2}
+          slidesPerView={width > 768 ? 3 : width <= 550 ? 1 : 2}
           onInit={(swiper) => {
             swiper.params.navigation.prevEl = prevSlide.current;
             swiper.params.navigation.nextEl = nextSlide.current;
