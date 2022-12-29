@@ -37,8 +37,13 @@
 
 @media (max-width: 768px) {
   .headerWrapper {
-    padding-left: 94px;
-    padding-right: 94px;
+    padding: 0 94px;
+  }
+}
+
+@media (max-width: 550px) {
+  .headerWrapper {
+    padding: 0 50px;
   }
 }
 

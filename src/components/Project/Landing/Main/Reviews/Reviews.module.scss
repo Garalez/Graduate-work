@@ -57,7 +57,16 @@
 .reviewsBtnNext {
   position: absolute;
   border: none;
-  background-color: transparent;
+  background: transparent;
+  border-radius: 30px;
+  z-index: 1;
+}
+
+.reviewsBtnPrev:hover,
+.reviewsBtnNext:hover,
+.reviewsBtnPrev:focus,
+.reviewsBtnNext:focus {
+  background: var(--btn-background-hover);
 }
 
 .reviewsBtnPrev {
@@ -122,6 +131,40 @@
   }
 }
 
+@media (max-width: 550px) {
+  .reviewsSection {
+    padding: 80px 9px 79px 16vw;
+  }
+
+  .swiperWrapper {
+    padding-left: 0;
+    padding-right: 11vw;
+  }
+
+  .reviewsSwiperSlide {
+    display: flex;
+    justify-content: center;
+  }
+
+  .reviewsBtnPrev {
+    top: 30.5%;
+  }
+
+  .reviewsBtnNext {
+    top: 30.5%;
+    right: 12.8%;
+  }
+
+  .reviewsFigure {
+    max-width: 220px;
+  }
+
+  .reviewsAvatar {
+    width: 80px;
+    height: 80px;
+  }
+}
+
 @media (max-width: 320px) {
   .reviewsSection {
     padding: 60px 0 71px 15px;
@@ -145,6 +188,11 @@
 
   .reviewsName {
     font-size: 14px;
+  }
+
+  .reviewsSwiperSlide {
+    display: flex;
+    justify-content: start;
   }
 
   .reviewsBlockqoute {

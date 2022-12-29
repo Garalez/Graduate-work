@@ -59,6 +59,11 @@
   }
 }
 
+@media (max-width: 550px) {
+  .footerWrapper {
+    padding-left: 15vw;
+  }
+}
 
 @media (max-width: 320px) {
   .footerWrapper {

@@ -1,4 +1,4 @@
-import useWindowDimensions from '../../hooks/screenViewPort';
+import useWindowDimensions from '../../../../hooks/screenViewPort';
 import BurgerMenu from './BurgerMenu';
 import style from './Header.module.scss';
 import { ReactComponent as Logo } from './img/logo.svg';

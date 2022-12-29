@@ -45,6 +45,12 @@
 .burgerBtnClose {
   border: none;
   background-color: transparent;
+  border-radius: 20px;
+}
+
+.burgerBtnClose:hover,
+.burgerBtnClose:focus {
+  background: var(--btn-background-hover);
 }
 
 .underline {

@@ -21,6 +21,10 @@
   gap: 18px;
 }
 
+.contactsSocial:hover path {
+  fill: var(--social-fill-hover);
+}
+
 @media (max-width: 1024px) {
   .contactsWrapper {
     width: 181px;
@@ -42,6 +46,12 @@
   .contactsList {
     padding-top: 68px;
     margin-bottom: 19px;
+  }
+}
+
+@media (max-width: 672px) {
+  .contactsList {
+    padding-top: 0;
   }
 }
 

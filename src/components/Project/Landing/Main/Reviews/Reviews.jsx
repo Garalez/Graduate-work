@@ -9,7 +9,7 @@ import SvetlanaReviewer from './img/SvetlanaReviewer.png';
 import SergeiReviewer from './img/SergeiReviewer.png';
 import 'swiper/scss';
 import 'swiper/css/navigation';
-import useWindowDimensions from '../../../hooks/screenViewPort';
+import useWindowDimensions from '../../../../../hooks/screenViewPort';
 
 export const Reviews = () => {
   const nextSlide = useRef(null);

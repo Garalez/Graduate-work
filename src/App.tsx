@@ -1,15 +1,17 @@
-import React from 'react';
-import Footer from './components/Footer';
-import Header from './components/Header';
-import Main from './components/Main';
+import { Route, Routes } from 'react-router-dom';
+import Project from './components/Project';
+
 
 function App() {
   return (
-    <>
-      <Header />
-      <Main />
-      <Footer />
-    </>
+    <Routes>
+      <Route
+        path='*'
+        element={
+          <Project />
+        }
+      />
+    </Routes>
   );
 }
 

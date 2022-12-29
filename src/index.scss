@@ -38,6 +38,11 @@
 
 :root {
   --main-gradient: linear-gradient(87.4deg, #2E00B1 -11.74%, #8100BD 48.81%, #A400BE 113.27%);
+  --main-gradient-hover: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), linear-gradient(87.4deg, #2E00B1 -11.74%, #8100BD 48.81%, #A400BE 113.27%);
+  --main-gradient-focus: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), linear-gradient(87.4deg, #2E00B1 -11.74%, #8100BD 48.81%, #A400BE 113.27%);
+  --btn-color-disabled: #B0B0B0;
+  --btn-background-hover: #DFD4EB;
+  --social-fill-hover: #B865D6;
   --purple: #210B36;
   --white: #FFFFFF;
   --active-tab: #6E479E;
@@ -65,6 +70,7 @@ body {
   font-size: 16px;
   font-weight: 400;
   overflow-x: hidden;
+  clip-path: inset(0);
   background-color: var(--white);
 }
 
@@ -77,6 +83,10 @@ svg {
 button {
   padding: 0;
   cursor: pointer;
+}
+
+button:focus {
+  outline: none;
 }
 
 a {

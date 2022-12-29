@@ -124,6 +124,7 @@
   .profitTitle {
     max-width: 380px;
     margin-bottom: 40px;
+    font-size: 5.21vw;
   }
 
   .profitList {
@@ -152,9 +153,30 @@
   }
 }
 
+@media (max-width: 550px) {
+  .profitSection {
+    padding: 30px 0 80px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .profitTitle {
+    font-size: 7vw;
+  }
+
+  .profitList {
+    justify-content: center;
+    row-gap: 40px;
+    column-gap: 54px;
+  }
+}
+
 @media (max-width: 320px) {
   .profitSection {
     padding: 30px 0 60px 15px;
+    display: block;
   }
 
   .profitTitle {
@@ -165,6 +187,7 @@
   }
 
   .profitList {
+    justify-content: start;
     row-gap: 20px;
     column-gap: 0;
   }

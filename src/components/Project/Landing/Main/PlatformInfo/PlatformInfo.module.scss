@@ -50,6 +50,19 @@
   line-height: 25px;
 }
 
+.registrationBtn:hover {
+  background: var(--main-gradient-hover);
+}
+
+.registrationBtn:focus {
+  background: var(--main-gradient-focus);
+}
+
+.registrationBtn:disabled {
+  background: var(--btn-color-disabled);
+  cursor: initial;
+}
+
 .rectangle {
   position: absolute;
   top: -20%;
@@ -93,6 +106,15 @@
     align-items: center;
   }
 
+  .title {
+    font-size: 5.2vw;
+  }
+  
+  .subtitle {
+    text-align: center;
+    font-size: 2.32vw;
+  }
+
   .img {
     width: 455px;
     height: 407.44px;
@@ -109,8 +131,35 @@
     align-items: center;
   }
 
+  .registrationBtn {
+    width: 49.5vw;
+    font-size: 2.35vw;
+  }
+
+  .rectangle {
+    top: -11.44%;
+    right: -80%;
+    width: 132.6%;
+    height: 919px;
+    transform: rotate(31.99deg);
+    border-radius: 0px 0px 0px 100px;
+  }
+}
+
+@media (max-width: 550px) {
+  .title {
+    font-size: 6.2vw;
+  }
+  
   .subtitle {
     text-align: center;
+    font-size: 3.32vw;
+    margin-bottom: 7vw;
+  }
+
+  .registrationBtn {
+    width: 56.5vw;
+    font-size: 3vw;
   }
 
   .rectangle {
