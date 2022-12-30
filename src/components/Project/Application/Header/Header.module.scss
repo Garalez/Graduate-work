@@ -1,0 +1,28 @@
+.headerWrapper {
+  background-color: var(--app-light-purple);
+}
+
+.contentWrapper {
+  padding: 20px 130px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+}
+
+.navList {
+  display: flex;
+  gap: 30px;
+}
+
+.navItem {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 20px;
+  color: var(--white);
+}

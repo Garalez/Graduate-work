@@ -1,8 +1,9 @@
-// import style from './Application.module.scss';
+import Header from './Header';
+import Main from './Main';
 
-export const Application = () => {
-  // console.log(style);
-  return (
-    <div>ПРИВЕТ МИР</div>
-  );
-};
+export const Application = () => (
+  <>
+    <Header />
+    <Main />
+  </>
+);
