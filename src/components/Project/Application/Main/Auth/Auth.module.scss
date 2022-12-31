@@ -1,8 +1,37 @@
+.authOverlay {
+  padding-top: 119px;
+  padding-bottom: 68px;
+  display: flex;
+  justify-content: center;
+}
+
+.authWrapper {
+  width: 580px;
+  height: 466px;
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  background: var(--app-light-purple);
+  border-radius: 10px;
+}
+
+.authTitle {
+  margin-bottom: 20px;
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 42px;
+  text-align: center;
+  color: var(--white);
+}
+
 .authInputList {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
   gap: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .authInputItem {
@@ -13,10 +42,10 @@
 
 .authLabel {
   padding-left: 20px;
-  color: var(--light-purple);
+  color: var(--inactive-input-border);
   font-family: 'Nunito';
   font-style: normal;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 15px;
   line-height: 20px;
 }
@@ -35,4 +64,24 @@
 .authInput:focus {
   outline: none;
   border: 2px solid var(--active-input-border);
+}
+
+.authBtnWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.authFormSubmit {
+  width: 380px;
+  height: 70px;
+  background: var(--main-gradient);
+  border: none;
+  border-radius: 10px;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  color: var(--white);
 }
