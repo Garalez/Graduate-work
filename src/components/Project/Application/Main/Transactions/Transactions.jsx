@@ -14,6 +14,13 @@ export const Transactions = () => {
 
   const options = {
     responsive: true,
+    scales: {
+      x: {
+        grid: {
+          display: false
+        }
+      },
+    },
     plugins: {
       title: {
         display: false,
