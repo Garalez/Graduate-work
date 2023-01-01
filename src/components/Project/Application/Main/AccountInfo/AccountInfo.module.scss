@@ -1,0 +1,135 @@
+.accountWrapper {
+  padding: 70px 130px 40px 130px;
+}
+
+.accountTitleWrapper {
+  margin-bottom: 64px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.accountTitle {
+  padding-top: 10px;
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 45px;
+  color: var(--white);
+}
+
+.accountBtn {
+  width: 241px;
+  height: 49px;
+  background: var(--main-gradient);
+  border: none;
+  border-radius: 8px;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  color: var(--white);
+}
+
+.accountInfoWrapper {
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.accountSubtitle {
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 29px;
+  color: var(--white);
+}
+
+.accountSortWrapper {
+  display: flex;
+  gap: 15px;
+  padding-right: 22px;
+  align-self: flex-end;
+}
+
+.accountSortText {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  color: var(--inactive-input-border);
+}
+
+.accountSort {
+  align-self: flex-start;
+  padding-top: 2px;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 100%;
+  background: transparent;
+  border: none;
+  color: var(--white);
+}
+
+.accountList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.accountItem {
+  width: 380px;
+  height: 170px;
+  padding-top: 14px;
+  padding-left: 18px;
+  padding-right: 18px;
+  background: var(--app-light-purple);
+  border: 2px solid transparent;
+  border-radius: 10px;
+}
+
+.accountItem:hover {
+  cursor: url('./img/cursor.svg'), pointer;
+  border: 2px solid var(--active-input-border);
+}
+
+.accountNumber {
+  margin-bottom: 15px;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  color: var(--inactive-input-border);
+}
+
+.accountAmount {
+  margin-bottom: 18px;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 44px;
+  color: var(--white);
+}
+
+.accountInfo {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  color: var(--inactive-input-border);
+}
+
+.accountInfoTextWrapper {
+  display: flex;
+  flex-direction: column;
+}

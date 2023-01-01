@@ -6,7 +6,7 @@ export const Project = () => {
   return (
     <Routes>
       <Route path='/' element={<Landing />} />
-      <Route path='/a' element={<Application />} />
+      <Route path='/a/*' element={<Application />} />
     </Routes>
   );
 };
