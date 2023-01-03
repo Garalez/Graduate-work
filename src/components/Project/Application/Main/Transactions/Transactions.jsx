@@ -6,24 +6,51 @@ import {
   LinearScale,
   PointElement,
   LineElement,
+  Tooltip,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 
 export const Transactions = () => {
-  ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement);
+  ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Tooltip
+  );
 
   const options = {
     responsive: true,
     scales: {
+      y: {
+        border: {
+          display: false,
+        },
+        ticks: {
+          callback: function (value) {
+            return `${value} ₽`;
+          },
+        },
+      },
       x: {
+        border: {
+          display: false,
+        },
         grid: {
-          display: false
-        }
+          display: false,
+        },
       },
     },
     plugins: {
       title: {
-        display: false,
+        display: true,
+        text: 'Chart',
+      },
+      tooltip: {
+        intersect: false,
+        backgroundColor: '#210B36',
+        padding: '12px',
+        borderRadius: '15px',
       },
     },
   };
@@ -47,10 +74,19 @@ export const Transactions = () => {
     labels,
     datasets: [
       {
-        data: [3, 2, 1, 5, 6, 7, 2, 1, 5],
+        data: [2300, 4000, 1700, 2300, 1800, 3000, 2600, 3500, 2800, 4800],
         borderColor: '#B865D6',
+        backgroundColor: '#392350',
+        pointBackgroundColor: '#FFFFFF',
         borderWidth: 5,
-        backgroundColor: 'white',
+        hitRadius: 15,
+        pointStyle: 'circle',
+        pointHoverRadius: 10,
+        radius: 0,
+        hoverBorderColor: '#392350',
+        hoverRadius: 5,
+        hoverBorderWidth: 5,
+        borderJoinStyle: 'round',
       },
     ],
   };
