@@ -19,6 +19,13 @@ export const Transactions = () => {
     Tooltip
   );
 
+  Tooltip.positioners.myCustomPositioner = function (elements, eventPosition) {
+    return {
+      x: eventPosition.x,
+      y: eventPosition.y,
+    };
+  };
+
   const options = {
     responsive: true,
     scales: {
@@ -27,12 +34,28 @@ export const Transactions = () => {
           display: false,
         },
         ticks: {
-          callback: function (value) {
-            return `${value} ₽`;
+          maxTicksLimit: 5,
+          color: '#C6B6D7',
+          font: {
+            family: 'Nunito',
+            weight: 400,
+            size: 15,
           },
+          callback: (value) => `${value} ₽ `,
         },
+        grid: {
+          color: '#210B36',
+        }
       },
       x: {
+        ticks: {
+          color: '#C6B6D7',
+          font: {
+            family: 'Nunito',
+            weight: 400,
+            size: 15,
+          },
+        },
         border: {
           display: false,
         },
@@ -42,15 +65,26 @@ export const Transactions = () => {
       },
     },
     plugins: {
-      title: {
-        display: true,
-        text: 'Chart',
-      },
       tooltip: {
-        intersect: false,
+        position: 'myCustomPositioner',
+        yAlign: 'bottom',
+        callbacks: {
+          label: (tooltipItems) => `${tooltipItems.formattedValue} ₽`,
+          title: () => '',
+        },
+        bodyFont: {
+          family: 'Nunito',
+          weight: 700,
+          size: 15,
+        },
+        padding: {
+          right: 12,
+          top: 4,
+          bottom: 4,
+          left: 12,
+        },
         backgroundColor: '#210B36',
-        padding: '12px',
-        borderRadius: '15px',
+        displayColors: false,
       },
     },
   };
@@ -84,7 +118,7 @@ export const Transactions = () => {
         pointHoverRadius: 10,
         radius: 0,
         hoverBorderColor: '#392350',
-        hoverRadius: 5,
+        hoverRadius: 1,
         hoverBorderWidth: 5,
         borderJoinStyle: 'round',
       },
