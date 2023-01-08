@@ -4,6 +4,7 @@ import { ReactComponent as Logo } from '../../Landing/Header/img/logo.svg';
 import { Route, Routes } from 'react-router-dom';
 import AccountInfo from './AccountInfo';
 import Transactions from './Transactions';
+import CurrencyExchange from './CurrencyExchange';
 
 export const Main = () => {
   return (
@@ -13,6 +14,7 @@ export const Main = () => {
           <Route path='/a' element={<Auth />} />
           <Route path='/c' element={<AccountInfo />} />
           <Route path='/t' element={<Transactions />} />
+          <Route path='/e' element={<CurrencyExchange />} />
         </Routes>
         <div className={style.copyrightsWrapper}>
           <div className={style.logoWrapper}>

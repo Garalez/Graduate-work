@@ -1,10 +1,11 @@
 .transactions {
-  padding: 65px 130px 0 138px;
+  padding: 65px 130px 10px 130px;
 }
 
 .infoWrapper {
   display: flex;
-  gap: 12px;
+  gap: 20px;
+  margin-bottom: 74px;
 }
 
 .transactionsTitleWrapper {
@@ -14,6 +15,7 @@
 }
 
 .transactionsTitle {
+  padding-left: 8px;
   padding-top: 13px;
   font-family: 'Comfortaa';
   font-style: normal;
@@ -26,6 +28,10 @@
 .transactionsBtn {
   width: 178px;
   height: 49px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   background: var(--main-gradient);
   font-family: 'Nunito';
   font-style: normal;
@@ -37,135 +43,8 @@
   border-radius: 8px;
 }
 
-.lineGraphWrapper {
-  width: 580px;
-  height: 321px;
-  background: var(--app-light-purple);
-}
-
-.lineGraph {
-  width: 580px;
-  height: 321px;
-}
-
-.lineGraphOptions {
+.transactionsGraphs {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.lineGraphDynamic {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.lineGraphDynamicText {
-  font-family: 'Nunito';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 27px;
-  color: var(--white);
-}
-
-.lineGraphDynamicYear {
-  font-family: 'Nunito';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 20px;
-  color: var(--inactive-input-border);
-}
-
-.lineGraphDynamicDateSelect {
-  font-family: 'Nunito';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 20px;
-  color: var(--inactive-input-border);
-}
-
-.historyTitle {
-  margin-bottom: 14px;
-  font-family: 'Comfortaa';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 26px;
-  line-height: 29px;
-  color: var(--white);
-}
-
-.historyTableWrapper {
-  height: 467px;
-  overflow: scroll;
-  padding: 20px 20px;
-  background-color: var(--app-light-purple);
-  border-radius: 10px;
-}
-
-.historyTableHeading {
-  padding: 0 147px 17px 0;
-  font-family: 'Nunito';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 20px;
-  color: var(--inactive-input-border);
-}
-
-.historyTableHeading:nth-child(2) {
-  padding-left: 19px;
-  padding-right: 134px;
-}
-
-.historyTableHeading:nth-child(3) {
-  padding-left: 12px;
-  padding-right: 113px;
-}
-
-.historyTableCell {
-  padding: 15px 0 9px 0;
-  font-family: 'Nunito';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 15px;
-  line-height: 20px;
-  color: var(--white);
-}
-
-.historyTableCell:nth-child(2n) {
-  padding-left: 20px;
-}
-
-.historyTableCell:nth-child(3n) {
-  width: fit-content;
-  padding-left: 12px;
-}
-
-.historyTableThead {
-  border-bottom: 1px solid var(--purple);
-}
-
-.historyTable {
-  width: 100%;
-  border: none;
-  border-collapse: collapse;
-}
-
-.historyTableHeading,
-.historyTableCell {
-  border-left: 1px solid var(--purple);
-  border-right: 1px solid var(--purple);
-}
-
-.historyTableHeading:first-child,
-.historyTableCell:first-child {
-  border-left: none;
-}
-
-.historyTableHeading:last-child,
-.historyTableCell:last-child {
-  border-right: none;
+  flex-direction: column;
+  row-gap: 90px;
 }
