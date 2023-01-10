@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import Project from './components/Project';
+import RouterComponent from './components/RouterComponent';
 
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
       <Route
         path='*'
         element={
-          <Project />
+          <RouterComponent />
         }
       />
     </Routes>
