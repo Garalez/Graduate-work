@@ -1,18 +1,20 @@
 .transferTitle {
   margin-bottom: 34px;
   font-family: 'Comfortaa';
-font-style: normal;
-font-weight: 700;
-font-size: 26px;
-line-height: 29px;
-color: var(--white);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 29px;
+  color: var(--white);
 }
 
 .transferList {
+  margin-bottom: 30px;
   display: flex;
   align-items: flex-end;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
-  margin-bottom: 30px;
 }
 
 .transferItem {
@@ -63,4 +65,17 @@ color: var(--white);
   font-size: 18px;
   line-height: 25px;
   color: var(--white);
+}
+
+.transferFormSubmit:hover {
+  cursor: url('../../img/cursor.svg'), pointer;
+  background: var(--application-button-hover);
+}
+
+.transferFormSubmit:focus {
+  background: var(--application-button-focus);
+}
+
+.transferFormSubmit:active {
+  background: var(--application-button-active);
 }

@@ -85,3 +85,16 @@
   line-height: 25px;
   color: var(--white);
 }
+
+.authFormSubmit:hover {
+  cursor: url('../img/cursor.svg'), pointer;
+  background: var(--application-button-hover);
+}
+
+.authFormSubmit:focus {
+  background: var(--application-button-focus);
+}
+
+.authFormSubmit:active {
+  background: var(--application-button-active);
+}

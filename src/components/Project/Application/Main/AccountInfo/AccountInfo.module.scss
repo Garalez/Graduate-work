@@ -1,5 +1,7 @@
 .accountWrapper {
-  padding: 70px 130px 40px 130px;
+  padding: 70px 0 40px 0;
+  max-width: 1180px;
+  margin: 0 auto;
 }
 
 .accountTitleWrapper {
@@ -30,6 +32,19 @@
   font-size: 18px;
   line-height: 25px;
   color: var(--white);
+}
+
+.accountBtn:hover {
+  cursor: url('../img/cursor.svg'), pointer;
+  background: var(--application-button-hover);
+}
+
+.accountBtn:focus {
+  background: var(--application-button-focus);
+}
+
+.accountBtn:active {
+  background: var(--application-button-active);
 }
 
 .accountInfoWrapper {
@@ -79,6 +94,7 @@
 .accountList {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
 }
 
@@ -94,7 +110,7 @@
 }
 
 .accountItem:hover {
-  cursor: url('./img/cursor.svg'), pointer;
+  cursor: url('../img/cursor.svg'), pointer;
   border: 2px solid var(--active-input-border);
 }
 
