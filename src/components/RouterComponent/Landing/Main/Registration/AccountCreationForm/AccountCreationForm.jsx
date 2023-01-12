@@ -52,7 +52,27 @@ export const AccountCreationForm = ({
           />
         </li>
       </ul>
-      <button className={style.nextBtn}>Зарегистрироваться</button>
+      <div className={style.registrationAgreementWrapper}>
+        <button className={style.nextBtn}>Зарегистрироваться</button>
+        <div className={style.registrationPolicyWrapper}>
+          <div className={style.customCheckboxWrapper}>
+          <input
+            className={style.customCheckboxInput}
+            type='checkbox'
+            id='customCheckbox'
+          />
+            <label
+              className={style.customCheckboxLabel}
+              htmlFor='customCheckbox'
+            />
+            
+          </div>
+          <p className={style.policyAgreementText}>
+            By clicking on the button, I consent to the processing of personal
+            data and agree to the privacy policy
+          </p>
+        </div>
+      </div>
     </form>
   );
 };

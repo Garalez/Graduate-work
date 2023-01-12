@@ -140,6 +140,49 @@
   cursor: initial;
 }
 
+.registrationAgreementWrapper {
+  align-self: flex-end;
+}
+
+.policyAgreementText {
+  padding-top: 6px;
+  max-width: 300px;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 130%;
+  color: var(--purple);
+}
+
+.registrationPolicyWrapper {
+  display: flex;
+  gap: 5px;
+}
+
+.customCheckboxInput + .customCheckboxLabel {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  background-color: var(--active-tab);
+  cursor: pointer;
+}
+
+.customCheckboxInput:checked + .customCheckboxLabel::after {
+  position: absolute;
+  content: '';
+  width: 7px;
+  height: 8px;
+  top: 2px;
+  right: 3px;
+  background: url('./AccountCreationForm/img/checkMark.svg');
+}
+
+.customCheckboxInput {
+  display: none;
+}
+
 @media (max-width: 1024px) {
   .registrationSection {
     padding: 70px 0;
@@ -207,6 +250,10 @@
   }
 
   .registrationInputItem {
+    width: 100%;
+  }
+
+  .registrationAgreementWrapper {
     width: 100%;
   }
 
@@ -283,7 +330,6 @@
     gap: 3px;
     margin-bottom: 0px;
   }
-
 
   .registrationTabsBtn {
     height: 33px;

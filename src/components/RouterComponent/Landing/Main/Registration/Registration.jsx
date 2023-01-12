@@ -19,8 +19,8 @@ export const Registration = () => {
   });
 
   const [isTabValid, setIsTabValid] = useState({
-    firstTabValid: false,
-    secondTabIsValid: false,
+    firstTabValid: true,
+    secondTabIsValid: true,
     thirdTabIsValid: false,
   });
 
