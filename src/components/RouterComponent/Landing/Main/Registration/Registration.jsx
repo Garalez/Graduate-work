@@ -1,15 +1,10 @@
 import style from './Registration.module.scss';
-import { ReactComponent as ActiveTab1 } from './img/activeTab1.svg';
-import { ReactComponent as ActiveTab2 } from './img/activeTab2.svg';
-import { ReactComponent as ActiveTab3 } from './img/activeTab3.svg';
 import { useState } from 'react';
-import { ReactComponent as InactiveTab1 } from './img/inactiveTab1.svg';
-import { ReactComponent as InactiveTab2 } from './img/inactiveTab2.svg';
-import { ReactComponent as InactiveTab3 } from './img/inactiveTab3.svg';
 import FullNameForm from './FullNameForm';
 import ContactsForm from './ContactsForm';
 import AccountCreationForm from './AccountCreationForm';
 import RegistrationSuccess from './RegistrationSuccess';
+import RegistrationTabs from './RegistrationTabs';
 
 export const Registration = () => {
   const [activeTab, setActiveTab] = useState({
@@ -19,8 +14,8 @@ export const Registration = () => {
   });
 
   const [isTabValid, setIsTabValid] = useState({
-    firstTabValid: true,
-    secondTabIsValid: true,
+    firstTabValid: false,
+    secondTabIsValid: false,
     thirdTabIsValid: false,
   });
 
@@ -73,8 +68,18 @@ export const Registration = () => {
     e.preventDefault();
     if (formValues.password && formValues.confirmPassword && formValues.login) {
       setIsTabValid({ ...isTabValid, thirdTabIsValid: true });
-      console.log('gg');
     }
+  };
+
+  const switchActiveTab = (tab) => {
+    const copyActiveTabObj = { ...activeTab };
+
+    Object.keys(copyActiveTabObj).forEach((item) => {
+      item === tab
+        ? (copyActiveTabObj[tab] = true)
+        : (copyActiveTabObj[item] = false);
+    });
+    setActiveTab(() => copyActiveTabObj);
   };
 
   return (
@@ -94,54 +99,11 @@ export const Registration = () => {
             </p>
             <div className={style.registrationFormUnderlay}>
               <div className={style.registarionFormWrapper}>
-                <ul className={style.registrationTabsList}>
-                  <li className={style.registrationTabsItem}>
-                    <button
-                      className={style.registrationTabsBtn}
-                      onClick={() =>
-                        setActiveTab(() => ({
-                          firstTab: true,
-                          secondTab: false,
-                          thirdTab: false,
-                        }))
-                      }
-                    >
-                      {activeTab.firstTab ? <ActiveTab1 /> : <InactiveTab1 />}
-                    </button>
-                  </li>
-                  <li className={style.registrationTabsItem}>
-                    <button
-                      className={style.registrationTabsBtn}
-                      onClick={() => {
-                        if (isTabValid.firstTabValid) {
-                          setActiveTab(() => ({
-                            firstTab: false,
-                            secondTab: true,
-                            thirdTab: false,
-                          }));
-                        }
-                      }}
-                    >
-                      {activeTab.secondTab ? <ActiveTab2 /> : <InactiveTab2 />}
-                    </button>
-                  </li>
-                  <li className={style.registrationTabsItem}>
-                    <button
-                      className={style.registrationTabsBtn}
-                      onClick={() => {
-                        if (isTabValid.secondTabIsValid) {
-                          setActiveTab(() => ({
-                            firstTab: false,
-                            secondTab: false,
-                            thirdTab: true,
-                          }));
-                        }
-                      }}
-                    >
-                      {activeTab.thirdTab ? <ActiveTab3 /> : <InactiveTab3 />}
-                    </button>
-                  </li>
-                </ul>
+                <RegistrationTabs
+                  switchActiveTab={switchActiveTab}
+                  activeTab={activeTab}
+                  isTabValid={isTabValid}
+                />
                 {activeTab.firstTab && (
                   <FullNameForm
                     FullNameFormSubmit={FullNameFormSubmit}

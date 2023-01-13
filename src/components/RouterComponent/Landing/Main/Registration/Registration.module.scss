@@ -169,7 +169,7 @@
   cursor: pointer;
 }
 
-.customCheckboxInput:checked + .customCheckboxLabel::after {
+.customCheckboxInput + .customCheckboxLabel::after {
   position: absolute;
   content: '';
   width: 7px;
@@ -241,24 +241,15 @@
     padding: 0px 94px;
   }
 
-  .registrationInput {
+  .registrationInput,
+  .registrationInputItem,
+  .registrationAgreementWrapper,
+  .nextBtn {
     width: 100%;
   }
 
   .registrationInputList {
     gap: 10px;
-  }
-
-  .registrationInputItem {
-    width: 100%;
-  }
-
-  .registrationAgreementWrapper {
-    width: 100%;
-  }
-
-  .nextBtn {
-    width: 100%;
   }
 }
 
