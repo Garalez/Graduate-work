@@ -1,3 +1,4 @@
+/* eslint-disable no-irregular-whitespace */
 import style from './PlatformInfo.module.scss';
 import TransferImg1280 from './img/transferLogo1280.png';
 import TransferImg1024 from './img/transferLogo1024.png';
@@ -21,11 +22,11 @@ export const PlatformInfo = () => {
         <img
           className={style.img}
           src={
-            width >= 1025
-              ? TransferImg1280
-              : (width <= 1024) & (width >= 769)
-              ? TransferImg1024
-              : TransferImg768
+            width >= 1025 ?
+              TransferImg1280 :
+              (width <= 1024) & (width >= 769) ?
+              TransferImg1024 :
+              TransferImg768
           }
           alt='Transfer logo'
         />

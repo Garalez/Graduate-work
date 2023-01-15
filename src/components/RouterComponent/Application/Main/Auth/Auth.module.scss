@@ -7,8 +7,7 @@
 
 .authWrapper {
   width: 580px;
-  height: 466px;
-  padding-top: 50px;
+  padding: 50px 0;
   display: flex;
   flex-direction: column;
   background: var(--app-light-purple);
@@ -97,4 +96,10 @@
 
 .authFormSubmit:active {
   background: var(--application-button-active);
+}
+
+.authInputError {
+  padding-top: 5px;
+  padding-left: 15px;
+  color: red;
 }

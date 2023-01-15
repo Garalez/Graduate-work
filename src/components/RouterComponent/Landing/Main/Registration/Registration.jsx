@@ -75,9 +75,9 @@ export const Registration = () => {
     const copyActiveTabObj = { ...activeTab };
 
     Object.keys(copyActiveTabObj).forEach((item) => {
-      item === tab
-        ? (copyActiveTabObj[tab] = true)
-        : (copyActiveTabObj[item] = false);
+      item === tab ?
+        (copyActiveTabObj[tab] = true) :
+        (copyActiveTabObj[item] = false);
     });
     setActiveTab(() => copyActiveTabObj);
   };
@@ -86,7 +86,7 @@ export const Registration = () => {
     <section className={style.registrationSection} id='registration'>
       <div className={style.registrationWrapper}>
         <h2 className={style.registrationTitle}>
-          Как зарегистрироваться на платформе
+          Как зарегистрироваться на платформе
         </h2>
         {isTabValid.firstTabValid &
         isTabValid.secondTabIsValid &
@@ -95,7 +95,7 @@ export const Registration = () => {
         ) : (
           <>
             <p className={style.registrationText}>
-              Пошагово заполните все поля формы
+              Пошагово заполните все поля формы
             </p>
             <div className={style.registrationFormUnderlay}>
               <div className={style.registarionFormWrapper}>

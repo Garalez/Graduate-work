@@ -1,12 +1,19 @@
 import Auth from './Auth';
 import style from './Main.module.scss';
 import { ReactComponent as Logo } from '../../Landing/Header/img/logo.svg';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import AccountInfo from './AccountInfo';
 import Transactions from './Transactions';
 import CurrencyExchange from './CurrencyExchange';
+import { useEffect } from 'react';
 
 export const Main = () => {
+  const navigate = useNavigate();
+  const token = localStorage.getItem('bearer');
+  useEffect(() => {
+    token ? navigate('/a/c') : navigate('/a/a');
+  }, []);
+
   return (
     <main>
       <div className={style.mainWrapper}>
