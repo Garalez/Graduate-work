@@ -1,12 +1,22 @@
 /* eslint-disable max-len */
-import { useState } from 'react';
-// import { useDispatch } from 'react-redux';
-// import { userRequestAsync } from '../../../../../store/accountRequest/accountRequest';
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { userRequestAsync } from '../../../../../store/accountRequest/accountRequest';
 import style from './Auth.module.scss';
 
 export const Auth = () => {
-  // const dispatch = useDispatch();
-  const [userData, setUserData] = useState({
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const userData = useSelector(state => state.user);
+
+  useEffect(() => {
+    console.log('userData: ', userData);
+    if (userData.status === 'loaded') navigate('/a/c');
+  }, [userData.status]);
+
+  const [userAccountData, setUserAccountData] = useState({
     login: '',
     password: '',
   });
@@ -17,31 +27,28 @@ export const Auth = () => {
   });
 
   const inputValidation = () => {
-    console.log(userData);
-    console.log(displayErrorMassage);
     setDisplayErrorMassage({
-      login: !!(userData.login && userData.login.length <= 6),
-      password: !!(userData.password && userData.password.length <= 6),
+      login: !!(userAccountData.login && userAccountData.login.length <= 5),
+      password: !!(userAccountData.password && userAccountData.password.length <= 5),
     });
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     const regex = /[^a-zA-Z]/;
-    setUserData({ ...userData, [name]: value.replace(regex, '') });
-    if (userData.login.length >= 6) {
+    setUserAccountData({ ...userAccountData, [name]: value.replace(regex, '') });
+    if (e.target.name === 'login' && value.length >= 6) {
       setDisplayErrorMassage({ ...displayErrorMassage, login: false });
     }
-    if (userData.password.length >= 6) {
+    if (e.target.name === 'password' && value.length >= 6) {
       setDisplayErrorMassage({ ...displayErrorMassage, password: false });
     }
   };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    if (userData.login.length >= 6 && userData.password.length >= 6) {
-      console.log('ggnoobs');
-      // dispatch(userRequestAsync(userData.login, userData.password));
+    if (userAccountData.login.length >= 6 && userAccountData.password.length >= 6) {
+      dispatch(userRequestAsync(userAccountData.login, userAccountData.password));
     }
   };
 
@@ -62,7 +69,7 @@ export const Auth = () => {
                   id='login'
                   name='login'
                   onChange={(e) => handleChange(e)}
-                  value={userData.login}
+                  value={userAccountData.login}
                   onBlur={() => inputValidation()}
                   required
                 />
@@ -82,7 +89,7 @@ export const Auth = () => {
                   id='password'
                   name='password'
                   onChange={(e) => handleChange(e)}
-                  value={userData.password}
+                  value={userAccountData.password}
                   onBlur={() => inputValidation()}
                   required
                 />

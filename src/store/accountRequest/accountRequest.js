@@ -35,7 +35,6 @@ export const userRequestAsync = (userName, userPassword) => (dispatch) => {
     .then((data) => {
       dispatch(userRequestSuccess(data.payload.token));
       localStorage.setItem('bearer', data.payload.token);
-      console.log(data);
     })
     .catch((error) => dispatch(userRequestError(error)));
 };

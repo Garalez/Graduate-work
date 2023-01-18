@@ -5,8 +5,8 @@ import {
 } from './accountRequest.js';
 
 const initialState = {
-  loading: false,
-  token: {},
+  status: '',
+  token: '',
   error: '',
 };
 
@@ -15,20 +15,20 @@ export const userReducer = (state = initialState, action) => {
     case USER_REQUEST:
       return {
         ...state,
-        loading: true,
+        status: 'loading',
         error: '',
       };
     case USER_REQUEST_SUCCESS:
       return {
         ...state,
-        loading: false,
+        status: 'loaded',
         token: action.data,
         error: '',
       };
     case USER_REQUEST_ERROR:
       return {
         ...state,
-        loading: false,
+        status: 'rejected',
         error: action.error,
       };
 
