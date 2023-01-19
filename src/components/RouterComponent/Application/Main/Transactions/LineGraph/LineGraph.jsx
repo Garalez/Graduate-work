@@ -8,8 +8,25 @@ import {
   Tooltip,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
+import PropTypes from 'prop-types';
 
-export const LineGraph = () => {
+export const LineGraph = ({ accountInfo }) => {
+  const transactions = accountInfo.transactions;
+
+  const filterGraphData = () => {
+    const formatDateToYear = (date) =>
+      new Intl.DateTimeFormat('ru', { year: 'numeric' }).format(new Date(date));
+
+    const lastTransactionDate = formatDateToYear(
+      transactions[transactions.length - 1].date
+    );
+
+    return transactions.filter(
+      (el) =>
+        formatDateToYear(el.date) === formatDateToYear(lastTransactionDate)
+    );
+  };
+
   ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -18,7 +35,7 @@ export const LineGraph = () => {
     Tooltip
   );
 
-  Tooltip.positioners.myCustomPositioner = function (elements, eventPosition) {
+  Tooltip.positioners.myCustomPositioner = function(elements, eventPosition) {
     return {
       x: eventPosition.x,
       y: eventPosition.y,
@@ -98,37 +115,71 @@ export const LineGraph = () => {
     },
   };
 
-  const labels = [
-    'Янв',
-    'Фев',
-    'Март',
-    'Апр',
-    'Май',
-    'Июнь',
-    'Июль',
-    'Авг',
-    'Сен',
-    'Окт',
-    'Ноя',
-    'Дек',
-  ];
+  // const labels = [
+  //   'Янв',
+  //   'Фев',
+  //   'Март',
+  //   'Апр',
+  //   'Май',
+  //   'Июнь',
+  //   'Июль',
+  //   'Авг',
+  //   'Сен',
+  //   'Окт',
+  //   'Ноя',
+  //   'Дек',
+  // ];
+
+  const monthsRegex = /[\w | г.]/g;
+  const lastSumInMonth = () => {
+    const formatDateToMonths = (date) =>
+      new Intl.DateTimeFormat('ru', { dateStyle: 'medium' })
+        .format(new Date(date))
+        .replace(monthsRegex, '');
+    const arr = [];
+
+    filterGraphData().map(el => {
+      arr.map(test => {
+        if (formatDateToMonths(el.date) !== formatDateToMonths(test.date)) {
+          arr.push(el);
+        }
+      });
+    });
+    console.log(arr);
+
+    // filterGraphData().map(el => {
+
+    // });
+    // filterGraphData().map((obj) => {
+    //   filterGraphData().map((el) => {
+    //     if (
+    //       formatDateToMonths(filterGraphData()[0].date) ===
+    //       formatDateToMonths(el.date)
+    //     ) {
+    //       arr.push(filterGraphData()[el.date]);
+    //     }
+    //   });
+    // });
+    // console.log(arr);
+    // filterGraphData().map((transaction) => {
+    //   new Intl.DateTimeFormat('ru', { dateStyle: 'medium' }).format(
+    //     new Date(transaction.date)
+    //   );
+    // });
+  };
+
+  lastSumInMonth();
 
   const data = {
-    labels,
+    // labels,
     datasets: [
       {
-        data: [
-          { y: 2500, x: 'Янв' },
-          { y: 4000, x: 'Март' },
-          { y: 1500, x: 'Май' },
-          { y: 2300, x: 'Июнь' },
-          { y: 1800, x: 'Июль' },
-          { y: 2900, x: 'Авг' },
-          { y: 2500, x: 'Сен' },
-          { y: 3500, x: 'Окт' },
-          { y: 2800, x: 'Ноя' },
-          { y: 4700, x: 'Дек' },
-        ],
+        data: filterGraphData().map((transaction) => ({
+          x: new Intl.DateTimeFormat('ru', { dateStyle: 'medium' })
+            .format(new Date(transaction.date))
+            .replace(monthsRegex, ''),
+          y: transaction.amount,
+        })),
         borderColor: '#B865D6',
         backgroundColor: '#392350',
         pointBackgroundColor: '#FFFFFF',
@@ -160,4 +211,8 @@ export const LineGraph = () => {
       </div>
     </div>
   );
+};
+
+LineGraph.propTypes = {
+  accountInfo: PropTypes.object,
 };

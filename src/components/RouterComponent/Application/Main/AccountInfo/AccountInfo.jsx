@@ -1,8 +1,19 @@
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { userAccountsRequestAsync }
+  from '../../../../../store/accountsRequest/accountsRequestActions';
 import style from './AccountInfo.module.scss';
-import {ReactComponent as Arrow} from './img/arrow.svg'
+import { ReactComponent as Arrow } from './img/arrow.svg';
+import MyAccounts from './MyAccounts';
 
 export const AccountInfo = () => {
-  console.log(style);
+  const dispatch = useDispatch();
+  const userAccounts = useSelector((state) => state.userAccounts);
+
+  useEffect(() => {
+    dispatch(userAccountsRequestAsync());
+  }, []);
   return (
     <section className={style.account}>
       <div className={style.accountWrapper}>
@@ -14,136 +25,15 @@ export const AccountInfo = () => {
           <p className={style.accountSubtitle}>Мои счета</p>
           <div className={style.accountSortWrapper}>
             <p className={style.accountSortText}>Сортировка:</p>
-            <button className={style.accountSort}>По дате <Arrow /></button>
+            <button className={style.accountSort}>
+              По дате <Arrow />
+            </button>
           </div>
         </div>
         <ul className={style.accountList}>
-          <li className={style.accountItem}>
-            <p className={style.accountNumber}>449488503980</p>
-            <p className={style.accountAmount}>530 080 ₽</p>
-            <div className={style.accountInfo}>
-              <div className={style.accountInfoTextWrapper}>
-                <p className={style.accountInfoText}>открыт</p>
-                <p className={style.accountInfoText}>10.03.2016</p>
-              </div>
-              <div className={style.accountInfoTextWrapper}>
-                <p className={style.accountInfoText}>последняя операция</p>
-                <p className={style.accountInfoText}>23.04.2022</p>
-              </div>
-            </div>
-          </li>
-          <li className={style.accountItem}>
-            <p className={style.accountNumber}>16XxPdD3h9g5txJ7ZPeEabNRwswzWpKvWC</p>
-            <p className={style.accountAmount}>3 620 ₽</p>
-            <div className={style.accountInfo}>
-              <div className={style.accountInfoTextWrapper}>
-                <p className={style.accountInfoText}>открыт</p>
-                <p className={style.accountInfoText}>30.11.2020</p>
-              </div>
-              <div className={style.accountInfoTextWrapper}>
-                <p className={style.accountInfoText}>последняя операция</p>
-                <p className={style.accountInfoText}>11.10.2022</p>
-              </div>
-            </div>
-          </li>
-          <li className={style.accountItem}>
-            <p className={style.accountNumber}>38TtUMD9tqV8SFiFgqeb9zTwP99Bp2QZvY</p>
-            <p className={style.accountAmount}>2 405 ₽</p>
-            <div className={style.accountInfo}>
-              <div className={style.accountInfoTextWrapper}>
-                <p className={style.accountInfoText}>открыт</p>
-                <p className={style.accountInfoText}>01.08.2018</p>
-              </div>
-              <div className={style.accountInfoTextWrapper}>
-                <p className={style.accountInfoText}>последняя операция</p>
-                <p className={style.accountInfoText}>19.03.2022</p>
-              </div>
-            </div>
-          </li>
-          <li className={style.accountItem}>
-            <p className={style.accountNumber}>449488503980</p>
-            <p className={style.accountAmount}>530 080 ₽</p>
-            <div className={style.accountInfo}>
-              <div className={style.accountInfoTextWrapper}>
-                <p className={style.accountInfoText}>открыт</p>
-                <p className={style.accountInfoText}>10.03.2016</p>
-              </div>
-              <div className={style.accountInfoTextWrapper}>
-                <p className={style.accountInfoText}>последняя операция</p>
-                <p className={style.accountInfoText}>23.04.2022</p>
-              </div>
-            </div>
-          </li>
-          <li className={style.accountItem}>
-            <p className={style.accountNumber}>16XxPdD3h9g5txJ7ZPeEabNRwswzWpKvWC </p>
-            <p className={style.accountAmount}>3 620 ₽</p>
-            <div className={style.accountInfo}>
-              <div className={style.accountInfoTextWrapper}>
-                <p className={style.accountInfoText}>открыт</p>
-                <p className={style.accountInfoText}>30.11.2020</p>
-              </div>
-              <div className={style.accountInfoTextWrapper}>
-                <p className={style.accountInfoText}>последняя операция</p>
-                <p className={style.accountInfoText}>11.10.2022</p>
-              </div>
-            </div>
-          </li>
-          <li className={style.accountItem}>
-            <p className={style.accountNumber}>38TtUMD9tqV8SFiFgqeb9zTwP99Bp2QZvY</p>
-            <p className={style.accountAmount}>2 405 ₽</p>
-            <div className={style.accountInfo}>
-              <div className={style.accountInfoTextWrapper}>
-                <p className={style.accountInfoText}>открыт</p>
-                <p className={style.accountInfoText}>01.08.2018</p>
-              </div>
-              <div className={style.accountInfoTextWrapper}>
-                <p className={style.accountInfoText}>последняя операция</p>
-                <p className={style.accountInfoText}>19.03.2022 </p>
-              </div>
-            </div>
-          </li>
-          <li className={style.accountItem}>
-            <p className={style.accountNumber}>449488503980</p>
-            <p className={style.accountAmount}>530 080 ₽</p>
-            <div className={style.accountInfo}>
-              <div className={style.accountInfoTextWrapper}>
-                <p className={style.accountInfoText}>открыт</p>
-                <p className={style.accountInfoText}>10.03.2016</p>
-              </div>
-              <div className={style.accountInfoTextWrapper}>
-                <p className={style.accountInfoText}>последняя операция</p>
-                <p className={style.accountInfoText}>23.04.2022</p>
-              </div>
-            </div>
-          </li>
-          <li className={style.accountItem}>
-            <p className={style.accountNumber}>16XxPdD3h9g5txJ7ZPeEabNRwswzWpKvWC</p>
-            <p className={style.accountAmount}>3 620 ₽</p>
-            <div className={style.accountInfo}>
-              <div className={style.accountInfoTextWrapper}>
-                <p className={style.accountInfoText}>открыт</p>
-                <p className={style.accountInfoText}>30.11.2020</p>
-              </div>
-              <div className={style.accountInfoTextWrapper}>
-                <p className={style.accountInfoText}>последняя операция</p>
-                <p className={style.accountInfoText}>11.10.2022</p>
-              </div>
-            </div>
-          </li>
-          <li className={style.accountItem}>
-            <p className={style.accountNumber}>38TtUMD9tqV8SFiFgqeb9zTwP99Bp2QZvY</p>
-            <p className={style.accountAmount}>2 405 ₽</p>
-            <div className={style.accountInfo}>
-              <div className={style.accountInfoTextWrapper}>
-                <p className={style.accountInfoText}>открыт</p>
-                <p className={style.accountInfoText}>01.08.2018</p>
-              </div>
-              <div className={style.accountInfoTextWrapper}>
-                <p className={style.accountInfoText}>последняя операция</p>
-                <p className={style.accountInfoText}>19.03.2022</p>
-              </div>
-            </div>
-          </li>
+          {userAccounts.accounts.map((account) => (
+            <MyAccounts key={account.account} account={account} />
+          ))}
         </ul>
       </div>
     </section>

@@ -1,9 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { userReducer } from './accountRequest/accountRequestReducer';
+import { userTokenReducer } from './tokenRequest/tokenRequestReducer';
+import { userAccountsReducer } from './accountsRequest/accountsRequestReducer';
+import { userAccountInfoReducer } from
+  './accountInfoRequest/accountInfoRequestReducer';
 
 export const store = configureStore({
   reducer: {
-    user: userReducer,
+    userToken: userTokenReducer,
+    userAccounts: userAccountsReducer,
+    userAccountInfo: userAccountInfoReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
 });

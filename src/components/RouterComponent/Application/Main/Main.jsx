@@ -11,7 +11,9 @@ export const Main = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem('bearer');
   useEffect(() => {
-    token ? navigate('/a/c') : navigate('/a/a');
+    token && (token !== 'undefined') ?
+      navigate('/a/c') :
+      navigate('/a/a');
   }, []);
 
   return (

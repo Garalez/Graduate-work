@@ -3,17 +3,17 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { userRequestAsync } from '../../../../../store/accountRequest/accountRequest';
+import { userTokenRequestAsync } from '../../../../../store/tokenRequest/tokenRequestActions';
 import style from './Auth.module.scss';
 
 export const Auth = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const userData = useSelector(state => state.user);
-
+  const userData = useSelector((state) => state.userToken);
   useEffect(() => {
-    console.log('userData: ', userData);
-    if (userData.status === 'loaded') navigate('/a/c');
+    if (userData.status === 'loaded') {
+      navigate('/a/c');
+    }
   }, [userData.status]);
 
   const [userAccountData, setUserAccountData] = useState({
@@ -29,14 +29,19 @@ export const Auth = () => {
   const inputValidation = () => {
     setDisplayErrorMassage({
       login: !!(userAccountData.login && userAccountData.login.length <= 5),
-      password: !!(userAccountData.password && userAccountData.password.length <= 5),
+      password: !!(
+        userAccountData.password && userAccountData.password.length <= 5
+      ),
     });
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     const regex = /[^a-zA-Z]/;
-    setUserAccountData({ ...userAccountData, [name]: value.replace(regex, '') });
+    setUserAccountData({
+      ...userAccountData,
+      [name]: value.replace(regex, ''),
+    });
     if (e.target.name === 'login' && value.length >= 6) {
       setDisplayErrorMassage({ ...displayErrorMassage, login: false });
     }
@@ -47,8 +52,13 @@ export const Auth = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    if (userAccountData.login.length >= 6 && userAccountData.password.length >= 6) {
-      dispatch(userRequestAsync(userAccountData.login, userAccountData.password));
+    if (
+      userAccountData.login.length >= 6 &&
+      userAccountData.password.length >= 6
+    ) {
+      dispatch(
+        userTokenRequestAsync(userAccountData.login, userAccountData.password)
+      );
     }
   };
 
