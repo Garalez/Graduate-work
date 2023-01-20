@@ -1,2 +1,2 @@
-import {FullNameForm} from './FullNameForm';
+import { FullNameForm } from './FullNameForm';
 export default FullNameForm;

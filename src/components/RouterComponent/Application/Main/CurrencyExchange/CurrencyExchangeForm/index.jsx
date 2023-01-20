@@ -1,2 +1,2 @@
-import {CurrencyExchangeForm} from './CurrencyExchangeForm';
+import { CurrencyExchangeForm } from './CurrencyExchangeForm';
 export default CurrencyExchangeForm;

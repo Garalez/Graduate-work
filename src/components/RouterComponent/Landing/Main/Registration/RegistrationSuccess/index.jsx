@@ -1,2 +1,2 @@
-import {RegistrationSuccess} from './RegistrationSuccess';
+import { RegistrationSuccess } from './RegistrationSuccess';
 export default RegistrationSuccess;

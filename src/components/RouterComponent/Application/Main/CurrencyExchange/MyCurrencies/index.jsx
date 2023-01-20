@@ -1,2 +1,2 @@
-import {MyCurrencies} from './MyCurrencies';
+import { MyCurrencies } from './MyCurrencies';
 export default MyCurrencies;

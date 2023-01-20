@@ -1,2 +1,2 @@
-import {FundsTransfer} from './FundsTransfer';
+import { FundsTransfer } from './FundsTransfer';
 export default FundsTransfer;

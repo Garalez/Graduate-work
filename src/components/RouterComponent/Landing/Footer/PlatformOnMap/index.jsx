@@ -1,2 +1,2 @@
-import {PlatformOnMap} from './PlatformOnMap';
+import { PlatformOnMap } from './PlatformOnMap';
 export default PlatformOnMap;

@@ -1,2 +1,2 @@
-import {MyAccounts} from './MyAccounts';
+import { MyAccounts } from './MyAccounts';
 export default MyAccounts;

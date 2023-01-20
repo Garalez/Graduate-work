@@ -6,7 +6,7 @@ import { ReactComponent as BurgerLogo } from './img/Menu.svg';
 
 export const BurgerMenu = () => {
   const [isBurgerActive, setIsBurgerActive] = useState(false);
-  
+
   return (
     <>
       {!isBurgerActive ? (
@@ -25,7 +25,7 @@ export const BurgerMenu = () => {
           <nav className={style.navigate}>
             <ul className={style.list}>
               <li className={style.item}>
-                <a href='#profit'>Почему с нами выгодно?</a>
+                <a href='#profit'>Почему с нами выгодно?</a>
               </li>
               <li className={style.item}>
                 <a href='#registration'>Регистрация</a>

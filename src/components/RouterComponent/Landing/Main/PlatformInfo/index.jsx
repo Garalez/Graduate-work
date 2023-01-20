@@ -1,2 +1,2 @@
-import {PlatformInfo} from './PlatformInfo';
+import { PlatformInfo } from './PlatformInfo';
 export default PlatformInfo;

@@ -38,9 +38,9 @@ export const Reviews = () => {
                 src={JuliaReviewer}
                 alt="Julia's avatar"
               />
-              <figcaption className={style.reviewsName}>Юлия С</figcaption>
+              <figcaption className={style.reviewsName}>Юлия С</figcaption>
               <blockquote className={style.reviewsBlockqoute}>
-                «Очень удобная платформа для открытия мультивалютных счётов»
+                «Очень удобная платформа для открытия мультивалютных счётов»
               </blockquote>
             </figure>
           </SwiperSlide>
@@ -51,10 +51,10 @@ export const Reviews = () => {
                 src={SvetlanaReviewer}
                 alt="Svetlana's avatar"
               />
-              <figcaption className={style.reviewsName}>Светлана Н</figcaption>
+              <figcaption className={style.reviewsName}>Светлана Н</figcaption>
               <blockquote className={style.reviewsBlockqoute}>
-                «Пользуюсь платформой уже больше года, нравится, что можно
-                быстро менять валюту по выгодному курсу»
+                «Пользуюсь платформой уже больше года, нравится, что можно
+                быстро менять валюту по выгодному курсу»
               </blockquote>
             </figure>
           </SwiperSlide>
@@ -65,9 +65,9 @@ export const Reviews = () => {
                 src={SergeiReviewer}
                 alt="Sergei's avatar"
               />
-              <figcaption className={style.reviewsName}>Сергей А</figcaption>
+              <figcaption className={style.reviewsName}>Сергей А</figcaption>
               <blockquote className={style.reviewsBlockqoute}>
-                «Открыл счёт в биткоинах, могу быстро следить за курсом и делать
+                «Открыл счёт в биткоинах, могу быстро следить за курсом и делать
                 обмен»
               </blockquote>
             </figure>

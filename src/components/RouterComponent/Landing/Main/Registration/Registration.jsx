@@ -35,7 +35,7 @@ export const Registration = () => {
     setFormValues({ ...formValues, [name]: value });
   };
 
-  const FullNameFormSubmit = (e) => {
+  const fullNameFormSubmit = (e) => {
     e.preventDefault();
     if (formValues.name && formValues.surname && formValues.patronymic) {
       setIsTabValid({ ...isTabValid, firstTabValid: true });
@@ -47,7 +47,7 @@ export const Registration = () => {
     }
   };
 
-  const ContactsFormSubmit = (e) => {
+  const contactsFormSubmit = (e) => {
     e.preventDefault();
     const phoneRegex = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/;
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
@@ -64,7 +64,7 @@ export const Registration = () => {
     }
   };
 
-  const AccountCreationFormSubmit = (e) => {
+  const accountCreationFormSubmit = (e) => {
     e.preventDefault();
     if (formValues.password && formValues.confirmPassword && formValues.login) {
       setIsTabValid({ ...isTabValid, thirdTabIsValid: true });
@@ -106,21 +106,21 @@ export const Registration = () => {
                 />
                 {activeTab.firstTab && (
                   <FullNameForm
-                    FullNameFormSubmit={FullNameFormSubmit}
+                    FullNameFormSubmit={fullNameFormSubmit}
                     formValues={formValues}
                     handleChange={handleChange}
                   />
                 )}
                 {activeTab.secondTab && (
                   <ContactsForm
-                    ContactsFormSubmit={ContactsFormSubmit}
+                    ContactsFormSubmit={contactsFormSubmit}
                     formValues={formValues}
                     handleChange={handleChange}
                   />
                 )}
                 {activeTab.thirdTab && (
                   <AccountCreationForm
-                    AccountCreationFormSubmit={AccountCreationFormSubmit}
+                    AccountCreationFormSubmit={accountCreationFormSubmit}
                     formValues={formValues}
                     handleChange={handleChange}
                   />

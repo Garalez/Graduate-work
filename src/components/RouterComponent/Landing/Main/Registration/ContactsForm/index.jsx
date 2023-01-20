@@ -1,2 +1,2 @@
-import {ContactsForm} from './ContactsForm';
+import { ContactsForm } from './ContactsForm';
 export default ContactsForm;

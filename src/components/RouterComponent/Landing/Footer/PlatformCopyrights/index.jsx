@@ -1,2 +1,2 @@
-import {PlatformCopyrights} from './PlatformCopyrights';
+import { PlatformCopyrights } from './PlatformCopyrights';
 export default PlatformCopyrights;

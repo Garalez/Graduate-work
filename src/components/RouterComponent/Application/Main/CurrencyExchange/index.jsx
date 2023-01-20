@@ -1,2 +1,2 @@
-import {CurrencyExchange} from './CurrencyExchange';
+import { CurrencyExchange } from './CurrencyExchange';
 export default CurrencyExchange;

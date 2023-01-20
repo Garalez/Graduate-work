@@ -1,2 +1,2 @@
-import {Profit} from './Profit';
+import { Profit } from './Profit';
 export default Profit;

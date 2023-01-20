@@ -1,2 +1,2 @@
-import {RegistrationTabs} from './RegistrationTabs';
+import { RegistrationTabs } from './RegistrationTabs';
 export default RegistrationTabs;

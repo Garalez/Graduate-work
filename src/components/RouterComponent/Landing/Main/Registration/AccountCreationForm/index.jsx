@@ -1,2 +1,2 @@
-import {AccountCreationForm} from './AccountCreationForm';
+import { AccountCreationForm } from './AccountCreationForm';
 export default AccountCreationForm;

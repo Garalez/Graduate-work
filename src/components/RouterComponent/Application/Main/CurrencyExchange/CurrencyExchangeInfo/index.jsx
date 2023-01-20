@@ -1,2 +1,2 @@
-import {CurrencyExchangeInfo} from './CurrencyExchangeInfo';
+import { CurrencyExchangeInfo } from './CurrencyExchangeInfo';
 export default CurrencyExchangeInfo;

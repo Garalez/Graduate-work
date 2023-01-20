@@ -1,2 +1,2 @@
-import {Registration} from './Registration';
+import { Registration } from './Registration';
 export default Registration;
