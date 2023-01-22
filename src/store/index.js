@@ -10,5 +10,8 @@ export const store = configureStore({
     userAccounts: userAccountsReducer,
     userAccountInfo: userAccountInfoReducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+    immutableCheck: false,
+    serializableCheck: false,
+  }),
 });

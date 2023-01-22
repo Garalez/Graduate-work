@@ -1,5 +1,5 @@
 import style from '../Registration.module.scss';
-import { PropTypes } from 'prop-types';
+import PropTypes from 'prop-types';
 
 export const FullNameForm = ({
   fullNameFormSubmit,
@@ -58,6 +58,6 @@ export const FullNameForm = ({
 
 FullNameForm.propTypes = {
   fullNameFormSubmit: PropTypes.func,
-  formValues: PropTypes.obj,
+  formValues: PropTypes.object,
   handleChange: PropTypes.func,
 };

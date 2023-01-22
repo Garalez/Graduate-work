@@ -1,5 +1,5 @@
 import style from '../Registration.module.scss';
-import { PropTypes } from 'prop-types';
+import PropTypes from 'prop-types';
 
 export const ContactsForm = ({
   contactsFormSubmit,
@@ -47,6 +47,6 @@ export const ContactsForm = ({
 
 ContactsForm.propTypes = {
   contactsFormSubmit: PropTypes.func,
-  formValues: PropTypes.obj,
+  formValues: PropTypes.object,
   handleChange: PropTypes.func,
 };

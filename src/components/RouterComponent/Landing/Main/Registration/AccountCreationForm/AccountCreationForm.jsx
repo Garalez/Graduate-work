@@ -1,5 +1,5 @@
 import style from '../Registration.module.scss';
-import { PropTypes } from 'prop-types';
+import PropTypes from 'prop-types';
 
 export const AccountCreationForm = ({
   accountCreationFormSubmit,
@@ -77,6 +77,6 @@ export const AccountCreationForm = ({
 
 AccountCreationForm.propTypes = {
   accountCreationFormSubmit: PropTypes.func,
-  formValues: PropTypes.obj,
+  formValues: PropTypes.object,
   handleChange: PropTypes.func,
 };

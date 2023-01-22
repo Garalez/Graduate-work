@@ -4,13 +4,10 @@ import { formatDate } from '../../../../../../utils/formatDate';
 // import { useDispatch } from 'react-redux';
 // import { userAccountInfoRequestAsync } from
 //   '../../../../../../store/accountInfoRequest/accountInfoRequestActions';
-import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 export const MyAccounts = ({ account }) => {
   const navigate = useNavigate();
-  const test = useSelector(state => state.userAccountInfo);
-  console.log('test: ', test);
   // const dispatch = useDispatch();
   const handleClick = () => {
     navigate(`/a/t/?id=${account.account}`);

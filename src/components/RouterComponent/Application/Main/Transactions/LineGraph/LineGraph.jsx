@@ -9,23 +9,12 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import PropTypes from 'prop-types';
+// import { filterUniqueDateValues } from
+//   '../../../../../../utils/filterUniqueDateValues';
+// import { formatDateToMonths } from '../../../../../../utils/formatDate';
 
 export const LineGraph = ({ accountInfo }) => {
-  const transactions = accountInfo.transactions;
-
-  const filterGraphData = () => {
-    const formatDateToYear = (date) =>
-      new Intl.DateTimeFormat('ru', { year: 'numeric' }).format(new Date(date));
-
-    const lastTransactionDate = formatDateToYear(
-      transactions[transactions.length - 1].date
-    );
-
-    return transactions.filter(
-      (el) =>
-        formatDateToYear(el.date) === formatDateToYear(lastTransactionDate)
-    );
-  };
+  console.log('accountInfo: ', accountInfo);
 
   ChartJS.register(
     CategoryScale,
@@ -115,71 +104,14 @@ export const LineGraph = ({ accountInfo }) => {
     },
   };
 
-  // const labels = [
-  //   'Янв',
-  //   'Фев',
-  //   'Март',
-  //   'Апр',
-  //   'Май',
-  //   'Июнь',
-  //   'Июль',
-  //   'Авг',
-  //   'Сен',
-  //   'Окт',
-  //   'Ноя',
-  //   'Дек',
-  // ];
-
-  const monthsRegex = /[\w | г.]/g;
-  const lastSumInMonth = () => {
-    const formatDateToMonths = (date) =>
-      new Intl.DateTimeFormat('ru', { dateStyle: 'medium' })
-        .format(new Date(date))
-        .replace(monthsRegex, '');
-    const arr = [];
-
-    filterGraphData().map(el => {
-      arr.map(test => {
-        if (formatDateToMonths(el.date) !== formatDateToMonths(test.date)) {
-          arr.push(el);
-        }
-      });
-    });
-    console.log(arr);
-
-    // filterGraphData().map(el => {
-
-    // });
-    // filterGraphData().map((obj) => {
-    //   filterGraphData().map((el) => {
-    //     if (
-    //       formatDateToMonths(filterGraphData()[0].date) ===
-    //       formatDateToMonths(el.date)
-    //     ) {
-    //       arr.push(filterGraphData()[el.date]);
-    //     }
-    //   });
-    // });
-    // console.log(arr);
-    // filterGraphData().map((transaction) => {
-    //   new Intl.DateTimeFormat('ru', { dateStyle: 'medium' }).format(
-    //     new Date(transaction.date)
-    //   );
-    // });
-  };
-
-  lastSumInMonth();
-
   const data = {
-    // labels,
     datasets: [
       {
-        data: filterGraphData().map((transaction) => ({
-          x: new Intl.DateTimeFormat('ru', { dateStyle: 'medium' })
-            .format(new Date(transaction.date))
-            .replace(monthsRegex, ''),
-          y: transaction.amount,
-        })),
+        // data: filterUniqueDateValues(filterGraphData()).map((transaction) =>
+        // ({
+        //   x: formatDateToMonths(transaction.date),
+        //   y: transaction.amount,
+        // })),
         borderColor: '#B865D6',
         backgroundColor: '#392350',
         pointBackgroundColor: '#FFFFFF',
