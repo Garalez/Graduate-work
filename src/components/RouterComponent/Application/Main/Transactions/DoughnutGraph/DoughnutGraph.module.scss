@@ -28,15 +28,6 @@
   gap: 16px;
 }
 
-.graphDateItem {
-  font-family: 'Nunito';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 15px;
-  line-height: 20px;
-  color: var(--white);
-}
-
 .graphBalanceList {
   display: flex;
   padding-top: 5px;
@@ -74,4 +65,15 @@
   font-size: 15px;
   line-height: 20px;
   color: var(--white);
+}
+
+.graphButton {  
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 20px;
+  color: var(--white);
+  background: transparent;
+  border: none;
 }

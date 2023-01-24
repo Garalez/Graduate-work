@@ -1,7 +1,8 @@
 /* eslint-disable max-len */
-// import { filterGraphData } from '../../utils/filterGraphData';
-import { filterUniqueDateValues } from '../../utils/filterUniqueDateValues';
-import { filterDatesByCurrentWeek } from '../../utils/formatDate';
+import {
+  filterDatesByCurrentWeek,
+  filterUniqueDateValues,
+} from '../../utils/formatDate';
 
 export const USER_ACCOUNT_INFO_REQUEST = 'USER_ACCOUNT_INFO_REQUEST';
 export const USER_ACCOUNT_INFO_REQUEST_SUCCESS =
@@ -36,21 +37,16 @@ export const userAccountInfoRequestAsync = (id) => (dispatch) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      if (data.payload.transactions.length > 100) {
-        data.payload.transactions = {
-          lineGraph: filterUniqueDateValues(
-            data.payload.transactions.reverse(),
-            '2022'
-          ),
-          historyTable: [...data.payload.transactions.slice(-9)],
-          statisticGraph: {
-            // week: filterDatesByCurrentWeek(data.payload.transactions, 'week'),
-            month: filterDatesByCurrentWeek(data.payload.transactions, 'month'),
-          },
-        };
-        console.log(data.payload);
-      }
-      // dispatch(userAccountInfoRequestSuccess(data.payload));
+      data.payload.transactions = {
+        lineGraph: filterUniqueDateValues(
+          data.payload.transactions.reverse(),
+          '2022'
+        ).reverse(),
+        historyTable: [...data.payload.transactions.slice(-9)],
+        statisticGraph: filterDatesByCurrentWeek(data.payload),
+      };
+
+      dispatch(userAccountInfoRequestSuccess(data.payload));
     })
     .catch((error) => dispatch(userAccountInfoRequestError(error)));
 };

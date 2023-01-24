@@ -59,6 +59,7 @@
 }
 
 .historyTableCell {
+  position: relative;
   padding: 15px 0 9px 0;
   font-family: 'Nunito';
   font-style: normal;
@@ -66,6 +67,32 @@
   font-size: 15px;
   line-height: 20px;
   color: var(--white);
+}
+
+.historyTableCellAcc {
+  width: 90px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.historyTableCellAcc .historyTableCelltooltiptext {
+  position: absolute;
+  padding: 6px;
+  border-radius: 7px;
+  top: 0;
+  left: -2px;
+  z-index: 1;
+  background-color: var(--purple);
+  visibility: hidden;
+}
+
+.historyTableCellAcc:hover .historyTableCelltooltiptext {
+  visibility: visible;
+}
+
+.expenses {
+  color: var(--active-input-border);
 }
 
 .historyTableCell:nth-child(2n) {

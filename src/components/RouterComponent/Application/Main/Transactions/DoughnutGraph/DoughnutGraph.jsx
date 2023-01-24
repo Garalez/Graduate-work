@@ -3,8 +3,13 @@ import { ReactComponent as Income } from './img/income.svg';
 import { ReactComponent as Expenses } from './img/expenses.svg';
 import { Chart as ChartJS, Title, ArcElement, Legend, Tooltip } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
+import PropTypes from 'prop-types';
+import { useState } from 'react';
 
-export const DoughnutGraph = () => {
+export const DoughnutGraph = ({ accountInfo }) => {
+  console.log('accountInfo: ', accountInfo);
+  const [graphData, setGraphData] = useState([]);
+
   ChartJS.register(Title, ArcElement, Legend, Tooltip);
 
   const options = {
@@ -17,7 +22,7 @@ export const DoughnutGraph = () => {
   const data = {
     datasets: [
       {
-        data: [31, 7],
+        data: graphData,
         backgroundColor: ['#B865D6', '#4B00CA'],
         borderColor: 'transparent',
       },
@@ -28,9 +33,45 @@ export const DoughnutGraph = () => {
       <h2 className={style.graphTitle}>Статистика</h2>
       <div className={style.graphDataWrapper}>
         <ul className={style.graphDateList}>
-          <li className={style.graphDateItem}>Неделя</li>
-          <li className={style.graphDateItem}>Месяц</li>
-          <li className={style.graphDateItem}>Год</li>
+          <li className={style.graphDateItem}>
+            <button
+              className={style.graphButton}
+              onClick={() =>
+                setGraphData([
+                  accountInfo.transactions.statisticGraph.week[0],
+                  accountInfo.transactions.statisticGraph.week[1],
+                ])
+              }
+            >
+              Неделя
+            </button>
+          </li>
+          <li className={style.graphDateItem}>
+            <button
+              className={style.graphButton}
+              onClick={() =>
+                setGraphData([
+                  accountInfo.transactions.statisticGraph.month[0],
+                  accountInfo.transactions.statisticGraph.month[1],
+                ])
+              }
+            >
+              Месяц
+            </button>
+          </li>
+          <li className={style.graphDateItem}>
+            <button
+              className={style.graphButton}
+              onClick={() =>
+                setGraphData([
+                  accountInfo.transactions.statisticGraph.year[0],
+                  accountInfo.transactions.statisticGraph.year[1],
+                ])
+              }
+            >
+              Год
+            </button>
+          </li>
         </ul>
         <div className={style.graphWrapper}>
           <Doughnut data={data} options={options} />
@@ -46,12 +87,18 @@ export const DoughnutGraph = () => {
             </p>
           </li>
           <li className={style.graphBalanceItem}>
-            <p className={style.graphBalanceItemSum}>530 080 ₽</p>
-            <p className={style.graphBalanceItemSum}>503 934 ₽</p>
-            <p className={style.graphBalanceItemSum}>26 146 ₽</p>
+            <p
+              className={style.graphBalanceItemSum}
+            >{`${accountInfo.balance} ₽`}</p>
+            <p className={style.graphBalanceItemSum}>{`${graphData[0]} ₽`}</p>
+            <p className={style.graphBalanceItemSum}>{`${graphData[1]} ₽`}</p>
           </li>
         </ul>
       </div>
     </section>
   );
+};
+
+DoughnutGraph.propTypes = {
+  accountInfo: PropTypes.object,
 };

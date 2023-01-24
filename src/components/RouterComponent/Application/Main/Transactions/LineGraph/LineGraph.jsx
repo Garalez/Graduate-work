@@ -9,13 +9,9 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import PropTypes from 'prop-types';
-// import { filterUniqueDateValues } from
-//   '../../../../../../utils/filterUniqueDateValues';
-// import { formatDateToMonths } from '../../../../../../utils/formatDate';
+import { formatDateToMonths } from '../../../../../../utils/formatDate';
 
 export const LineGraph = ({ accountInfo }) => {
-  console.log('accountInfo: ', accountInfo);
-
   ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -24,7 +20,7 @@ export const LineGraph = ({ accountInfo }) => {
     Tooltip
   );
 
-  Tooltip.positioners.myCustomPositioner = function(elements, eventPosition) {
+  Tooltip.positioners.customPosition = function(elements, eventPosition) {
     return {
       x: eventPosition.x,
       y: eventPosition.y,
@@ -45,6 +41,7 @@ export const LineGraph = ({ accountInfo }) => {
           display: false,
         },
         ticks: {
+          padding: 0,
           maxTicksLimit: 5,
           color: '#C6B6D7',
           font: {
@@ -81,7 +78,7 @@ export const LineGraph = ({ accountInfo }) => {
         display: false,
       },
       tooltip: {
-        position: 'myCustomPositioner',
+        position: 'customPosition',
         yAlign: 'bottom',
         callbacks: {
           label: (tooltipItems) => `${tooltipItems.formattedValue} ₽`,
@@ -107,11 +104,10 @@ export const LineGraph = ({ accountInfo }) => {
   const data = {
     datasets: [
       {
-        // data: filterUniqueDateValues(filterGraphData()).map((transaction) =>
-        // ({
-        //   x: formatDateToMonths(transaction.date),
-        //   y: transaction.amount,
-        // })),
+        data: accountInfo.transactions.lineGraph.map((elem) => ({
+          x: formatDateToMonths(elem.date),
+          y: elem.amount,
+        })),
         borderColor: '#B865D6',
         backgroundColor: '#392350',
         pointBackgroundColor: '#FFFFFF',

@@ -21,25 +21,62 @@ export const formatDateToMonths = (date) => {
   return string.charAt(0).toUpperCase() + string.slice(1);
 };
 
-export const filterDatesByCurrentWeek = (arr, period) => {
-  let timePeriod;
-  if (period === 'week') timePeriod = 7;
-  if (period === 'month') timePeriod = 30;
+const sumOfPeriod = (transactions, account) => {
+  let income = 0;
+  let expenses = 0;
 
+  for (let i = 0; i < transactions.length; i++) {
+    if (transactions[i].to === account) {
+      income += transactions[i].amount;
+    } else {
+      expenses += transactions[i].amount;
+    }
+  }
+  return [income.toFixed(2), expenses.toFixed(2)];
+};
+
+export const filterDatesByCurrentWeek = (arr) => {
+  const transactions = arr.transactions;
   const now = new Date();
   const numDay = now.getDate();
 
-  const start = new Date(now);
-  start.setDate(numDay - timePeriod);
-  start.setHours(0, 0, 0, 0);
+  const week = new Date().setDate(numDay - 7);
+  const month = new Date().setDate(numDay - 30);
+  const year = new Date().setDate(numDay - 365);
 
-  const end = new Date(now);
-  end.setDate(numDay - timePeriod);
-  end.setHours(0, 0, 0, 0);
-
-  const findFirstDateOfPeriod = arr.reverse().find(
-    (elem) => new Date(elem.date).getTime() >= +end
+  const yearTransactions = transactions.filter(
+    (elem) => new Date(elem.date).getTime() >= +year
   );
-  console.log('findFirstDateOfPeriod', findFirstDateOfPeriod);
-  return [findFirstDateOfPeriod, arr[arr.length - 1]];
+  const monthTransactions = yearTransactions.filter(
+    (elem) => new Date(elem.date).getTime() >= +month
+  );
+
+  const weekTransactions = monthTransactions.filter(
+    (elem) => new Date(elem.date).getTime() >= +week
+  );
+  console.log(weekTransactions);
+
+  return {
+    week: sumOfPeriod(weekTransactions, arr.account),
+    month: sumOfPeriod(monthTransactions, arr.account),
+    year: sumOfPeriod(yearTransactions, arr.account),
+  };
+};
+
+export const filterUniqueDateValues = (arr, year) => {
+  const tmpArray = [];
+
+  const findUniqueDateValues = (item) => {
+    const date = new Date(item.date);
+    if (
+      date.getFullYear() === +year &&
+      tmpArray.indexOf(date.getMonth()) === -1
+    ) {
+      tmpArray.push(date.getMonth());
+      return true;
+    }
+    return false;
+  };
+
+  return arr.filter((item) => findUniqueDateValues(item));
 };
