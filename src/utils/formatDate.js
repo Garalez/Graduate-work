@@ -32,7 +32,7 @@ const sumOfPeriod = (transactions, account) => {
       expenses += transactions[i].amount;
     }
   }
-  return [income.toFixed(2), expenses.toFixed(2)];
+  return { income: income.toFixed(2), expenses: expenses.toFixed(2) };
 };
 
 export const filterDatesByCurrentWeek = (arr) => {
@@ -47,6 +47,7 @@ export const filterDatesByCurrentWeek = (arr) => {
   const yearTransactions = transactions.filter(
     (elem) => new Date(elem.date).getTime() >= +year
   );
+
   const monthTransactions = yearTransactions.filter(
     (elem) => new Date(elem.date).getTime() >= +month
   );
@@ -54,7 +55,6 @@ export const filterDatesByCurrentWeek = (arr) => {
   const weekTransactions = monthTransactions.filter(
     (elem) => new Date(elem.date).getTime() >= +week
   );
-  console.log(weekTransactions);
 
   return {
     week: sumOfPeriod(weekTransactions, arr.account),
