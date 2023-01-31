@@ -24,12 +24,17 @@ export const userAccountsRequestAsync = () => (dispatch) => {
   fetch('http://localhost:4000/accounts', {
     method: 'GET',
     headers: {
-      'Authorization': `Basic ${token}`,
+      Authorization: `Basic ${token}`,
     },
   })
     .then((response) => response.json())
     .then((data) => {
-      dispatch(userAccountsRequestSuccess(data.payload));
+      dispatch(
+        userAccountsRequestSuccess(
+          data.payload.sort((a, b) => (new Date((a.date ||= 0)).getTime() >
+              new Date((b.date ||= 0)).getTime() ? -1 : 1))
+        )
+      );
     })
     .catch((error) => dispatch(userAccountsRequestError(error)));
 };

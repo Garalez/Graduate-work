@@ -24,7 +24,10 @@ export const FundsTransfer = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (transactionData.account && transactionData.sum) {
-      console.log('gg noobs');
+      setDisplayErrorMassage({
+        account: true,
+        sum: true,
+      });
     }
   };
 

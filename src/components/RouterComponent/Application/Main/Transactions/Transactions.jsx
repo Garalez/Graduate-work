@@ -4,7 +4,7 @@ import LineGraph from './LineGraph';
 import DoughnutGraph from './DoughnutGraph';
 import Table from './Table';
 import FundsTransfer from './FundsTransfer';
-import { useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { userAccountInfoRequestAsync } from
@@ -12,6 +12,7 @@ import { userAccountInfoRequestAsync } from
 import { useSelector } from 'react-redux';
 
 export const Transactions = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [searchParams] = useSearchParams();
   const accountId = searchParams.get('id');
@@ -29,7 +30,10 @@ export const Transactions = () => {
             <h1
               className={style.transactionsTitle}
             >{`Счет №${accountInfo.accountInfo.account}`}</h1>
-            <button className={style.transactionsBtn}>
+            <button
+              className={style.transactionsBtn}
+              onClick={() => navigate(-1)}
+            >
               <BackArrow /> Вернуться
             </button>
           </div>

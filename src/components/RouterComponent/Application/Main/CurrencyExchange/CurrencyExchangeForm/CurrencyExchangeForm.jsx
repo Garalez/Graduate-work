@@ -13,7 +13,7 @@ export const CurrencyExchangeForm = () => {
             <p className={style.currencyExchangeLabel}>Откуда</p>
             <div className={style.currencyExchangeCustomSelect}>BTC</div>
             <ul
-              className={`${style.currencyExchangeSelect} ${
+              className={`${style.currencyExchangeSelectList} ${
                 openSelect ? style.opened : style.closed
               }`}
             >

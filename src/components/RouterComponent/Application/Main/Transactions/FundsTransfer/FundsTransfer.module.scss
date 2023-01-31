@@ -14,10 +14,12 @@
   align-items: flex-end;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  column-gap: 20px;
+  row-gap: 40px;
 }
 
 .transferItem {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -78,4 +80,11 @@
 
 .transferFormSubmit:active {
   background: var(--application-button-active);
+}
+
+.authInputError {
+  position: absolute;
+  bottom: -30px;
+  left: 15px;
+  color: red;
 }
