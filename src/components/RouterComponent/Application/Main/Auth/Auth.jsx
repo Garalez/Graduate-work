@@ -112,7 +112,7 @@ export const Auth = () => {
             </ul>
             <div className={style.authBtnWrapper}>
               <button className={style.authFormSubmit} type='submit'>
-                Перевести
+                Войти
               </button>
             </div>
           </form>

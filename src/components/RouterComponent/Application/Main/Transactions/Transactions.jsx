@@ -44,7 +44,7 @@ export const Transactions = () => {
             </div>
             <Table accountInfo={accountInfo.accountInfo} />
           </div>
-          <FundsTransfer />
+          <FundsTransfer accountInfo={accountInfo.accountInfo} />
         </>
       )}
     </section>

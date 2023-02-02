@@ -1,7 +1,17 @@
+/* eslint-disable max-len */
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { accountTransferFundsRequestAsync } from '../../../../../../store/accountTransferFunds/accountTransferFundsActions';
 import style from './FundsTransfer.module.scss';
+import { useSearchParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { userAccountInfoRequestAsync } from '../../../../../../store/accountInfoRequest/accountInfoRequestActions';
 
-export const FundsTransfer = () => {
+export const FundsTransfer = ({ accountInfo }) => {
+  const dispatch = useDispatch();
+  const [searchParams] = useSearchParams();
+  const accountId = searchParams.get('id');
+
   const [transactionData, setTransactionData] = useState({
     account: '',
     sum: '',
@@ -15,19 +25,49 @@ export const FundsTransfer = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
     const regex = /\D/;
+
     setTransactionData({
       ...transactionData,
       [name]: value.replace(regex, ''),
     });
+
+    setDisplayErrorMassage({
+      ...displayErrorMassage,
+      [name]: !value,
+    });
   };
 
-  const handleSubmit = (e) => {
+  const transferSubmit = (e) => {
     e.preventDefault();
-    if (transactionData.account && transactionData.sum) {
-      setDisplayErrorMassage({
-        account: true,
-        sum: true,
+
+    setDisplayErrorMassage({
+      account: !transactionData.account,
+      sum: !transactionData.sum,
+    });
+
+    if (
+      transactionData.account &&
+      transactionData.sum &&
+      +transactionData.sum <= +accountInfo.balance
+    ) {
+      const accountNumberFrom = accountInfo.account;
+      const accountNumberTo = transactionData.account;
+      const transferAmount = transactionData.sum;
+
+      dispatch(
+        accountTransferFundsRequestAsync({
+          from: accountNumberFrom,
+          to: accountNumberTo,
+          amount: transferAmount,
+        })
+      );
+
+      setTransactionData({
+        account: '',
+        sum: '',
       });
+
+      dispatch(userAccountInfoRequestAsync(accountId));
     }
   };
 
@@ -37,7 +77,7 @@ export const FundsTransfer = () => {
       <form
         className={style.transferForm}
         action=''
-        onSubmit={(e) => handleSubmit(e)}
+        onSubmit={(e) => transferSubmit(e)}
       >
         <ul className={style.transferList}>
           <li className={style.transferItem}>
@@ -53,9 +93,7 @@ export const FundsTransfer = () => {
               value={transactionData.account}
             />
             {displayErrorMassage.account && (
-              <p className={style.authInputError}>
-                Логин должен содерать от 6 символов
-              </p>
+              <p className={style.authInputError}>Неверный номер счёта</p>
             )}
           </li>
           <li className={style.transferItem}>
@@ -71,9 +109,7 @@ export const FundsTransfer = () => {
               value={transactionData.sum}
             />
             {displayErrorMassage.sum && (
-              <p className={style.authInputError}>
-                Логин должен содерать от 6 символов
-              </p>
+              <p className={style.authInputError}>Неверная сумма перевода</p>
             )}
           </li>
           <li className={style.transferItem}>
@@ -85,4 +121,8 @@ export const FundsTransfer = () => {
       </form>
     </section>
   );
+};
+
+FundsTransfer.propTypes = {
+  accountInfo: PropTypes.object,
 };

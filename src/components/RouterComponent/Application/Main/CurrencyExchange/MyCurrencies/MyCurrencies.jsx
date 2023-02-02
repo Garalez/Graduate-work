@@ -1,19 +1,29 @@
+/* eslint-disable max-len */
 import style from './MyCurrencies.module.scss';
+import PropTypes from 'prop-types';
 
-export const MyCurrencies = () => (
+export const MyCurrencies = ({ userCurrencies }) => (
   <section className={style.myCurrencies}>
     <h3 className={style.myCurrenciesTitle}>Мои валюты</h3>
     <ul className={style.myCurrenciesList}>
       <li className={style.myCurrenciesItem}>
-        <p className={style.myCurrenciesName}>BTC</p>
-        <p className={style.myCurrenciesName}>ETH</p>
-        <p className={style.myCurrenciesName}>₽</p>
+        {Object.keys(userCurrencies).map((currency, index) => (
+          <p key={index} className={style.myCurrenciesName}>
+            {userCurrencies[currency].code}
+          </p>
+        ))}
       </li>
       <li className={style.myCurrenciesItem}>
-        <p className={style.myCurrenciesQuantity}>2405</p>
-        <p className={style.myCurrenciesQuantity}>3620</p>
-        <p className={style.myCurrenciesQuantity}>530 080 ₽</p>
+        {Object.keys(userCurrencies).map((currency, index) => (
+          <p key={index} className={style.myCurrenciesQuantity}>
+            {userCurrencies[currency].amount}
+          </p>
+        ))}
       </li>
     </ul>
   </section>
 );
+
+MyCurrencies.propTypes = {
+  userCurrencies: PropTypes.object,
+};

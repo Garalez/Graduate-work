@@ -18,11 +18,21 @@
   gap: 30px;
 }
 
-.navItem {
+.navItemButton {
   font-family: 'Nunito';
   font-style: normal;
   font-weight: 700;
   font-size: 15px;
   line-height: 20px;
   color: var(--white);
+  background-color: transparent;
+  border: none;
+}
+
+.navItemButton:hover {
+  color: var(--social-fill-hover);
+}
+
+.navItemButton:hover .navItemExitImg path {
+  fill: var(--social-fill-hover);
 }

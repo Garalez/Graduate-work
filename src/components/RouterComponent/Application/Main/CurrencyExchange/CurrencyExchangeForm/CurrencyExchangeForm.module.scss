@@ -53,8 +53,10 @@
 
 .currencyExchangeCustomSelect {
   padding-left: 10px;
+  padding-right: 16px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   position: relative;
   height: 37px;
   width: 160px;
@@ -69,24 +71,15 @@
   cursor: pointer;
 }
 
-.currencyExchangeCustomSelect::after {
-  position: absolute;
-  width: 9px;
-  height: 8px;
-  content: '';
-  top: 16px;
-  right: 16px;
-  background: url('../img/customSelectArrow.svg');
-  background-color: transparent;
-  background-repeat: no-repeat;
+.selectArrow {
+  transform: rotate(180deg);
 }
 
 .currencyExchangeSelectList {
   width: 100%;
-  padding: 10px 0;
+  padding-top: 10px;
   display: flex;
   flex-direction: column;
-  gap: 5px;
   position: absolute;
   left: 0;
   top: 50px;
@@ -101,20 +94,18 @@
   cursor: pointer;
 }
 
-.closed {
-  display: none;
-}
-
-.opened {
-  display: flex;
-}
-
 .currencyExchangeSelectItem {
   padding-left: 10px;
+  padding-bottom: 5px;
   padding-top: 8px;
   display: flex;
   align-items: center;
   position: relative;
+}
+
+.currencyExchangeSelectItem:hover {
+  background-color: var(--social-fill-hover);
+  color: var(--white);
 }
 
 .currencyExchangeSelectItem::after {
@@ -128,11 +119,15 @@
 }
 
 .currencyExchangeInput {
+  padding: 0 10px;
   height: 37px;
   width: 160px;
   border-radius: 6px;
   border: none;
-  padding: 0;
+}
+
+.currencyExchangeInput:focus {
+  outline: 2px solid var(--social-fill-hover);
 }
 
 .currencyExchangeSubmitWrapper {
