@@ -6,6 +6,7 @@ import { useOutsideClick } from '../../../../../../hooks/useOutsideClick';
 import { ReactComponent as SelectArrow } from '../img/customSelectArrow.svg';
 import { useDispatch } from 'react-redux';
 import { currencyRequestAsync } from '../../../../../../store/currencyRequest/currencyRequestActions';
+import { currencyBuyRequestAsync } from '../../../../../../store/buyCurrency/buyCurrencyActions';
 
 export const CurrencyExchangeForm = ({ currencyTypes }) => {
   const dispatch = useDispatch();
@@ -22,13 +23,15 @@ export const CurrencyExchangeForm = ({ currencyTypes }) => {
   const selectRefTo = useOutsideClick(() => setOpenSelectTo(false));
 
   const handleChange = (e) => {
-    const regex = /\D/;
+    const regex = /[^\d.]/g;
     setTransferSum(e.target.value.replace(regex, ''));
   };
 
   const formSubmit = (e) => {
     e.preventDefault();
-    dispatch(currencyRequestAsync(selectFromValue, selectToValue, transferSum));
+    dispatch(currencyBuyRequestAsync(selectFromValue, selectToValue, transferSum));
+    dispatch(currencyRequestAsync());
+    setTransferSum('');
   };
 
   return (

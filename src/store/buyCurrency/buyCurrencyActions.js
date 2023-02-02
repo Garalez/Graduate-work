@@ -40,7 +40,6 @@ export const currencyBuyRequestAsync = (from, to, amount) => (dispatch) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log('data: ', data);
       dispatch(currencyBuyRequestSuccess(data.payload));
     })
     .catch((error) => dispatch(currencyBuyRequestError(error)));

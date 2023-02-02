@@ -18,25 +18,17 @@ export const currencyRequestError = (error) => ({
   error,
 });
 
-export const currencyRequestAsync = (from, to, amount) => (dispatch) => {
+export const currencyRequestAsync = () => (dispatch) => {
   const token = localStorage.getItem('bearer');
 
   if (!token || token === 'undefined') return;
   dispatch(currencyRequest());
 
-  const transferData = {
-    from,
-    to,
-    amount,
-  };
-
-  fetch(`http://localhost:4000/${from ? 'currency-buy' : 'currencies'}`, {
-    method: `${from ? 'POST' : 'GET'}`,
+  fetch(`http://localhost:4000/currencies`, {
+    method: 'GET',
     headers: {
       'Authorization': `Basic ${token}`,
-      'Content-Type': 'application/json',
     },
-    body: from ? JSON.stringify(transferData) : '',
   })
     .then((response) => response.json())
     .then((data) => {

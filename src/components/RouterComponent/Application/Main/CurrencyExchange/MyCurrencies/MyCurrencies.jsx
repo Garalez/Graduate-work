@@ -16,7 +16,7 @@ export const MyCurrencies = ({ userCurrencies }) => (
       <li className={style.myCurrenciesItem}>
         {Object.keys(userCurrencies).map((currency, index) => (
           <p key={index} className={style.myCurrenciesQuantity}>
-            {userCurrencies[currency].amount}
+            {userCurrencies[currency].amount.toFixed(2)}
           </p>
         ))}
       </li>
