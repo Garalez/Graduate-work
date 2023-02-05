@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import style from './MyCurrencies.module.scss';
 import PropTypes from 'prop-types';
 
@@ -7,16 +6,16 @@ export const MyCurrencies = ({ userCurrencies }) => (
     <h3 className={style.myCurrenciesTitle}>Мои валюты</h3>
     <ul className={style.myCurrenciesList}>
       <li className={style.myCurrenciesItem}>
-        {Object.keys(userCurrencies).map((currency, index) => (
+        {userCurrencies.map((currency, index) => (
           <p key={index} className={style.myCurrenciesName}>
-            {userCurrencies[currency].code}
+            {currency.code}
           </p>
         ))}
       </li>
       <li className={style.myCurrenciesItem}>
-        {Object.keys(userCurrencies).map((currency, index) => (
+        {userCurrencies.map((currency, index) => (
           <p key={index} className={style.myCurrenciesQuantity}>
-            {userCurrencies[currency].amount.toFixed(2)}
+            {currency.amount}
           </p>
         ))}
       </li>
@@ -25,5 +24,5 @@ export const MyCurrencies = ({ userCurrencies }) => (
 );
 
 MyCurrencies.propTypes = {
-  userCurrencies: PropTypes.object,
+  userCurrencies: PropTypes.array,
 };

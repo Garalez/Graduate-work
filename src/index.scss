@@ -1,59 +1,77 @@
-@import "~normalize.css";
+@import '~normalize.css';
 
 @font-face {
-  font-family: "Comfortaa";
+  font-family: 'Comfortaa';
   font-style: normal;
   font-weight: 700;
-  src: local(""),
-    url("fonts/comfortaa/Comfortaa-Bold.ttf")
-      format("truetype");
+  src: local(''), url('fonts/comfortaa/Comfortaa-Bold.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: "Nunito";
+  font-family: 'Nunito';
   font-style: normal;
   font-weight: 700;
-  src: local(""),
-    url("fonts/nunito/Nunito-Bold.ttf")
-      format("truetype");
+  src: local(''), url('fonts/nunito/Nunito-Bold.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: "Nunito";
+  font-family: 'Nunito';
   font-style: normal;
   font-weight: 400;
-  src: local(""),
-    url("fonts/nunito/Nunito-Regular.ttf")
-      format("truetype");
+  src: local(''), url('fonts/nunito/Nunito-Regular.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: "Nunito";
+  font-family: 'Nunito';
   font-style: normal;
   font-weight: 600;
-  src: local(""),
-    url("fonts/nunito/Nunito-SemiBold.ttf")
-      format("truetype");
+  src: local(''), url('fonts/nunito/Nunito-SemiBold.ttf') format('truetype');
 }
 
 :root {
-  --main-gradient: linear-gradient(87.4deg, #2E00B1 -11.74%, #8100BD 48.81%, #A400BE 113.27%);
-  --main-gradient-hover: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), linear-gradient(87.4deg, #2E00B1 -11.74%, #8100BD 48.81%, #A400BE 113.27%);
-  --main-gradient-focus: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), linear-gradient(87.4deg, #2E00B1 -11.74%, #8100BD 48.81%, #A400BE 113.27%);
-  --application-button-hover: linear-gradient(88.2deg, #A400BE -14.85%, #8100BD 50.2%, #2E00B1 115.25%, #2E00B1 115.25%);
-  --application-button-focus: linear-gradient(88.2deg, #2E00B1 -14.85%, #A400BE 50.2%, #2E00B1 115.25%, #2E00B1 115.25%);
-  --application-button-active: #2E00B1;
-  --btn-color-disabled: #B0B0B0;
-  --btn-background-hover: #DFD4EB;
-  --social-fill-hover: #B865D6;
-  --purple: #210B36;
-  --white: #FFFFFF;
-  --active-tab: #6E479E;
-  --registration-background: #EEE2FA;
-  --light-purple: #5F536C;
-  --active-input-border: #B865D6;
-  --inactive-input-border: #C6B6D7;
+  --main-gradient: linear-gradient(
+    87.4deg,
+    #2e00b1 -11.74%,
+    #8100bd 48.81%,
+    #a400be 113.27%
+  );
+  --main-gradient-hover: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.1)
+    ),
+    linear-gradient(87.4deg, #2e00b1 -11.74%, #8100bd 48.81%, #a400be 113.27%);
+  --main-gradient-focus: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.2),
+      rgba(255, 255, 255, 0.2)
+    ),
+    linear-gradient(87.4deg, #2e00b1 -11.74%, #8100bd 48.81%, #a400be 113.27%);
+  --button-hover-gradient: linear-gradient(
+    88.2deg,
+    #a400be -14.85%,
+    #8100bd 50.2%,
+    #2e00b1 115.25%,
+    #2e00b1 115.25%
+  );
+  --button-focus-gradient: linear-gradient(
+    88.2deg,
+    #2e00b1 -14.85%,
+    #a400be 50.2%,
+    #2e00b1 115.25%,
+    #2e00b1 115.25%
+  );
+  --white: #ffffff;
+  --blue: #2e00b1;
+  --grey: #b0b0b0;
+  --light-grey: #dfd4eb;
+  --pink: #b865d6;
+  --purple: #210b36;
+  --light-purple: #5f536c;
   --app-light-purple: #392350;
+  --active-tab: #6e479e;
+  --registration-background: #eee2fa;
+  --inactive-input-border: #c6b6d7;
 }
 
 html {

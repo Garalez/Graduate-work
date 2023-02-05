@@ -7,13 +7,11 @@ import { ReactComponent as NextArrow } from './img/navigateNext.svg';
 import JuliaReviewer from './img/JuliaReviewer.png';
 import SvetlanaReviewer from './img/SvetlanaReviewer.png';
 import SergeiReviewer from './img/SergeiReviewer.png';
-import 'swiper/scss';
-import 'swiper/css/navigation';
 import useWindowDimensions from '../../../../../hooks/screenViewPort';
+import 'swiper/scss';
 
 export const Reviews = () => {
-  const nextSlide = useRef(null);
-  const prevSlide = useRef(null);
+  const swiperRef = useRef();
   const { width } = useWindowDimensions();
 
   return (
@@ -24,11 +22,8 @@ export const Reviews = () => {
           modules={[Navigation]}
           loop
           slidesPerView={width > 768 ? 3 : width <= 550 ? 1 : 2}
-          onInit={(swiper) => {
-            swiper.params.navigation.prevEl = prevSlide.current;
-            swiper.params.navigation.nextEl = nextSlide.current;
-            swiper.navigation.init();
-            swiper.navigation.update();
+          onBeforeInit={(swiper) => {
+            swiperRef.current = swiper;
           }}
         >
           <SwiperSlide className={style.reviewsSwiperSlide}>
@@ -73,10 +68,16 @@ export const Reviews = () => {
             </figure>
           </SwiperSlide>
         </Swiper>
-        <button className={style.reviewsBtnPrev} ref={prevSlide}>
+        <button
+          className={style.reviewsBtnPrev}
+          onClick={() => swiperRef.current?.slidePrev()}
+        >
           <PrevArrow className={style.reviewsArrowImg} />
         </button>
-        <button className={style.reviewsBtnNext} ref={nextSlide}>
+        <button
+          className={style.reviewsBtnNext}
+          onClick={() => swiperRef.current?.slideNext()}
+        >
           <NextArrow className={style.reviewsArrowImg} />
         </button>
       </div>

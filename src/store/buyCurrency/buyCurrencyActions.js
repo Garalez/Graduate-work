@@ -1,5 +1,7 @@
 /* eslint-disable max-len */
 
+import { URL_API } from '../../utils/api';
+
 export const CURRENCY_BUY_REQUEST = 'CURRENCY_BUY_REQUEST';
 export const CURRENCY_BUY_REQUEST_SUCCESS = 'CURRENCY_BUY_REQUEST_SUCCESS';
 export const CURRENCY_BUY_REQUEST_ERROR = 'CURRENCY_BUY_REQUEST_ERROR';
@@ -30,7 +32,7 @@ export const currencyBuyRequestAsync = (from, to, amount) => (dispatch) => {
     amount,
   };
 
-  fetch(`http://localhost:4000/currency-buy`, {
+  fetch(`${URL_API}/currency-buy`, {
     method: 'POST',
     headers: {
       'Authorization': `Basic ${token}`,

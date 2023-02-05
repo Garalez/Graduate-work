@@ -62,7 +62,7 @@
 
 .authInput:focus {
   outline: none;
-  border: 2px solid var(--active-input-border);
+  border: 2px solid var(--pink);
 }
 
 .authBtnWrapper {
@@ -74,6 +74,7 @@
 .authFormSubmit {
   width: 380px;
   height: 70px;
+  margin-bottom: 15px;
   background: var(--main-gradient);
   border: none;
   border-radius: 10px;
@@ -87,19 +88,24 @@
 
 .authFormSubmit:hover {
   cursor: url('../img/cursor.svg'), pointer;
-  background: var(--application-button-hover);
+  background: var(--button-hover-gradient);
 }
 
 .authFormSubmit:focus {
-  background: var(--application-button-focus);
+  background: var(--button-focus-gradient);
 }
 
 .authFormSubmit:active {
-  background: var(--application-button-active);
+  background: var(--blue);
 }
 
 .authInputError {
   padding-top: 5px;
   padding-left: 15px;
   color: red;
+}
+
+.authBtnWrapper {
+  display: flex;
+  flex-direction: column;
 }

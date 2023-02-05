@@ -9,7 +9,9 @@ export const MyAccounts = ({ account }) => {
   return (
     <li
       className={style.accountItem}
-      onClick={() => navigate(`/a/t/?id=${account.account}`)}
+      onClick={() =>
+        navigate(`/application/transactions/?id=${account.account}`)
+      }
     >
       <p className={style.accountNumber}>{account.account}</p>
       <p className={style.accountAmount}>{`${account.balance} ₽`}</p>
@@ -24,7 +26,7 @@ export const MyAccounts = ({ account }) => {
           <p className={style.accountInfoText}>последняя операция</p>
           <p className={style.accountInfoText}>
             {account.transactions.length > 0 ?
-            formatDate(account.transactions[0].date) :
+              formatDate(account.transactions[0].date) :
               '---'}
           </p>
         </div>

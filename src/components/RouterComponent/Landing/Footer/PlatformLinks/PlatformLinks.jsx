@@ -3,22 +3,22 @@ import style from './PlatformLinks.module.scss';
 export const PlatformLinks = () => (
   <ul className={style.linksList}>
     <li className={style.linksItem}>
-      <a className={style.linksHref} href='#platformInfo'>
+      <a className={style.link} href='#platformInfo'>
         О компании
       </a>
     </li>
     <li className={style.linksItem}>
-      <a className={style.linksHref} href='#reviews'>
+      <a className={style.link} href='#reviews'>
         Отзывы
       </a>
     </li>
     <li className={style.linksItem}>
-      <a className={style.linksHref} href='#registration'>
+      <a className={style.link} href='#registration'>
         Регистрация
       </a>
     </li>
     <li className={style.linksItem}>
-      <a className={style.linksHref} href='#profit'>
+      <a className={style.link} href='#profit'>
         Почему с нами выгодно?
       </a>
     </li>

@@ -10,9 +10,10 @@ export const Auth = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const userData = useSelector((state) => state.userToken);
+
   useEffect(() => {
     if (userData.status === 'loaded') {
-      navigate('/a/c');
+      navigate('/application/accounts');
     }
   }, [userData.status]);
 
@@ -114,6 +115,11 @@ export const Auth = () => {
               <button className={style.authFormSubmit} type='submit'>
                 Войти
               </button>
+              {userData.status === 'rejected' && (
+                <p className={style.authInputError}>
+                  Неверные данные пользователя
+                </p>
+              )}
             </div>
           </form>
         </div>

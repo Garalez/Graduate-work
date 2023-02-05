@@ -8,7 +8,7 @@ export const FullNameForm = ({
 }) => (
   <form
     className={style.registrationForm}
-    action=''
+    action='#'
     onSubmit={(e) => fullNameFormSubmit(e)}
   >
     <ul className={style.registrationInputList}>
@@ -52,7 +52,9 @@ export const FullNameForm = ({
         />
       </li>
     </ul>
-    <button className={style.nextBtn}>Далее</button>
+    <button className={style.nextBtn} type='submit'>
+      Далее
+    </button>
   </form>
 );
 

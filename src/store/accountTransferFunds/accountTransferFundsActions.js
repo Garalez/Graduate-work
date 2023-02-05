@@ -1,5 +1,7 @@
 /* eslint-disable max-len */
 
+import { URL_API } from '../../utils/api';
+
 export const ACCOUNT_TRANSFER_FUNDS = 'ACCOUNT_TRANSFER_FUNDS';
 export const ACCOUNT_TRANSFER_FUNDS_SUCCESS = 'ACCOUNT_TRANSFER_FUNDS_SUCCESS';
 export const ACCOUNT_TRANSFER_FUNDS_ERROR = 'ACCOUNT_TRANSFER_FUNDS_ERROR';
@@ -8,8 +10,9 @@ export const accountTransferFundsRequest = () => ({
   type: ACCOUNT_TRANSFER_FUNDS,
 });
 
-export const accountTransferFundsRequestSuccess = () => ({
+export const accountTransferFundsRequestSuccess = (data) => ({
   type: ACCOUNT_TRANSFER_FUNDS_SUCCESS,
+  data,
 });
 
 export const accountTransferFundsRequestError = (error) => ({
@@ -31,7 +34,7 @@ export const accountTransferFundsRequestAsync =
         amount,
       };
 
-      fetch(`http://localhost:4000/transfer-funds`, {
+      fetch(`${URL_API}/transfer-funds`, {
         method: 'POST',
         headers: {
           'Authorization': `Basic ${token}`,
@@ -40,8 +43,12 @@ export const accountTransferFundsRequestAsync =
         body: JSON.stringify(transferData),
       })
         .then((response) => response.json())
-        .then(() => {
-          dispatch(accountTransferFundsRequestSuccess());
+        .then((data) => {
+          if (data.payload) {
+            dispatch(accountTransferFundsRequestSuccess(data.payload));
+          } else {
+            dispatch(accountTransferFundsRequestError(data.error));
+          }
         })
         .catch((error) => dispatch(accountTransferFundsRequestError(error)));
     };

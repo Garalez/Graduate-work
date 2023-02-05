@@ -109,7 +109,7 @@
 
 .registrationInput:focus {
   outline: none;
-  border: 2px solid var(--active-input-border);
+  border: 2px solid var(--pink);
 }
 
 .nextBtn {
@@ -136,7 +136,7 @@
 }
 
 .nextBtn:disabled {
-  background: var(--btn-color-disabled);
+  background: var(--grey);
   cursor: initial;
 }
 
@@ -160,23 +160,41 @@
   gap: 5px;
 }
 
-.customCheckboxInput + .customCheckboxLabel {
+.customCheckboxLabel {
+  padding-left: 17px;
   position: relative;
+  width: 100%;
+  padding-top: 6px;
+  max-width: 315px;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 130%;
+  color: var(--purple);
+  cursor: pointer;
+}
+
+.customCheckboxInput + .customCheckboxLabel::before {
+  position: absolute;
+  content: '';
+  top: 5px;
+  left: 0;
   width: 12px;
   height: 12px;
   border-radius: 2px;
   background-color: var(--active-tab);
-  cursor: pointer;
 }
 
-.customCheckboxInput + .customCheckboxLabel::after {
+.customCheckboxInput:checked + .customCheckboxLabel::after {
   position: absolute;
   content: '';
   width: 7px;
   height: 8px;
-  top: 2px;
-  right: 3px;
+  top: 7px;
+  left: 2px;
   background: url('./AccountCreationForm/img/checkMark.svg');
+  z-index: 10;
 }
 
 .customCheckboxInput {

@@ -1,3 +1,5 @@
+import { URL_API } from '../../utils/api';
+
 export const USER_ACCOUNTS_REQUEST = 'USER_ACCOUNTS_REQUEST';
 export const USER_ACCOUNTS_REQUEST_SUCCESS = 'USER_ACCOUNTS_REQUEST_SUCCESS';
 export const USER_ACCOUNTS_REQUEST_ERROR = 'USER_ACCOUNTS_REQUEST_ERROR';
@@ -21,7 +23,7 @@ export const userAccountsRequestAsync = () => (dispatch) => {
   if (!token && token === 'undefined') return;
   dispatch(userAccountsRequest());
 
-  fetch('http://localhost:4000/accounts', {
+  fetch(`${URL_API}/accounts`, {
     method: 'GET',
     headers: {
       Authorization: `Basic ${token}`,

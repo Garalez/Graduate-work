@@ -6,6 +6,7 @@ import {
 
 const initialState = {
   status: '',
+  data: {},
   error: '',
 };
 
@@ -19,6 +20,7 @@ export const accountTransferFundsReducer = (state = initialState, action) => {
     case ACCOUNT_TRANSFER_FUNDS_SUCCESS:
       return {
         status: 'loaded',
+        data: action.data,
         error: '',
       };
     case ACCOUNT_TRANSFER_FUNDS_ERROR:

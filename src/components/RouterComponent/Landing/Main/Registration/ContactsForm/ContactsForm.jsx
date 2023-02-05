@@ -18,7 +18,7 @@ export const ContactsForm = ({
         </label>
         <input
           className={style.registrationInput}
-          type='number'
+          type='text'
           id='phone'
           name='phoneNumber'
           value={formValues.phoneNumber}

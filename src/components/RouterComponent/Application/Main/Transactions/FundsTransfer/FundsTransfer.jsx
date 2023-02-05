@@ -6,11 +6,14 @@ import style from './FundsTransfer.module.scss';
 import { useSearchParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { userAccountInfoRequestAsync } from '../../../../../../store/accountInfoRequest/accountInfoRequestActions';
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 export const FundsTransfer = ({ accountInfo }) => {
   const dispatch = useDispatch();
   const [searchParams] = useSearchParams();
   const accountId = searchParams.get('id');
+  const transferResponse = useSelector((state) => state.accountTransferFunds);
 
   const [transactionData, setTransactionData] = useState({
     account: '',
@@ -21,6 +24,17 @@ export const FundsTransfer = ({ accountInfo }) => {
     account: false,
     sum: false,
   });
+
+  useEffect(() => {
+    if (transferResponse.status === 'loaded') {
+      setTransactionData({
+        account: '',
+        sum: '',
+      });
+
+      dispatch(userAccountInfoRequestAsync(accountId));
+    }
+  }, [transferResponse]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -61,13 +75,6 @@ export const FundsTransfer = ({ accountInfo }) => {
           amount: transferAmount,
         })
       );
-
-      setTransactionData({
-        account: '',
-        sum: '',
-      });
-
-      dispatch(userAccountInfoRequestAsync(accountId));
     }
   };
 
@@ -92,8 +99,11 @@ export const FundsTransfer = ({ accountInfo }) => {
               onChange={(e) => handleChange(e)}
               value={transactionData.account}
             />
-            {displayErrorMassage.account && (
+            {displayErrorMassage.account |
+            (transferResponse.error === 'Invalid account to') ? (
               <p className={style.authInputError}>Неверный номер счёта</p>
+            ) : (
+              <></>
             )}
           </li>
           <li className={style.transferItem}>

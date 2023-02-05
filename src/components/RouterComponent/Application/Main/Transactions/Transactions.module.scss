@@ -49,15 +49,15 @@
 
 .transactionsBtn:hover {
   cursor: url('../img/cursor.svg'), pointer;
-  background: var(--application-button-hover);
+  background: var(--button-hover-gradient);
 }
 
 .transactionsBtn:focus {
-  background: var(--application-button-focus);
+  background: var(--button-focus-gradient);
 }
 
 .transactionsBtn:active {
-  background: var(--application-button-active);
+  background: var(--blue);
 }
 
 .transactionsGraphs {

@@ -14,21 +14,6 @@
   background: var(--purple);
 }
 
-.logoWrapper {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.logoName {
-  font-family: 'Nunito';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 22px;
-  line-height: 30px;
-  color: var(--white);
-}
-
 .copyrightsMark {
   align-self: flex-end;
   font-family: 'Nunito';
@@ -37,4 +22,9 @@
   font-size: 15px;
   line-height: 20px;
   color: var(--white);
+}
+
+.logoBtn {
+  background-color: transparent;
+  border: none;
 }

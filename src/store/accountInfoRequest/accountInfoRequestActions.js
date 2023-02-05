@@ -1,4 +1,5 @@
 /* eslint-disable max-len */
+import { URL_API } from '../../utils/api';
 import {
   filterDatesByCurrentWeek,
   filterUniqueDateValues,
@@ -30,7 +31,7 @@ export const userAccountInfoRequestAsync = (id) => (dispatch) => {
   if (!token || token === 'undefined') return;
   dispatch(userAccountInfoRequest());
 
-  fetch(`http://localhost:4000/account/${id}`, {
+  fetch(`${URL_API}/account/${id}`, {
     method: 'GET',
     headers: {
       Authorization: `Basic ${token}`,

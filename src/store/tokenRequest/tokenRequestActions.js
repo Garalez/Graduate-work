@@ -1,3 +1,5 @@
+import { URL_API } from '../../utils/api';
+
 export const USER_TOKEN_REQUEST = 'USER_TOKEN_REQUEST';
 export const USER_TOKEN_REQUEST_SUCCESS = 'USER_TOKEN_REQUEST_SUCCESS';
 export const USER_TOKEN_REQUEST_ERROR = 'USER_TOKEN_REQUEST_ERROR';
@@ -21,7 +23,7 @@ export const userTokenRequestAsync = (userName, userPassword) => (dispatch) => {
   if (token && token !== 'undefined') return;
   dispatch(userTokenRequest());
 
-  fetch('http://localhost:4000/login', {
+  fetch(`${URL_API}/login`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

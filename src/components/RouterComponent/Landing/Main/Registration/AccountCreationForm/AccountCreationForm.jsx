@@ -61,15 +61,12 @@ export const AccountCreationForm = ({
             type='checkbox'
             id='customCheckbox'
           />
-          <label
-            className={style.customCheckboxLabel}
-            htmlFor='customCheckbox'
-          />
+          <label className={style.customCheckboxLabel} htmlFor='customCheckbox'>
+            By clicking on the button, I consent to the processing of personal
+            data and agree to the privacy policy
+          </label>
         </div>
-        <p className={style.policyAgreementText}>
-          By clicking on the button, I consent to the processing of personal
-          data and agree to the privacy policy
-        </p>
+        {/* <p className={style.policyAgreementText}></p> */}
       </div>
     </div>
   </form>

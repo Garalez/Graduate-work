@@ -52,7 +52,7 @@
 
 .transferInput:focus {
   outline: none;
-  border: 2px solid var(--active-input-border);
+  border: 2px solid var(--pink);
 }
 
 .transferFormSubmit {
@@ -71,15 +71,15 @@
 
 .transferFormSubmit:hover {
   cursor: url('../../img/cursor.svg'), pointer;
-  background: var(--application-button-hover);
+  background: var(--button-hover-gradient);
 }
 
 .transferFormSubmit:focus {
-  background: var(--application-button-focus);
+  background: var(--button-focus-gradient);
 }
 
 .transferFormSubmit:active {
-  background: var(--application-button-active);
+  background: var(--blue);
 }
 
 .authInputError {

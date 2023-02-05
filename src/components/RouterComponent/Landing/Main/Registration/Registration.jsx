@@ -32,6 +32,11 @@ export const Registration = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    if (name === 'phoneNumber') {
+      const regex = /[^0-9|+]/g;
+      const phoneValue = value.replace(regex, '');
+      return setFormValues({ ...formValues, phoneNumber: phoneValue });
+    }
     setFormValues({ ...formValues, [name]: value });
   };
 
@@ -51,6 +56,7 @@ export const Registration = () => {
     e.preventDefault();
     const phoneRegex = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/;
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+    console.log(phoneRegex.test(formValues.phoneNumber));
     if (
       phoneRegex.test(formValues.phoneNumber) &&
       emailRegex.test(formValues.eMail)
@@ -106,21 +112,21 @@ export const Registration = () => {
                 />
                 {activeTab.firstTab && (
                   <FullNameForm
-                    FullNameFormSubmit={fullNameFormSubmit}
+                    fullNameFormSubmit={fullNameFormSubmit}
                     formValues={formValues}
                     handleChange={handleChange}
                   />
                 )}
                 {activeTab.secondTab && (
                   <ContactsForm
-                    ContactsFormSubmit={contactsFormSubmit}
+                    contactsFormSubmit={contactsFormSubmit}
                     formValues={formValues}
                     handleChange={handleChange}
                   />
                 )}
                 {activeTab.thirdTab && (
                   <AccountCreationForm
-                    AccountCreationFormSubmit={accountCreationFormSubmit}
+                    accountCreationFormSubmit={accountCreationFormSubmit}
                     formValues={formValues}
                     handleChange={handleChange}
                   />

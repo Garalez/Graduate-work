@@ -104,7 +104,7 @@
 }
 
 .currencyExchangeSelectItem:hover {
-  background-color: var(--social-fill-hover);
+  background-color: var(--pink);
   color: var(--white);
 }
 
@@ -127,7 +127,7 @@
 }
 
 .currencyExchangeInput:focus {
-  outline: 2px solid var(--social-fill-hover);
+  outline: 2px solid var(--pink);
 }
 
 .currencyExchangeSubmitWrapper {
@@ -151,13 +151,13 @@
 
 .currencyExchangeSubmit:hover {
   cursor: url('../../img/cursor.svg'), pointer;
-  background: var(--application-button-hover);
+  background: var(--button-hover-gradient);
 }
 
 .currencyExchangeSubmit:focus {
-  background: var(--application-button-focus);
+  background: var(--button-focus-gradient);
 }
 
 .currencyExchangeSubmit:active {
-  background: var(--application-button-active);
+  background: var(--blue);
 }
