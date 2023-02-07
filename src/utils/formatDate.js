@@ -63,20 +63,30 @@ export const filterDatesByCurrentWeek = (arr) => {
   };
 };
 
-export const filterUniqueDateValues = (arr, year) => {
+export const monthlyIncome = (arr) => {
   const tmpArray = [];
+  const now = new Date();
+  const numDay = now.getDate();
+  const halfYear = new Date().setDate(numDay - 183);
 
-  const findUniqueDateValues = (item) => {
+  const halfYearTransactions = arr.transactions.filter(
+    (elem) => new Date(elem.date).getTime() >= +halfYear
+  );
+
+  const monthlyIncomeData = {};
+
+  halfYearTransactions.forEach((item) => {
     const date = new Date(item.date);
-    if (
-      date.getFullYear() === +year &&
-      tmpArray.indexOf(date.getMonth()) === -1
-    ) {
+    if (tmpArray.indexOf(date.getMonth()) === -1) {
       tmpArray.push(date.getMonth());
-      return true;
+      monthlyIncomeData[formatDateToMonths(date)] = 0;
     }
-    return false;
-  };
+    if (arr.account === item.to) {
+      monthlyIncomeData[formatDateToMonths(date)] += item.amount;
+    } else {
+      monthlyIncomeData[formatDateToMonths(date)] -= item.amount;
+    }
+  });
 
-  return arr.filter((item) => findUniqueDateValues(item));
+  return monthlyIncomeData;
 };

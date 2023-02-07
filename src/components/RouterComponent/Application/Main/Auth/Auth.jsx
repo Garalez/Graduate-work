@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { userTokenRequestAsync } from '../../../../../store/tokenRequest/tokenRequestActions';
+import { Preloader } from '../../../../../UI/Preloader/Preloader';
 import style from './Auth.module.scss';
 
 export const Auth = () => {
@@ -115,10 +116,14 @@ export const Auth = () => {
               <button className={style.authFormSubmit} type='submit'>
                 Войти
               </button>
-              {userData.status === 'rejected' && (
+              {userData.status === 'loading' ? (
+                  <Preloader color={'white'} />
+              ) : userData.status === 'rejected' ? (
                 <p className={style.authInputError}>
                   Неверные данные пользователя
                 </p>
+              ) : (
+                <></>
               )}
             </div>
           </form>

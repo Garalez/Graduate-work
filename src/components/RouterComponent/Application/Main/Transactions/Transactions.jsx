@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import style from './Transactions.module.scss';
 import { ReactComponent as BackArrow } from './img/backArrow.svg';
 import LineGraph from './LineGraph';
@@ -7,9 +8,9 @@ import FundsTransfer from './FundsTransfer';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { userAccountInfoRequestAsync } from
-  '../../../../../store/accountInfoRequest/accountInfoRequestActions';
+import { userAccountInfoRequestAsync } from '../../../../../store/accountInfoRequest/accountInfoRequestActions';
 import { useSelector } from 'react-redux';
+import { Preloader } from '../../../../../UI/Preloader/Preloader';
 
 export const Transactions = () => {
   const navigate = useNavigate();
@@ -17,14 +18,13 @@ export const Transactions = () => {
   const [searchParams] = useSearchParams();
   const accountId = searchParams.get('id');
   const accountInfo = useSelector((state) => state.userAccountInfo);
-
   useEffect(() => {
     dispatch(userAccountInfoRequestAsync(accountId));
   }, []);
 
   return (
     <section className={style.transactions}>
-      {Object.keys(accountInfo.accountInfo).length !== 0 && (
+      {accountInfo.status === 'loaded' ? (
         <>
           <div className={style.transactionsTitleWrapper}>
             <h1
@@ -44,8 +44,12 @@ export const Transactions = () => {
             </div>
             <Table accountInfo={accountInfo.accountInfo} />
           </div>
-          <FundsTransfer accountInfo={accountInfo.accountInfo} />
         </>
+      ) : (
+        <Preloader color='white' />
+      )}
+      {accountInfo.accountInfo.account && (
+        <FundsTransfer accountInfo={accountInfo.accountInfo} />
       )}
     </section>
   );

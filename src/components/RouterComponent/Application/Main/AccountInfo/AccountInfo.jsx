@@ -9,6 +9,7 @@ import MyAccounts from './MyAccounts';
 import CustomSelect from './CustomSelect';
 import { useOutsideClick } from '../../../../../hooks/useOutsideClick';
 import { createNewUserAccount } from '../../../../../utils/createNewUserAccount';
+import { Preloader } from '../../../../../UI/Preloader/Preloader';
 
 export const AccountInfo = () => {
   const dispatch = useDispatch();
@@ -21,7 +22,9 @@ export const AccountInfo = () => {
     const sortSelect = e.target.outerText;
 
     userAccounts.accounts.sort((a, b) => {
-      if (sortSelect === 'Номеру счёта') return +a.account > +b.account ? -1 : 1;
+      if (sortSelect === 'Номеру счёта') {
+        return +a.account > +b.account ? -1 : 1;
+      }
       if (sortSelect === 'Балансу') return a.balance > b.balance ? -1 : 1;
       if (sortSelect === 'Дате') {
         return new Date(a.date).getTime() > new Date(b.date).getTime() ? -1 : 1;
@@ -32,7 +35,9 @@ export const AccountInfo = () => {
         const secondTransactionDateToCompare =
           b.transactions.length > 0 ? b.transactions[0].date : 0;
         return new Date(firstTransactionDateToCompare).getTime() >
-          new Date(secondTransactionDateToCompare).getTime() ? -1 : 1;
+          new Date(secondTransactionDateToCompare).getTime() ?
+          -1 :
+          1;
       }
     });
 
@@ -56,7 +61,9 @@ export const AccountInfo = () => {
     dispatch(userAccountsRequestAsync());
   }, []);
 
-  return (
+  return userAccounts.status === 'loading' ? (
+    <div style={{ height: 'calc(100vh - 207px)' }}><Preloader color='white' /></div>
+  ) : (
     <section className={style.account}>
       <div className={style.accountWrapper}>
         <div className={style.accountTitleWrapper}>

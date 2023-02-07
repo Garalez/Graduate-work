@@ -14,7 +14,7 @@ export const MyAccounts = ({ account }) => {
       }
     >
       <p className={style.accountNumber}>{account.account}</p>
-      <p className={style.accountAmount}>{`${account.balance} ₽`}</p>
+      <p className={style.accountAmount}>{`${account.balance.toFixed(2)} ₽`}</p>
       <div className={style.accountInfo}>
         <div className={style.accountInfoTextWrapper}>
           <p className={style.accountInfoText}>открыт</p>

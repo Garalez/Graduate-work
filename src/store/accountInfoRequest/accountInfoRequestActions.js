@@ -2,7 +2,7 @@
 import { URL_API } from '../../utils/api';
 import {
   filterDatesByCurrentWeek,
-  filterUniqueDateValues,
+  monthlyIncome,
 } from '../../utils/formatDate';
 import { sortArrayByDate } from '../../utils/sortArrayByDate';
 
@@ -42,7 +42,7 @@ export const userAccountInfoRequestAsync = (id) => (dispatch) => {
       const lastNineTransactions = [...data.payload.transactions.slice(-9)];
 
       data.payload.transactions = {
-        lineGraph: filterUniqueDateValues(data.payload.transactions, '2022'),
+        lineGraph: monthlyIncome(data.payload),
         historyTable: sortArrayByDate(lastNineTransactions),
         statisticGraph: filterDatesByCurrentWeek(data.payload),
       };

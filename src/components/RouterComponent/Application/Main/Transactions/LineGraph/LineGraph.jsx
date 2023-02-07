@@ -9,7 +9,6 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import PropTypes from 'prop-types';
-import { formatDateToMonths } from '../../../../../../utils/formatDate';
 
 export const LineGraph = ({ accountInfo }) => {
   ChartJS.register(
@@ -49,7 +48,12 @@ export const LineGraph = ({ accountInfo }) => {
             weight: 400,
             size: 15,
           },
-          callback: (value) => ` ${value} ₽ `,
+          callback: (value) => {
+            const regex = /\./g;
+            return ` ${
+              value.toString().match(regex) ? value.toFixed(2) : value
+            } ₽ `;
+          },
         },
         grid: {
           color: '#210B36',
@@ -104,10 +108,12 @@ export const LineGraph = ({ accountInfo }) => {
   const data = {
     datasets: [
       {
-        data: accountInfo.transactions.lineGraph.map((elem) => ({
-          x: formatDateToMonths(elem.date),
-          y: elem.amount,
-        })),
+        data: Object.entries(accountInfo.transactions.lineGraph).map(
+          ([key, value]) => ({
+            x: key,
+            y: value,
+          })
+        ),
         borderColor: '#B865D6',
         backgroundColor: '#392350',
         pointBackgroundColor: '#FFFFFF',
@@ -129,7 +135,7 @@ export const LineGraph = ({ accountInfo }) => {
         <div className={style.lineGraphOptions}>
           <div className={style.lineGraphDynamic}>
             <p className={style.lineGraphDynamicText}>Динамика</p>
-            <p className={style.lineGraphDynamicYear}>2022</p>
+            <p className={style.lineGraphDynamicYear}>2022 - 2023</p>
           </div>
           <p className={style.lineGraphDynamicDateSelect}>Год</p>
         </div>
