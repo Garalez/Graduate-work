@@ -1,7 +1,6 @@
 {
   "name": "graduate",
   "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.6",
     "@testing-library/jest-dom": "^5.16.5",
@@ -27,8 +26,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "set PORT=4000 && react-scripts start",
     "build": "react-scripts build",
+    "serve": "serve -s build -l 4000",
     "eject": "react-scripts eject",
     "comp": "hygen create component"
   },

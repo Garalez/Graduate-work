@@ -5,7 +5,7 @@ import { ReactComponent as DownArrow } from '../img/downArrow.svg';
 import { useEffect, useState } from 'react';
 
 export const CurrencyExchangeInfo = () => {
-  const webSocket = new WebSocket('ws://localhost:4000/currency-feed');
+  const webSocket = new WebSocket('ws://localhost:3000/currency-feed');
   const [currencyFeed, setCurrencyFeed] = useState([]);
 
   const webSocketChannel = (e) => {

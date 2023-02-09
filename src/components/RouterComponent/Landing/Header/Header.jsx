@@ -1,3 +1,4 @@
+// import { useNavigate } from 'react-router-dom';
 import useWindowDimensions from '../../../../hooks/screenViewPort';
 import BurgerMenu from './BurgerMenu';
 import style from './Header.module.scss';
@@ -6,15 +7,18 @@ import Menu from './Menu';
 
 export const Header = () => {
   const { width } = useWindowDimensions();
+  // const navigate = useNavigate();
 
   return (
     <header>
       <div className={style.header}>
         <div className={style.headerWrapper}>
-          <div className={style.logoWrapper}>
+          <a
+            href='/application'
+            className={style.logoWrapper}
+          >
             <Logo className={style.logo} />
-            <p className={style.logoName}>C-Money</p>
-          </div>
+          </a>
           {width <= 768 ? <BurgerMenu /> : <Menu />}
         </div>
       </div>

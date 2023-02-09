@@ -201,6 +201,14 @@
   display: none;
 }
 
+.active {
+  cursor: pointer;
+}
+
+.inactive {
+  cursor: default;
+}
+
 @media (max-width: 1024px) {
   .registrationSection {
     padding: 70px 0;

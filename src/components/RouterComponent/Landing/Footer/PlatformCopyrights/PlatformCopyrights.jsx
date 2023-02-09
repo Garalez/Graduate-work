@@ -3,7 +3,8 @@ import { ReactComponent as PlatformLogo } from './img/PlatformLogo.svg';
 
 export const PlatformCopyrights = () => (
   <div className={style.copyrightsLogoWrapper}>
-    <PlatformLogo className={style.copyrightsLogo} />
-    <p className={style.copyrightsPlatformName}>C-Money</p>
+    <a href='/application'>
+      <PlatformLogo />
+    </a>
   </div>
 );

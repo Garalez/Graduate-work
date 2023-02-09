@@ -23,7 +23,10 @@ export const RegistrationTabs = ({
     </li>
     <li className={style.registrationTabsItem}>
       <button
-        className={style.registrationTabsBtn}
+        className={`${style.registrationTabsBtn} ${
+          isTabValid.firstTabValid ? style.active : style.inactive
+        }`}
+        disabled={!isTabValid.firstTabValid}
         onClick={() => {
           if (isTabValid.firstTabValid) {
             switchActiveTab('secondTab');
@@ -35,7 +38,10 @@ export const RegistrationTabs = ({
     </li>
     <li className={style.registrationTabsItem}>
       <button
-        className={style.registrationTabsBtn}
+        className={`${style.registrationTabsBtn} ${
+          isTabValid.secondTabIsValid ? style.active : style.inactive
+        }`}
+        disabled={!isTabValid.secondTabIsValid}
         onClick={() => {
           if (isTabValid.secondTabIsValid) {
             switchActiveTab('thirdTab');

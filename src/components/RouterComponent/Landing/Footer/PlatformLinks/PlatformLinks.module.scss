@@ -19,6 +19,12 @@
   color: var(--pink);
 }
 
+@media (min-width: 1440px) {
+  .linksList {
+    margin-right: 70px;
+  }
+}
+
 @media (max-width: 1024px) {
   .linksList {
     margin-right: 2.9vw;

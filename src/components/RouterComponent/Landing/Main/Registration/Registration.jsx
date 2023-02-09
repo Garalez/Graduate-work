@@ -56,7 +56,6 @@ export const Registration = () => {
     e.preventDefault();
     const phoneRegex = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/;
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-    console.log(phoneRegex.test(formValues.phoneNumber));
     if (
       phoneRegex.test(formValues.phoneNumber) &&
       emailRegex.test(formValues.eMail)

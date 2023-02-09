@@ -16,7 +16,9 @@ export const PlatformInfo = () => {
           Удобная платформа для хранения счётов, перевода валюты и покупки
           криптовалюты
         </p>
-        <button className={style.registrationBtn}>Зарегистрироваться</button>
+        <a className={style.registrationLink} href='#registration'>
+          Зарегистрироваться
+        </a>
       </div>
       <div className={style.imageWrapper}>
         <img

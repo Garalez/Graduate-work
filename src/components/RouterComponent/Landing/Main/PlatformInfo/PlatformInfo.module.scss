@@ -33,7 +33,7 @@
   line-height: 130%;
 }
 
-.registrationBtn {
+.registrationLink {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,16 +50,19 @@
   line-height: 25px;
 }
 
-.registrationBtn:hover {
+.registrationLink:hover {
   background: var(--main-gradient-hover);
+  color: var(--white);
 }
 
-.registrationBtn:focus {
+.registrationLink:focus {
   background: var(--main-gradient-focus);
+  color: var(--white);
 }
 
-.registrationBtn:disabled {
+.registrationLink:disabled {
   background: var(--grey);
+  color: var(--white);
   cursor: initial;
 }
 
@@ -131,7 +134,7 @@
     align-items: center;
   }
 
-  .registrationBtn {
+  .registrationLink {
     width: 49.5vw;
     font-size: 2.35vw;
   }
@@ -157,7 +160,7 @@
     margin-bottom: 7vw;
   }
 
-  .registrationBtn {
+  .registrationLink {
     width: 56.5vw;
     font-size: 3vw;
   }
@@ -214,7 +217,7 @@
     border-radius: 0px 0px 0px 80px;
   }
 
-  .registrationBtn {  
+  .registrationLink {  
     width: 290px;
     height: 50px;
     font-size: 16px;
