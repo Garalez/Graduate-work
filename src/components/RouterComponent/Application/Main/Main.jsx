@@ -26,11 +26,13 @@ export const Main = () => {
           <Route path='/transactions' element={<Transactions />} />
           <Route path='/exchange' element={<CurrencyExchange />} />
         </Routes>
-        <div className={style.copyrightsWrapper}>
-          <button className={style.logoBtn} onClick={() => navigate('/')}>
-            <Logo className={style.logo} />
-          </button>
-          <p className={style.copyrightsMark}>© C-Money, 2022</p>
+        <div className={style.footer}>
+          <div className={style.copyrightsWrapper}>
+            <a href='/'>
+              <Logo className={style.logo} />
+            </a>
+            <p className={style.copyrightsMark}>© C-Money, 2022</p>
+          </div>
         </div>
       </div>
     </main>

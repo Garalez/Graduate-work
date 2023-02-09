@@ -18,10 +18,12 @@ export const BurgerMenu = () => {
         </button>
       ) : (
         <div className={style.burgerWrapper}>
-          <div className={style.logoWrapper}>
+          <a
+            href='/application'
+            className={style.logoWrapper}
+          >
             <Logo className={style.logo} />
-            <p className={style.logoName}>C-Money</p>
-          </div>
+          </a>
           <nav className={style.navigate}>
             <ul className={style.list}>
               <li className={style.item}>

@@ -8,12 +8,9 @@
 }
 
 .logoWrapper {
+  display: block;
   margin-bottom: 36px;
   padding-left: 94px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--purple);
 }
 
 .list {
