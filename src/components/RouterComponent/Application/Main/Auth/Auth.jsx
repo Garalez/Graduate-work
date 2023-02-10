@@ -1,22 +1,14 @@
 /* eslint-disable max-len */
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { userTokenRequestAsync } from '../../../../../store/tokenRequest/tokenRequestActions';
 import { Preloader } from '../../../../../UI/Preloader/Preloader';
 import style from './Auth.module.scss';
 
 export const Auth = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const userData = useSelector((state) => state.userToken);
-
-  useEffect(() => {
-    if (userData.status === 'loaded') {
-      navigate('/application/accounts');
-    }
-  }, [userData.status]);
 
   const [userAccountData, setUserAccountData] = useState({
     login: '',

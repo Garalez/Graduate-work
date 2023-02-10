@@ -6,16 +6,18 @@ import AccountInfo from './AccountInfo';
 import Transactions from './Transactions';
 import CurrencyExchange from './CurrencyExchange';
 import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 export const Main = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem('bearer');
+  const userData = useSelector((state) => state.userToken);
 
   useEffect(() => {
     !!token && token !== 'undefined' ?
       navigate('/application/accounts') :
       navigate('/application/auth');
-  }, []);
+  }, [userData.token]);
 
   return (
     <main>

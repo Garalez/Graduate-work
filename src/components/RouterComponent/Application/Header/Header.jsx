@@ -12,7 +12,7 @@ export const Header = () => {
           <a href='/'>
             <Logo className={style.logo} />
           </a>
-          {!!token & (token !== 'undefined') ? <Navigation /> : <></>}
+          {!!token & token !== 'undefined' ? <Navigation /> : <></>}
         </div>
       </div>
     </header>

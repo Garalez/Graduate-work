@@ -10,21 +10,17 @@ import CustomSelect from './CustomSelect';
 import { useOutsideClick } from '../../../../../hooks/useOutsideClick';
 import { createNewUserAccount } from '../../../../../utils/createNewUserAccount';
 import { Preloader } from '../../../../../UI/Preloader/Preloader';
-import { useNavigate } from 'react-router-dom';
 
 export const AccountInfo = () => {
   const dispatch = useDispatch();
   const userAccounts = useSelector((state) => state.userAccounts);
-  const navigate = useNavigate();
-  console.log('userAccounts: ', userAccounts);
   const [toggleSelect, setToggleSelect] = useState(false);
   const [selectValue, setSelectValue] = useState('дате');
   const domNode = useOutsideClick(() => setToggleSelect(false));
 
   useEffect(() => {
-    if (userAccounts.status === 'rejected') return navigate('/application/auth');
     dispatch(userAccountsRequestAsync());
-  }, [userAccounts.error]);
+  }, []);
 
   const userAccountsSort = (e) => {
     const sortSelect = e.target.outerText;
