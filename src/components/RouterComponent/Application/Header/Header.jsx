@@ -1,9 +1,16 @@
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import style from './Header.module.scss';
 import { ReactComponent as Logo } from './img/logo.svg';
 import Navigation from './Navigation';
 
 export const Header = () => {
-  const token = localStorage.getItem('bearer');
+  let token = localStorage.getItem('bearer');
+  const stateToken = useSelector(state => state.userToken);
+
+  useEffect(() => {
+    token = localStorage.getItem('bearer');
+  }, [stateToken]);
 
   return (
     <header>
