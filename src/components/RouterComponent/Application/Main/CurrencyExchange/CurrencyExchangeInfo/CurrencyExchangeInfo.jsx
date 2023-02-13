@@ -1,19 +1,20 @@
 /* eslint-disable max-len */
 import style from './CurrencyExchangeInfo.module.scss';
-import { ReactComponent as UpArrow } from '../img/upArrow.svg';
-import { ReactComponent as DownArrow } from '../img/downArrow.svg';
 import { useEffect, useState } from 'react';
+import { ReactComponent as UpArrowSvg } from '../img/upArrow.svg';
+import { ReactComponent as DownArrowSvg } from '../img/downArrow.svg';
 
 export const CurrencyExchangeInfo = () => {
   const webSocket = new WebSocket('ws://localhost:3000/currency-feed');
+
   const [currencyFeed, setCurrencyFeed] = useState([]);
 
   const webSocketChannel = (e) => {
     setCurrencyFeed((state) => {
       const newCurrencyFeedArr = [...state, JSON.parse(e.data)];
-      if (newCurrencyFeedArr.length > 7) {
-        newCurrencyFeedArr.splice(0, 1);
-      }
+
+      if (newCurrencyFeedArr.length > 7) newCurrencyFeedArr.splice(0, 1);
+
       return newCurrencyFeedArr;
     });
   };
@@ -40,7 +41,7 @@ export const CurrencyExchangeInfo = () => {
                 {`${item.change === 1 ? '+' : '-'}${item.rate}`}
               </p>
               <div className={style.rateRatioImgWrapper}>
-                {item.change === 1 ? <UpArrow /> : <DownArrow />}
+                {item.change === 1 ? <UpArrowSvg /> : <DownArrowSvg />}
               </div>
             </div>
           </li>

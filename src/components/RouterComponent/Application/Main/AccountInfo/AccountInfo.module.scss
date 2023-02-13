@@ -232,3 +232,7 @@
   left: 0;
   background: var(--purple);
 }
+
+.preloaderWrapper {
+  height: calc(100vh - 207px);
+}

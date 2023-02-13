@@ -1,10 +1,9 @@
 /* eslint-disable max-len */
+import style from './Auth.module.scss';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { userTokenRequestAsync } from '../../../../../store/tokenRequest/tokenRequestActions';
 import { Preloader } from '../../../../../UI/Preloader/Preloader';
-import style from './Auth.module.scss';
 
 export const Auth = () => {
   const dispatch = useDispatch();
@@ -23,22 +22,23 @@ export const Auth = () => {
   const inputValidation = () => {
     setDisplayErrorMassage({
       login: !!(userAccountData.login && userAccountData.login.length <= 5),
-      password: !!(
-        userAccountData.password && userAccountData.password.length <= 5
-      ),
+      password: !!(userAccountData.password && userAccountData.password.length <= 5),
     });
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    const regex = /[^a-zA-Z]/;
+    const regexNonWord = /[^a-zA-Z]/;
+
     setUserAccountData({
       ...userAccountData,
-      [name]: value.replace(regex, ''),
+      [name]: value.replace(regexNonWord, ''),
     });
+
     if (e.target.name === 'login' && value.length >= 6) {
       setDisplayErrorMassage({ ...displayErrorMassage, login: false });
     }
+
     if (e.target.name === 'password' && value.length >= 6) {
       setDisplayErrorMassage({ ...displayErrorMassage, password: false });
     }
@@ -46,6 +46,7 @@ export const Auth = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
+
     if (
       userAccountData.login.length >= 6 &&
       userAccountData.password.length >= 6

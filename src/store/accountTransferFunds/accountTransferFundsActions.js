@@ -1,5 +1,4 @@
 /* eslint-disable max-len */
-
 import { URL_API } from '../../utils/api';
 
 export const ACCOUNT_TRANSFER_FUNDS = 'ACCOUNT_TRANSFER_FUNDS';
@@ -26,6 +25,7 @@ export const accountTransferFundsRequestAsync =
       const token = localStorage.getItem('bearer');
 
       if (!token || token === 'undefined') return;
+
       dispatch(accountTransferFundsRequest());
 
       const transferData = {

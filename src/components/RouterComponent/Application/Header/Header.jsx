@@ -1,7 +1,7 @@
+import style from './Header.module.scss';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import style from './Header.module.scss';
-import { ReactComponent as Logo } from './img/logo.svg';
+import { ReactComponent as LogoSvg } from './img/logo.svg';
 import Navigation from './Navigation';
 
 export const Header = () => {
@@ -17,7 +17,7 @@ export const Header = () => {
       <div className={style.headerWrapper}>
         <div className={style.contentWrapper}>
           <a href='/'>
-            <Logo className={style.logo} />
+            <LogoSvg className={style.logo} />
           </a>
           {!!token & token !== 'undefined' ? <Navigation /> : <></>}
         </div>

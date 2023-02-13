@@ -1,11 +1,11 @@
 import style from '../Registration.module.scss';
 import PropTypes from 'prop-types';
-import { ReactComponent as ActiveTab1 } from '../img/activeTab1.svg';
-import { ReactComponent as ActiveTab2 } from '../img/activeTab2.svg';
-import { ReactComponent as ActiveTab3 } from '../img/activeTab3.svg';
-import { ReactComponent as InactiveTab1 } from '../img/inactiveTab1.svg';
-import { ReactComponent as InactiveTab2 } from '../img/inactiveTab2.svg';
-import { ReactComponent as InactiveTab3 } from '../img/inactiveTab3.svg';
+import { ReactComponent as ActiveTab1Svg } from '../img/activeTab1.svg';
+import { ReactComponent as ActiveTab2Svg } from '../img/activeTab2.svg';
+import { ReactComponent as ActiveTab3Svg } from '../img/activeTab3.svg';
+import { ReactComponent as InactiveTab1Svg } from '../img/inactiveTab1.svg';
+import { ReactComponent as InactiveTab2Svg } from '../img/inactiveTab2.svg';
+import { ReactComponent as InactiveTab3Svg } from '../img/inactiveTab3.svg';
 
 export const RegistrationTabs = ({
   switchActiveTab,
@@ -18,7 +18,7 @@ export const RegistrationTabs = ({
         className={style.registrationTabsBtn}
         onClick={() => switchActiveTab('firstTab')}
       >
-        {activeTab.firstTab ? <ActiveTab1 /> : <InactiveTab1 />}
+        {activeTab.firstTab ? <ActiveTab1Svg /> : <InactiveTab1Svg />}
       </button>
     </li>
     <li className={style.registrationTabsItem}>
@@ -33,7 +33,7 @@ export const RegistrationTabs = ({
           }
         }}
       >
-        {activeTab.secondTab ? <ActiveTab2 /> : <InactiveTab2 />}
+        {activeTab.secondTab ? <ActiveTab2Svg /> : <InactiveTab2Svg />}
       </button>
     </li>
     <li className={style.registrationTabsItem}>
@@ -48,7 +48,7 @@ export const RegistrationTabs = ({
           }
         }}
       >
-        {activeTab.thirdTab ? <ActiveTab3 /> : <InactiveTab3 />}
+        {activeTab.thirdTab ? <ActiveTab3Svg /> : <InactiveTab3Svg />}
       </button>
     </li>
   </ul>

@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
 import PuffLoader from 'react-spinners/PuffLoader';
+import PropTypes from 'prop-types';
 import style from './Preloader.module.scss';
 
 export const Preloader = ({ color }) => (

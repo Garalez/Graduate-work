@@ -1,10 +1,10 @@
 /* eslint-disable max-len */
+import style from './CurrencyExchange.module.scss';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { currencyRequestAsync } from '../../../../../store/currencyRequest/currencyRequestActions';
 import { currencyTypeRequestAsync } from '../../../../../store/currencyTypeRequest/currencyTypeRequestActions';
 import { Preloader } from '../../../../../UI/Preloader/Preloader';
-import style from './CurrencyExchange.module.scss';
 import CurrencyExchangeForm from './CurrencyExchangeForm';
 import CurrencyExchangeInfo from './CurrencyExchangeInfo';
 import MyCurrencies from './MyCurrencies';

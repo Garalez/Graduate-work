@@ -2,8 +2,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { userTokenReducer } from './tokenRequest/tokenRequestReducer';
 import { userAccountsReducer } from './accountsRequest/accountsRequestReducer';
-import { userAccountInfoReducer } from
-  './accountInfoRequest/accountInfoRequestReducer';
+import { userAccountInfoReducer } from './accountInfoRequest/accountInfoRequestReducer';
 import { accountTransferFundsReducer } from './accountTransferFunds/accountTransferFundsReducer';
 import { currencyTypeRequestReducer } from './currencyTypeRequest/currencyTypeRequestReducer';
 import { currencyRequestReducer } from './currencyRequest/currencyRequestReducer';

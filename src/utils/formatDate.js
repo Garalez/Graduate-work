@@ -1,15 +1,16 @@
-export const formatDate = (date) => {
+export const formatDateToNumeric = (date) => {
   const options = {
     year: 'numeric',
     month: 'numeric',
     day: 'numeric',
   };
+
   return new Intl.DateTimeFormat('ru', options).format(new Date(date));
 };
 
 const monthsRegex = /[\w | г.]/g;
 
-export const formatDateToMonths = (date) => {
+const formatDateToMonths = (date) => {
   let string = new Intl.DateTimeFormat('ru', { dateStyle: 'medium' })
     .format(new Date(date))
     .replace(monthsRegex, '');
@@ -32,6 +33,7 @@ const sumOfPeriod = (transactions, account) => {
       expenses += transactions[i].amount;
     }
   }
+
   return { income: income.toFixed(2), expenses: expenses.toFixed(2) };
 };
 
@@ -40,9 +42,13 @@ export const filterDatesByCurrentWeek = (arr) => {
   const now = new Date();
   const numDay = now.getDate();
 
-  const week = new Date().setDate(numDay - 7);
-  const month = new Date().setDate(numDay - 30);
-  const year = new Date().setDate(numDay - 365);
+  const weekDaysCount = 7;
+  const monthDaysCount = 30;
+  const yearDaysCount = 365;
+
+  const week = new Date().setDate(numDay - weekDaysCount);
+  const month = new Date().setDate(numDay - monthDaysCount);
+  const year = new Date().setDate(numDay - yearDaysCount);
 
   const yearTransactions = transactions.filter(
     (elem) => new Date(elem.date).getTime() >= +year
@@ -67,7 +73,8 @@ export const monthlyIncome = (arr) => {
   const tmpArray = [];
   const now = new Date();
   const numDay = now.getDate();
-  const halfYear = new Date().setDate(numDay - 183);
+  const halfYearDaysCount = 183;
+  const halfYear = new Date().setDate(numDay - halfYearDaysCount);
 
   const halfYearTransactions = arr.transactions.filter(
     (elem) => new Date(elem.date).getTime() >= +halfYear
@@ -77,10 +84,12 @@ export const monthlyIncome = (arr) => {
 
   halfYearTransactions.forEach((item) => {
     const date = new Date(item.date);
+
     if (tmpArray.indexOf(date.getMonth()) === -1) {
       tmpArray.push(date.getMonth());
       monthlyIncomeData[formatDateToMonths(date)] = 0;
     }
+
     if (arr.account === item.to) {
       monthlyIncomeData[formatDateToMonths(date)] += item.amount;
     } else {

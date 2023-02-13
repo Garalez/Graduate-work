@@ -1,6 +1,6 @@
 import style from './Table.module.scss';
 import PropTypes from 'prop-types';
-import { formatDate } from '../../../../../../utils/formatDate';
+import { formatDateToNumeric } from '../../../../../../utils/formatDate';
 
 export const Table = ({ accountInfo }) => (
   <section className={style.historyWrapper}>
@@ -38,7 +38,7 @@ export const Table = ({ accountInfo }) => (
                   </p>
                 </td>
                 <td className={style.historyTableCell}>
-                  {formatDate(item.date)}
+                  {formatDateToNumeric(item.date)}
                 </td>
               </tr>
             ))}

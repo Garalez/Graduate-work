@@ -2,9 +2,9 @@
 import style from './CurrencyExchangeForm.module.scss';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useOutsideClick } from '../../../../../../hooks/useOutsideClick';
 import { ReactComponent as SelectArrow } from '../img/customSelectArrow.svg';
-import { useDispatch } from 'react-redux';
 import { currencyRequestAsync } from '../../../../../../store/currencyRequest/currencyRequestActions';
 import { currencyBuyRequestAsync } from '../../../../../../store/buyCurrency/buyCurrencyActions';
 
@@ -19,8 +19,8 @@ export const CurrencyExchangeForm = ({ currencyTypes }) => {
 
   const [transferSum, setTransferSum] = useState('');
 
-  const selectRefFrom = useOutsideClick(() => setOpenSelectFrom(false));
-  const selectRefTo = useOutsideClick(() => setOpenSelectTo(false));
+  const selectRefFromRef = useOutsideClick(() => setOpenSelectFrom(false));
+  const selectRefToRef = useOutsideClick(() => setOpenSelectTo(false));
 
   const handleChange = (e) => {
     const regex = /[^\d.]/g;
@@ -44,7 +44,7 @@ export const CurrencyExchangeForm = ({ currencyTypes }) => {
       >
         <ul className={style.currencyExchangeList}>
           <li
-            ref={selectRefFrom}
+            ref={selectRefFromRef}
             onClick={() => setOpenSelectFrom(!openSelectFrom)}
             className={style.currencyExchangeItem}
           >
@@ -70,7 +70,7 @@ export const CurrencyExchangeForm = ({ currencyTypes }) => {
             )}
           </li>
           <li
-            ref={selectRefTo}
+            ref={selectRefToRef}
             className={style.currencyExchangeItem}
             onClick={() => setOpenSelectTo(!openSelectTo)}
           >

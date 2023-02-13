@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-
+import { addCurrencySign } from '../../utils/addCurrencySigns';
 import { URL_API } from '../../utils/api';
 
 export const CURRENCY_REQUEST = 'CURRENCY_REQUEST';
@@ -20,40 +20,11 @@ export const currencyRequestError = (error) => ({
   error,
 });
 
-const addCurrencySign = (obj) => {
-  const currencySign = {
-    AUD: '$',
-    BTC: '₿',
-    BYR: 'Br',
-    CAD: '$',
-    CHF: 'Fr',
-    CNH: '¥',
-    EUR: '€',
-    GBP: '£',
-    HKD: '$',
-    JPY: '¥',
-    NZD: '$',
-    RUB: '₽',
-    UAH: '₴',
-    USD: '$',
-  };
-
-  return Object.keys(obj).map((currency) => {
-    Object.keys(currencySign).map((sign) => {
-      if (currency === sign) {
-        return (obj[currency].amount = `${obj[currency].amount.toFixed(2)} ${
-          currencySign[sign]
-        }`);
-      }
-    });
-    return obj[currency];
-  });
-};
-
 export const currencyRequestAsync = () => (dispatch) => {
   const token = localStorage.getItem('bearer');
 
   if (!token || token === 'undefined') return;
+
   dispatch(currencyRequest());
 
   fetch(`${URL_API}/currencies`, {

@@ -1,16 +1,15 @@
 /* eslint-disable max-len */
 import style from './Transactions.module.scss';
 import { ReactComponent as BackArrow } from './img/backArrow.svg';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { userAccountInfoRequestAsync } from '../../../../../store/accountInfoRequest/accountInfoRequestActions';
+import { Preloader } from '../../../../../UI/Preloader/Preloader';
 import LineGraph from './LineGraph';
 import DoughnutGraph from './DoughnutGraph';
 import Table from './Table';
 import FundsTransfer from './FundsTransfer';
-import { useNavigate, useSearchParams } from 'react-router-dom';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { userAccountInfoRequestAsync } from '../../../../../store/accountInfoRequest/accountInfoRequestActions';
-import { useSelector } from 'react-redux';
-import { Preloader } from '../../../../../UI/Preloader/Preloader';
 
 export const Transactions = () => {
   const navigate = useNavigate();
@@ -18,6 +17,7 @@ export const Transactions = () => {
   const [searchParams] = useSearchParams();
   const accountId = searchParams.get('id');
   const accountInfo = useSelector((state) => state.userAccountInfo);
+
   useEffect(() => {
     dispatch(userAccountInfoRequestAsync(accountId));
   }, []);

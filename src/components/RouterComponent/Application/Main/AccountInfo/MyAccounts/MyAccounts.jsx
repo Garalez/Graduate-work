@@ -1,7 +1,7 @@
 import style from '../AccountInfo.module.scss';
 import PropTypes from 'prop-types';
-import { formatDate } from '../../../../../../utils/formatDate';
 import { useNavigate } from 'react-router-dom';
+import { formatDateToNumeric } from '../../../../../../utils/formatDate';
 
 export const MyAccounts = ({ account }) => {
   const navigate = useNavigate();
@@ -19,14 +19,14 @@ export const MyAccounts = ({ account }) => {
         <div className={style.accountInfoTextWrapper}>
           <p className={style.accountInfoText}>открыт</p>
           <p className={style.accountInfoText}>
-            {account.date ? formatDate(account.date) : '---'}
+            {account.date ? formatDateToNumeric(account.date) : '---'}
           </p>
         </div>
         <div className={style.accountInfoTextWrapper}>
           <p className={style.accountInfoText}>последняя операция</p>
           <p className={style.accountInfoText}>
             {account.transactions.length > 0 ?
-              formatDate(account.transactions[0].date) :
+              formatDateToNumeric(account.transactions[0].date) :
               '---'}
           </p>
         </div>

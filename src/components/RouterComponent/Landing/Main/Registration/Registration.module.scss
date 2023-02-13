@@ -11,7 +11,7 @@
 
 .registrationTitle {
   padding-left: 50px;
-  max-width: 780px;
+  max-width: 680px;
   margin-bottom: 31px;
   font-family: 'Comfortaa';
   font-style: normal;
@@ -71,22 +71,22 @@
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 11px;
 }
 
 .registrationInputItem {
+  height: 121px;
   display: flex;
   flex-direction: column;
-  gap: 2px;
 }
 
 .registrationInputItem:last-child {
   justify-self: flex-end;
   align-self: flex-end;
-  justify-content: flex-end;
 }
 
 .registrationLabel {
+  margin-bottom: 2px;
   padding-left: 20px;
   color: var(--light-purple);
   font-family: 'Nunito';
@@ -209,6 +209,28 @@
   cursor: default;
 }
 
+.contactWrapper {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-start;
+}
+
+.nextBtnWrapper {
+  padding-top: 22px;
+}
+
+.inputsError {
+  padding-top: 5px;
+  padding-left: 15px;
+  color: red;
+}
+
+@media (max-width: 1230px) {
+  .contactWrapper {
+    flex-direction: column;
+  }
+}
+
 @media (max-width: 1024px) {
   .registrationSection {
     padding: 70px 0;
@@ -244,6 +266,10 @@
   .nextBtn {
     width: 315px;
   }
+
+  .inputsError {
+    font-size: 15px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -272,6 +298,14 @@
   .registrationAgreementWrapper,
   .nextBtn {
     width: 100%;
+  }
+
+  .contactWrapper {
+    gap: 0;
+  }
+  
+  .nextBtnWrapper {
+    padding-top: 0;
   }
 
   .registrationInputList {
@@ -316,6 +350,10 @@
   .nextBtn {
     width: 100%;
   }
+
+  .inputsError {
+    font-size: 10px;
+  }
 }
 
 @media (max-width: 320px) {
@@ -344,8 +382,8 @@
   }
 
   .registrationTabsList {
-    gap: 3px;
     margin-bottom: 0px;
+    gap: 3px;
   }
 
   .registrationTabsBtn {
@@ -358,8 +396,13 @@
     line-height: 16px;
   }
 
+  .inputsError {
+    padding-top: 0;
+    padding-left: 20px;
+  }
+
   .registrationInputList {
-    margin-bottom: 29px;
+    margin-bottom: 13px;
   }
 
   .registrationInput {
@@ -372,11 +415,11 @@
   }
 
   .registrationInputList {
-    gap: 10px;
+    gap: 0;
   }
 
   .registrationInputItem {
-    gap: 6px;
+    height: 84px;
   }
 
   .nextBtn {

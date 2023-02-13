@@ -1,13 +1,11 @@
 /* eslint-disable max-len */
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { accountTransferFundsRequestAsync } from '../../../../../../store/accountTransferFunds/accountTransferFundsActions';
 import style from './FundsTransfer.module.scss';
-import { useSearchParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
+import { accountTransferFundsRequestAsync } from '../../../../../../store/accountTransferFunds/accountTransferFundsActions';
 import { userAccountInfoRequestAsync } from '../../../../../../store/accountInfoRequest/accountInfoRequestActions';
-import { useSelector } from 'react-redux';
-import { useEffect } from 'react';
 
 export const FundsTransfer = ({ accountInfo }) => {
   const dispatch = useDispatch();
@@ -38,11 +36,11 @@ export const FundsTransfer = ({ accountInfo }) => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    const regex = /\D/;
+    const regexNonDigits = /\D/;
 
     setTransactionData({
       ...transactionData,
-      [name]: value.replace(regex, ''),
+      [name]: value.replace(regexNonDigits, ''),
     });
 
     setDisplayErrorMassage({

@@ -9,7 +9,7 @@ export const PlatformContacts = () => (
       <li className={style.contactsItem}>+7 921 347-49-97</li>
       <li className={style.contactsItem}>C-Money@gmail.com</li>
       <li className={style.contactsItem}>
-        г. Москва{' '}
+        г. Москва
         <span className={style.contactsStreet}>ул. Новослободская</span> 120/2
         54
       </li>

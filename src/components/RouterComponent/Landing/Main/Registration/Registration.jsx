@@ -32,48 +32,39 @@ export const Registration = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
     if (name === 'phoneNumber') {
       const regex = /[^0-9|+]/g;
       const phoneValue = value.replace(regex, '');
+
       return setFormValues({ ...formValues, phoneNumber: phoneValue });
     }
+
     setFormValues({ ...formValues, [name]: value });
   };
 
-  const fullNameFormSubmit = (e) => {
-    e.preventDefault();
-    if (formValues.name && formValues.surname && formValues.patronymic) {
-      setIsTabValid({ ...isTabValid, firstTabValid: true });
-      setActiveTab(() => ({
-        firstTab: false,
-        secondTab: true,
-        thirdTab: false,
-      }));
-    }
+  const fullNameFormSubmit = () => {
+    setIsTabValid({ ...isTabValid, firstTabValid: true });
+
+    setActiveTab(() => ({
+      firstTab: false,
+      secondTab: true,
+      thirdTab: false,
+    }));
   };
 
-  const contactsFormSubmit = (e) => {
-    e.preventDefault();
-    const phoneRegex = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/;
-    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-    if (
-      phoneRegex.test(formValues.phoneNumber) &&
-      emailRegex.test(formValues.eMail)
-    ) {
-      setIsTabValid({ ...isTabValid, secondTabIsValid: true });
-      setActiveTab(() => ({
-        firstTab: false,
-        secondTab: false,
-        thirdTab: true,
-      }));
-    }
+  const contactsFormSubmit = () => {
+    setIsTabValid({ ...isTabValid, secondTabIsValid: true });
+
+    setActiveTab(() => ({
+      firstTab: false,
+      secondTab: false,
+      thirdTab: true,
+    }));
   };
 
-  const accountCreationFormSubmit = (e) => {
-    e.preventDefault();
-    if (formValues.password && formValues.confirmPassword && formValues.login) {
-      setIsTabValid({ ...isTabValid, thirdTabIsValid: true });
-    }
+  const accountCreationFormSubmit = () => {
+    setIsTabValid({ ...isTabValid, thirdTabIsValid: true });
   };
 
   const switchActiveTab = (tab) => {
@@ -84,6 +75,7 @@ export const Registration = () => {
         (copyActiveTabObj[tab] = true) :
         (copyActiveTabObj[item] = false);
     });
+
     setActiveTab(() => copyActiveTabObj);
   };
 

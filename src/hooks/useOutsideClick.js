@@ -16,5 +16,6 @@ export const useOutsideClick = (handler) => {
       document.removeEventListener('click', handleClick);
     };
   }, []);
+
   return domNode;
 };

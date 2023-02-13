@@ -1,4 +1,5 @@
 import { URL_API } from '../../utils/api';
+import { sortArrayByDate } from '../../utils/sortArrayByDate';
 
 export const USER_ACCOUNTS_REQUEST = 'USER_ACCOUNTS_REQUEST';
 export const USER_ACCOUNTS_REQUEST_SUCCESS = 'USER_ACCOUNTS_REQUEST_SUCCESS';
@@ -20,7 +21,9 @@ export const userAccountsRequestError = (error) => ({
 
 export const userAccountsRequestAsync = () => (dispatch) => {
   const token = localStorage.getItem('bearer');
+
   if (!token && token === 'undefined') return;
+
   dispatch(userAccountsRequest());
 
   fetch(`${URL_API}/accounts`, {
@@ -32,10 +35,7 @@ export const userAccountsRequestAsync = () => (dispatch) => {
     .then((response) => response.json())
     .then((data) => {
       dispatch(
-        userAccountsRequestSuccess(
-          data.payload.sort((a, b) => (new Date((a.date ||= 0)).getTime() >
-              new Date((b.date ||= 0)).getTime() ? -1 : 1))
-        )
+        userAccountsRequestSuccess(sortArrayByDate(data.payload))
       );
     })
     .catch((error) => dispatch(userAccountsRequestError(error)));

@@ -1,22 +1,21 @@
 /* eslint-disable max-len */
-import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import { userAccountsRequestAsync } from '../../../../../store/accountsRequest/accountsRequestActions';
 import style from './AccountInfo.module.scss';
-import { ReactComponent as Arrow } from './img/arrow.svg';
-import MyAccounts from './MyAccounts';
-import CustomSelect from './CustomSelect';
+import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { userAccountsRequestAsync } from '../../../../../store/accountsRequest/accountsRequestActions';
+import { ReactComponent as ArrowSvg } from './img/arrow.svg';
 import { useOutsideClick } from '../../../../../hooks/useOutsideClick';
 import { createNewUserAccount } from '../../../../../utils/createNewUserAccount';
 import { Preloader } from '../../../../../UI/Preloader/Preloader';
+import MyAccounts from './MyAccounts';
+import CustomSelect from './CustomSelect';
 
 export const AccountInfo = () => {
   const dispatch = useDispatch();
   const userAccounts = useSelector((state) => state.userAccounts);
   const [toggleSelect, setToggleSelect] = useState(false);
   const [selectValue, setSelectValue] = useState('дате');
-  const domNode = useOutsideClick(() => setToggleSelect(false));
+  const domNodeRef = useOutsideClick(() => setToggleSelect(false));
 
   useEffect(() => {
     dispatch(userAccountsRequestAsync());
@@ -29,15 +28,19 @@ export const AccountInfo = () => {
       if (sortSelect === 'Номеру счёта') {
         return +a.account > +b.account ? -1 : 1;
       }
+
       if (sortSelect === 'Балансу') return a.balance > b.balance ? -1 : 1;
+
       if (sortSelect === 'Дате') {
         return new Date(a.date).getTime() > new Date(b.date).getTime() ? -1 : 1;
       }
+
       if (sortSelect === 'Последней транзакции') {
         const firstTransactionDateToCompare =
           a.transactions.length > 0 ? a.transactions[0].date : 0;
         const secondTransactionDateToCompare =
           b.transactions.length > 0 ? b.transactions[0].date : 0;
+
         return new Date(firstTransactionDateToCompare).getTime() >
           new Date(secondTransactionDateToCompare).getTime() ?
           -1 :
@@ -62,7 +65,9 @@ export const AccountInfo = () => {
   ];
 
   return userAccounts.status === 'loading' ? (
-    <div style={{ height: 'calc(100vh - 207px)' }}><Preloader color='white' /></div>
+    <div className={style.preloaderWrapper}>
+      <Preloader color='white' />
+    </div>
   ) : (
     <section className={style.account}>
       <div className={style.accountWrapper}>
@@ -77,14 +82,14 @@ export const AccountInfo = () => {
         </div>
         <div className={style.accountInfoWrapper}>
           <p className={style.accountSubtitle}>Мои счета</p>
-          <div ref={domNode} className={style.accountSortWrapper}>
+          <div ref={domNodeRef} className={style.accountSortWrapper}>
             <div
               className={style.accountSortTextWrapper}
               onClick={() => setToggleSelect(!toggleSelect)}
             >
               <p className={style.accountSortText}>Сортировка:</p>
               <div className={style.accountSort}>
-                {`По ${selectValue.toLowerCase()}`} <Arrow />
+                {`По ${selectValue.toLowerCase()}`} <ArrowSvg />
               </div>
             </div>
             {toggleSelect && (

@@ -1,4 +1,5 @@
 import style from './LineGraph.module.scss';
+import PropTypes from 'prop-types';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -8,7 +9,6 @@ import {
   Tooltip,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import PropTypes from 'prop-types';
 
 export const LineGraph = ({ accountInfo }) => {
   ChartJS.register(

@@ -16,6 +16,7 @@ export const DoughnutGraph = ({ accountInfo }) => {
       accountInfo.transactions.statisticGraph.week.expenses,
       accountInfo.transactions.statisticGraph.week.income,
     ]);
+
     setActiveButton({
       week: true,
       month: false,
@@ -51,6 +52,7 @@ export const DoughnutGraph = ({ accountInfo }) => {
       },
     ],
   };
+
   return (
     <section className={style.graphInfoWrapper}>
       <h2 className={style.graphTitle}>Статистика</h2>
