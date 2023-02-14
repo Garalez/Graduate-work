@@ -1,7 +1,8 @@
+/* eslint-disable max-len */
 import style from './Header.module.scss';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { ReactComponent as LogoSvg } from './img/logo.svg';
+import { ReactComponent as LogoSvg } from '../../../../assets/svg/applicationLogo.svg';
 import Navigation from './Navigation';
 
 export const Header = () => {

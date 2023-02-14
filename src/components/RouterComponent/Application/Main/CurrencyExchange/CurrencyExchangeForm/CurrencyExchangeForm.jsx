@@ -1,10 +1,10 @@
 /* eslint-disable max-len */
 import style from './CurrencyExchangeForm.module.scss';
-import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
+import { ReactComponent as SelectArrowSvg } from '../../../../../../assets/svg/blackCustomSelectArrow.svg';
 import { useOutsideClick } from '../../../../../../hooks/useOutsideClick';
-import { ReactComponent as SelectArrow } from '../img/customSelectArrow.svg';
 import { currencyRequestAsync } from '../../../../../../store/currencyRequest/currencyRequestActions';
 import { currencyBuyRequestAsync } from '../../../../../../store/buyCurrency/buyCurrencyActions';
 
@@ -23,12 +23,14 @@ export const CurrencyExchangeForm = ({ currencyTypes }) => {
   const selectRefToRef = useOutsideClick(() => setOpenSelectTo(false));
 
   const handleChange = (e) => {
-    const regex = /[^\d.]/g;
-    setTransferSum(e.target.value.replace(regex, ''));
+    const regexNonDigitAndDot = /[^\d.]/g;
+
+    setTransferSum(e.target.value.replace(regexNonDigitAndDot, ''));
   };
 
   const formSubmit = (e) => {
     e.preventDefault();
+
     dispatch(currencyBuyRequestAsync(selectFromValue, selectToValue, transferSum));
     dispatch(currencyRequestAsync());
     setTransferSum('');
@@ -51,7 +53,7 @@ export const CurrencyExchangeForm = ({ currencyTypes }) => {
             <p className={style.currencyExchangeLabel}>Откуда</p>
             <div className={style.currencyExchangeCustomSelect}>
               {selectFromValue}{' '}
-              <SelectArrow
+              <SelectArrowSvg
                 className={`${openSelectFrom ? style.selectArrow : ''}`}
               />
             </div>
@@ -76,8 +78,8 @@ export const CurrencyExchangeForm = ({ currencyTypes }) => {
           >
             <p className={style.currencyExchangeLabel}>Куда</p>
             <div className={style.currencyExchangeCustomSelect}>
-              {selectToValue}{' '}
-              <SelectArrow
+              {selectToValue}
+              <SelectArrowSvg
                 className={`${openSelectTo ? style.selectArrow : ''}`}
               />
             </div>

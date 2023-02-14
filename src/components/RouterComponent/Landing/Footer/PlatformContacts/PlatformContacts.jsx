@@ -1,6 +1,7 @@
+/* eslint-disable max-len */
 import style from './PlatformContacts.module.scss';
-import { ReactComponent as TelegramLogo } from './img/TelegramSocial.svg';
-import { ReactComponent as TwitterLogo } from './img/TwitterSocial.svg';
+import { ReactComponent as TelegramLogoSvg } from '../../../../../assets/svg/telegramSocial.svg';
+import { ReactComponent as TwitterLogoSvg } from '../../../../../assets/svg/twitterSocial.svg';
 
 export const PlatformContacts = () => (
   <div className={style.contactsWrapper}>
@@ -20,12 +21,12 @@ export const PlatformContacts = () => (
           className={style.contactsSocial}
           href='https://desktop.telegram.org/'
         >
-          <TelegramLogo className={style.contactsSocial} />
+          <TelegramLogoSvg className={style.contactsSocial} />
         </a>
       </li>
       <li className={style.contactsSocialItem}>
         <a href='https://twitter.com/?lang=ru'>
-          <TwitterLogo className={style.contactsSocial} />
+          <TwitterLogoSvg className={style.contactsSocial} />
         </a>
       </li>
     </ul>

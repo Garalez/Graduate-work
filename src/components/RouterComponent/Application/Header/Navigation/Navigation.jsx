@@ -1,5 +1,6 @@
+/* eslint-disable max-len */
 import { useNavigate } from 'react-router-dom';
-import { ReactComponent as Exit } from '../img/Exit.svg';
+import { ReactComponent as ExitSvg } from '../../../../../assets/svg/exitSvg.svg';
 import style from './Navigation.module.scss';
 
 export const Navigation = () => {
@@ -34,7 +35,7 @@ export const Navigation = () => {
             className={style.navItemButton}
             onClick={() => handleLeaveAccount()}
           >
-            Выйти <Exit className={style.navItemExitImg} />
+            Выйти <ExitSvg className={style.navItemExitImg} />
           </button>
         </li>
       </ul>

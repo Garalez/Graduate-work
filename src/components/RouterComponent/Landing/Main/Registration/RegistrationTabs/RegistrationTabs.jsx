@@ -1,11 +1,12 @@
+/* eslint-disable max-len */
 import style from '../Registration.module.scss';
 import PropTypes from 'prop-types';
-import { ReactComponent as ActiveTab1Svg } from '../img/activeTab1.svg';
-import { ReactComponent as ActiveTab2Svg } from '../img/activeTab2.svg';
-import { ReactComponent as ActiveTab3Svg } from '../img/activeTab3.svg';
-import { ReactComponent as InactiveTab1Svg } from '../img/inactiveTab1.svg';
-import { ReactComponent as InactiveTab2Svg } from '../img/inactiveTab2.svg';
-import { ReactComponent as InactiveTab3Svg } from '../img/inactiveTab3.svg';
+import { ReactComponent as ActiveTab1Svg } from '../../../../../../assets/svg/registrationActiveTab1.svg';
+import { ReactComponent as ActiveTab2Svg } from '../../../../../../assets/svg/registrationActiveTab2.svg';
+import { ReactComponent as ActiveTab3Svg } from '../../../../../../assets/svg/registrationActiveTab3.svg';
+import { ReactComponent as InactiveTab1Svg } from '../../../../../../assets/svg/registrationInactiveTab1.svg';
+import { ReactComponent as InactiveTab2Svg } from '../../../../../../assets/svg/registrationInactiveTab2.svg';
+import { ReactComponent as InactiveTab3Svg } from '../../../../../../assets/svg/registrationInactiveTab3.svg';
 
 export const RegistrationTabs = ({
   switchActiveTab,

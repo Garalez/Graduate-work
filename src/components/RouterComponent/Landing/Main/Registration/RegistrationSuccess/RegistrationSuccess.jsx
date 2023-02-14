@@ -1,5 +1,6 @@
+/* eslint-disable max-len */
 import style from './RegistrationSuccess.module.scss';
-import { ReactComponent as Check } from './img/Check.svg';
+import { ReactComponent as Check } from '../../../../../../assets/svg/registrationSuccessCheckmark.svg';
 
 export const RegistrationSuccess = () => (
   <section className={style.registrationSuccess}>

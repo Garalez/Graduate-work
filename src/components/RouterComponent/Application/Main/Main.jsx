@@ -1,12 +1,13 @@
-import Auth from './Auth';
+/* eslint-disable max-len */
 import style from './Main.module.scss';
-import { ReactComponent as Logo } from '../Header/img/logo.svg';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { Route, Routes, useNavigate } from 'react-router-dom';
+import { ReactComponent as LogoSvg } from '../../../../assets/svg/applicationLogo.svg';
+import Auth from './Auth';
 import AccountInfo from './AccountInfo';
 import Transactions from './Transactions';
 import CurrencyExchange from './CurrencyExchange';
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
 
 export const Main = () => {
   const navigate = useNavigate();
@@ -31,7 +32,7 @@ export const Main = () => {
         <div className={style.footer}>
           <div className={style.copyrightsWrapper}>
             <a href='/'>
-              <Logo className={style.logo} />
+              <LogoSvg className={style.logo} />
             </a>
             <p className={style.copyrightsMark}>© C-Money, 2022</p>
           </div>

@@ -1,13 +1,12 @@
-// import { useNavigate } from 'react-router-dom';
+/* eslint-disable max-len */
+import style from './Header.module.scss';
+import { ReactComponent as LogoSvg } from '../../../../assets/svg/violetLogo.svg';
 import useWindowDimensions from '../../../../hooks/screenViewPort';
 import BurgerMenu from './BurgerMenu';
-import style from './Header.module.scss';
-import { ReactComponent as Logo } from './img/logo.svg';
 import Menu from './Menu';
 
 export const Header = () => {
   const { width } = useWindowDimensions();
-  // const navigate = useNavigate();
 
   return (
     <header>
@@ -17,7 +16,7 @@ export const Header = () => {
             href='/application'
             className={style.logoWrapper}
           >
-            <Logo className={style.logo} />
+            <LogoSvg className={style.logo} />
           </a>
           {width <= 768 ? <BurgerMenu /> : <Menu />}
         </div>

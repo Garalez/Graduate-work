@@ -35,7 +35,7 @@
 }
 
 .accountBtn:hover {
-  cursor: url('../img/cursor.svg'), pointer;
+  cursor: url('../../../../../assets/svg/customHoverCursor.svg'), pointer;
   background: var(--button-hover-gradient);
 }
 
@@ -102,7 +102,7 @@
 }
 
 .accountItem:hover {
-  cursor: url('../img/cursor.svg'), pointer;
+  cursor: url('../../../../../assets/svg/customHoverCursor.svg'), pointer;
   border: 2px solid var(--pink);
 }
 
@@ -235,4 +235,8 @@
 
 .preloaderWrapper {
   height: calc(100vh - 207px);
+}
+
+.activeSelect {
+  transform: rotate(180deg);
 }

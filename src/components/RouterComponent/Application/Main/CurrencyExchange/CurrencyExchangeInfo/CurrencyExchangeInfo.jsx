@@ -1,8 +1,8 @@
 /* eslint-disable max-len */
 import style from './CurrencyExchangeInfo.module.scss';
 import { useEffect, useState } from 'react';
-import { ReactComponent as UpArrowSvg } from '../img/upArrow.svg';
-import { ReactComponent as DownArrowSvg } from '../img/downArrow.svg';
+import { ReactComponent as UpArrowSvg } from '../../../../../../assets/svg/upGreenArrow.svg';
+import { ReactComponent as DownArrowSvg } from '../../../../../../assets/svg/downRedArrow.svg';
 
 export const CurrencyExchangeInfo = () => {
   const webSocket = new WebSocket('ws://localhost:3000/currency-feed');

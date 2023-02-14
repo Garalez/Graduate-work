@@ -3,7 +3,7 @@ import style from './AccountInfo.module.scss';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { userAccountsRequestAsync } from '../../../../../store/accountsRequest/accountsRequestActions';
-import { ReactComponent as ArrowSvg } from './img/arrow.svg';
+import { ReactComponent as ArrowSvg } from '../../../../../assets/svg/whiteCustomSelectArrow.svg';
 import { useOutsideClick } from '../../../../../hooks/useOutsideClick';
 import { createNewUserAccount } from '../../../../../utils/createNewUserAccount';
 import { Preloader } from '../../../../../UI/Preloader/Preloader';
@@ -89,7 +89,8 @@ export const AccountInfo = () => {
             >
               <p className={style.accountSortText}>Сортировка:</p>
               <div className={style.accountSort}>
-                {`По ${selectValue.toLowerCase()}`} <ArrowSvg />
+                {`По ${selectValue.toLowerCase()}`}{' '}
+                <ArrowSvg className={toggleSelect ? style.activeSelect : ''} />
               </div>
             </div>
             {toggleSelect && (

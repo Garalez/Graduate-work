@@ -1,9 +1,9 @@
 /* eslint-disable max-len */
 import style from './Transactions.module.scss';
-import { ReactComponent as BackArrow } from './img/backArrow.svg';
-import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import { ReactComponent as BackArrowSvg } from '../../../../../assets/svg/whiteBackArrow.svg';
 import { userAccountInfoRequestAsync } from '../../../../../store/accountInfoRequest/accountInfoRequestActions';
 import { Preloader } from '../../../../../UI/Preloader/Preloader';
 import LineGraph from './LineGraph';
@@ -34,7 +34,7 @@ export const Transactions = () => {
               className={style.transactionsBtn}
               onClick={() => navigate(-1)}
             >
-              <BackArrow /> Вернуться
+              <BackArrowSvg /> Вернуться
             </button>
           </div>
           <div className={style.infoWrapper}>

@@ -1,8 +1,8 @@
 /* eslint-disable no-irregular-whitespace */
 import style from './PlatformInfo.module.scss';
-import TransferImg1280 from './img/transferLogo1280.png';
-import TransferImg1024 from './img/transferLogo1024.png';
-import TransferImg768 from './img/transferLogo768.png';
+import TransferImg1280 from '../../../../../assets/img/transferLogo1280.png';
+import TransferImg1024 from '../../../../../assets/img/transferLogo1024.png';
+import TransferImg768 from '../../../../../assets/img/transferLogo768.png';
 import useWindowDimensions from '../../../../../hooks/screenViewPort';
 
 export const PlatformInfo = () => {

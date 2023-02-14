@@ -1,8 +1,9 @@
+/* eslint-disable max-len */
 import style from './BurgerMenu.module.scss';
 import { useState } from 'react';
-import { ReactComponent as Logo } from '../img/logo.svg';
-import { ReactComponent as Close } from './img/Close.svg';
-import { ReactComponent as BurgerLogo } from './img/Menu.svg';
+import { ReactComponent as LogoSvg } from '../../../../../assets/svg/violetLogo.svg';
+import { ReactComponent as CloseSvg } from '../../../../../assets/svg/burgerMenuClose.svg';
+import { ReactComponent as BurgerLogoSvg } from '../../../../../assets/svg/burgerMenu.svg';
 
 export const BurgerMenu = () => {
   const [isBurgerActive, setIsBurgerActive] = useState(false);
@@ -14,7 +15,7 @@ export const BurgerMenu = () => {
           className={style.burgerBtnOpen}
           onClick={() => setIsBurgerActive(!isBurgerActive)}
         >
-          <BurgerLogo />
+          <BurgerLogoSvg />
         </button>
       ) : (
         <div className={style.burgerWrapper}>
@@ -22,7 +23,7 @@ export const BurgerMenu = () => {
             href='/application'
             className={style.logoWrapper}
           >
-            <Logo className={style.logo} />
+            <LogoSvg className={style.logo} />
           </a>
           <nav className={style.navigate}>
             <ul className={style.list}>
@@ -42,7 +43,7 @@ export const BurgerMenu = () => {
             className={style.burgerBtnClose}
             onClick={() => setIsBurgerActive(!isBurgerActive)}
           >
-            <Close />
+            <CloseSvg />
           </button>
         </div>
       )}

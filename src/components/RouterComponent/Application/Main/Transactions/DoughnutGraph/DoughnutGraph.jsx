@@ -1,11 +1,11 @@
+/* eslint-disable max-len */
 import style from './DoughnutGraph.module.scss';
-import { ReactComponent as Income } from './img/income.svg';
-import { ReactComponent as Expenses } from './img/expenses.svg';
+import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { Chart as ChartJS, Title, ArcElement, Legend, Tooltip } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
-import PropTypes from 'prop-types';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { ReactComponent as IncomeSvg } from '../../../../../../assets/svg/doughnutCircleIncome.svg';
+import { ReactComponent as ExpensesSvg } from '../../../../../../assets/svg/doughnutCircleExpenses.svg';
 
 export const DoughnutGraph = ({ accountInfo }) => {
   const [graphData, setGraphData] = useState([]);
@@ -126,10 +126,10 @@ export const DoughnutGraph = ({ accountInfo }) => {
           <li className={style.graphBalanceItem}>
             <p className={style.graphBalanceItemText}>Баланс</p>
             <p className={style.graphBalanceItemText}>
-              <Income /> Доходы
+              <IncomeSvg /> Доходы
             </p>
             <p className={style.graphBalanceItemText}>
-              <Expenses /> Расходы
+              <ExpensesSvg /> Расходы
             </p>
           </li>
           <li className={style.graphBalanceItem}>

@@ -1,12 +1,13 @@
+/* eslint-disable max-len */
 import style from './Reviews.module.scss';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper';
 import { useRef } from 'react';
-import { ReactComponent as PrevArrow } from './img/navigatePrev.svg';
-import { ReactComponent as NextArrow } from './img/navigateNext.svg';
-import JuliaReviewer from './img/JuliaReviewer.png';
-import SvetlanaReviewer from './img/SvetlanaReviewer.png';
-import SergeiReviewer from './img/SergeiReviewer.png';
+import { Navigation } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { ReactComponent as PrevArrowSvg } from '../../../../../assets/svg/reviewsArrowPrev.svg';
+import { ReactComponent as NextArrowSvg } from '../../../../../assets/svg/reviewsArrowNext.svg';
+import JuliaReviewer from '../../../../../assets/img/JuliaReviewer.png';
+import SvetlanaReviewer from '../../../../../assets/img/SvetlanaReviewer.png';
+import SergeiReviewer from '../../../../../assets/img/SergeiReviewer.png';
 import useWindowDimensions from '../../../../../hooks/screenViewPort';
 import 'swiper/scss';
 
@@ -72,13 +73,13 @@ export const Reviews = () => {
           className={style.reviewsBtnPrev}
           onClick={() => swiperRef.current?.slidePrev()}
         >
-          <PrevArrow className={style.reviewsArrowImg} />
+          <PrevArrowSvg className={style.reviewsArrowImg} />
         </button>
         <button
           className={style.reviewsBtnNext}
           onClick={() => swiperRef.current?.slideNext()}
         >
-          <NextArrow className={style.reviewsArrowImg} />
+          <NextArrowSvg className={style.reviewsArrowImg} />
         </button>
       </div>
     </section>
