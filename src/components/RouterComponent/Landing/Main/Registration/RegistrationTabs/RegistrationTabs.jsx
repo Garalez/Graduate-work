@@ -17,6 +17,7 @@ export const RegistrationTabs = ({
     <li className={style.registrationTabsItem}>
       <button
         className={style.registrationTabsBtn}
+        aria-label='Первая вкладка регистрации'
         onClick={() => switchActiveTab('firstTab')}
       >
         {activeTab.firstTab ? <ActiveTab1Svg /> : <InactiveTab1Svg />}
@@ -27,6 +28,7 @@ export const RegistrationTabs = ({
         className={`${style.registrationTabsBtn} ${
           isTabValid.firstTabValid ? style.active : style.inactive
         }`}
+        aria-label='Вторая вкладка регистрации'
         disabled={!isTabValid.firstTabValid}
         onClick={() => {
           if (isTabValid.firstTabValid) {
@@ -42,6 +44,7 @@ export const RegistrationTabs = ({
         className={`${style.registrationTabsBtn} ${
           isTabValid.secondTabIsValid ? style.active : style.inactive
         }`}
+        aria-label='Третья вкладка регистрации'
         disabled={!isTabValid.secondTabIsValid}
         onClick={() => {
           if (isTabValid.secondTabIsValid) {

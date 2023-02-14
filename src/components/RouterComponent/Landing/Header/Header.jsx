@@ -14,6 +14,7 @@ export const Header = () => {
         <div className={style.headerWrapper}>
           <a
             href='/application'
+            aria-label='Логотип и переход к приложению'
             className={style.logoWrapper}
           >
             <LogoSvg className={style.logo} />

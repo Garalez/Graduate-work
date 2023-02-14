@@ -18,14 +18,17 @@ export const PlatformContacts = () => (
     <ul className={style.contactsSocialList}>
       <li className={style.contactsSocialItem}>
         <a
-          className={style.contactsSocial}
           href='https://desktop.telegram.org/'
+          aria-label='Ссылка на наш телеграм'
         >
           <TelegramLogoSvg className={style.contactsSocial} />
         </a>
       </li>
       <li className={style.contactsSocialItem}>
-        <a href='https://twitter.com/?lang=ru'>
+        <a
+          href='https://twitter.com/?lang=ru'
+          aria-label='Ссылка на наш твитер'
+        >
           <TwitterLogoSvg className={style.contactsSocial} />
         </a>
       </li>

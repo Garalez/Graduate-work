@@ -71,12 +71,14 @@ export const Reviews = () => {
         </Swiper>
         <button
           className={style.reviewsBtnPrev}
+          aria-label='Перейти к предыдущим отзывам'
           onClick={() => swiperRef.current?.slidePrev()}
         >
           <PrevArrowSvg className={style.reviewsArrowImg} />
         </button>
         <button
           className={style.reviewsBtnNext}
+          aria-label='Перейти к следующим отзывам'
           onClick={() => swiperRef.current?.slideNext()}
         >
           <NextArrowSvg className={style.reviewsArrowImg} />
