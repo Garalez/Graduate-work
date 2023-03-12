@@ -19,6 +19,13 @@
   border: none;
 }
 
+.navItemButton:last-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
 .navItemButton:hover {
   color: var(--pink);
 }

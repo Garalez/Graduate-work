@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
+import style from './Navigation.module.scss';
 import { useNavigate } from 'react-router-dom';
 import { ReactComponent as ExitSvg } from '../../../../../assets/svg/exitSvg.svg';
-import style from './Navigation.module.scss';
 
 export const Navigation = () => {
   const navigate = useNavigate();

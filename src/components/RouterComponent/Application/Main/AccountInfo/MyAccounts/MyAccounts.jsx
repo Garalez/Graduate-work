@@ -2,6 +2,7 @@ import style from '../AccountInfo.module.scss';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import { formatDateToNumeric } from '../../../../../../utils/formatDate';
+import { APP_CURRENCY_SIGN } from '../../../../../../utils/appCurrencySign';
 
 export const MyAccounts = ({ account }) => {
   const navigate = useNavigate();
@@ -14,7 +15,9 @@ export const MyAccounts = ({ account }) => {
       }
     >
       <p className={style.accountNumber}>{account.account}</p>
-      <p className={style.accountAmount}>{`${account.balance.toFixed(2)} ₽`}</p>
+      <p className={style.accountAmount}>{`${account.balance.toFixed(
+        2
+      )} ${APP_CURRENCY_SIGN}`}</p>
       <div className={style.accountInfo}>
         <div className={style.accountInfoTextWrapper}>
           <p className={style.accountInfoText}>открыт</p>

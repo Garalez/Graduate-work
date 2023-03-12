@@ -5,7 +5,7 @@ export const useOutsideClick = (handler) => {
 
   useEffect(() => {
     const handleClick = (e) => {
-      if (!domNode.current.contains(e.target)) {
+      if (domNode.current && !domNode.current.contains(e.target)) {
         handler();
       }
     };

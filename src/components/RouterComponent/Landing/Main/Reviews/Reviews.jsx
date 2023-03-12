@@ -9,11 +9,32 @@ import JuliaReviewer from '../../../../../assets/img/JuliaReviewer.png';
 import SvetlanaReviewer from '../../../../../assets/img/SvetlanaReviewer.png';
 import SergeiReviewer from '../../../../../assets/img/SergeiReviewer.png';
 import useWindowDimensions from '../../../../../hooks/screenViewPort';
+import { UserReview } from './UserReview/UserReview';
 import 'swiper/scss';
 
 export const Reviews = () => {
   const swiperRef = useRef();
   const { width } = useWindowDimensions();
+  const reviewsList = [
+    {
+      name: 'Юлия С',
+      photo: JuliaReviewer,
+      blockquote:
+        '«Очень удобная платформа для открытия мультивалютных счётов»',
+    },
+    {
+      name: 'Светлана Н',
+      photo: SvetlanaReviewer,
+      blockquote:
+        '«Пользуюсь платформой уже больше года, нравится, что можно быстро менять валюту по выгодному курсу»',
+    },
+    {
+      name: 'Сергей А',
+      photo: SergeiReviewer,
+      blockquote:
+        '«Открыл счёт в биткоинах, могу быстро следить за курсом и делать обмен»',
+    },
+  ];
 
   return (
     <section className={style.reviewsSection} id='reviews'>
@@ -27,47 +48,15 @@ export const Reviews = () => {
             swiperRef.current = swiper;
           }}
         >
-          <SwiperSlide className={style.reviewsSwiperSlide}>
-            <figure className={style.reviewsFigure}>
-              <img
-                className={style.reviewsAvatar}
-                src={JuliaReviewer}
-                alt="Julia's avatar"
+          {reviewsList.map((review, index) => (
+            <SwiperSlide className={style.reviewsSwiperSlide} key={index}>
+              <UserReview
+                name={review.name}
+                photo={review.photo}
+                blockquote={review.blockquote}
               />
-              <figcaption className={style.reviewsName}>Юлия С</figcaption>
-              <blockquote className={style.reviewsBlockqoute}>
-                «Очень удобная платформа для открытия мультивалютных счётов»
-              </blockquote>
-            </figure>
-          </SwiperSlide>
-          <SwiperSlide className={style.reviewsSwiperSlide}>
-            <figure className={style.reviewsFigure}>
-              <img
-                className={style.reviewsAvatar}
-                src={SvetlanaReviewer}
-                alt="Svetlana's avatar"
-              />
-              <figcaption className={style.reviewsName}>Светлана Н</figcaption>
-              <blockquote className={style.reviewsBlockqoute}>
-                «Пользуюсь платформой уже больше года, нравится, что можно
-                быстро менять валюту по выгодному курсу»
-              </blockquote>
-            </figure>
-          </SwiperSlide>
-          <SwiperSlide className={style.reviewsSwiperSlide}>
-            <figure className={style.reviewsFigure}>
-              <img
-                className={style.reviewsAvatar}
-                src={SergeiReviewer}
-                alt="Sergei's avatar"
-              />
-              <figcaption className={style.reviewsName}>Сергей А</figcaption>
-              <blockquote className={style.reviewsBlockqoute}>
-                «Открыл счёт в биткоинах, могу быстро следить за курсом и делать
-                обмен»
-              </blockquote>
-            </figure>
-          </SwiperSlide>
+            </SwiperSlide>
+          ))}
         </Swiper>
         <button
           className={style.reviewsBtnPrev}

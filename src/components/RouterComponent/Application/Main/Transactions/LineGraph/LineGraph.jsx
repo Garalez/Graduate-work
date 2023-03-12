@@ -9,6 +9,7 @@ import {
   Tooltip,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
+import { APP_CURRENCY_SIGN } from '../../../../../../utils/appCurrencySign';
 
 export const LineGraph = ({ accountInfo }) => {
   ChartJS.register(
@@ -52,7 +53,7 @@ export const LineGraph = ({ accountInfo }) => {
             const regex = /\./g;
             return ` ${
               value.toString().match(regex) ? value.toFixed(2) : value
-            } ₽ `;
+            } ${APP_CURRENCY_SIGN} `;
           },
         },
         grid: {
@@ -85,7 +86,8 @@ export const LineGraph = ({ accountInfo }) => {
         position: 'customPosition',
         yAlign: 'bottom',
         callbacks: {
-          label: (tooltipItems) => `${tooltipItems.formattedValue} ₽`,
+          label: (tooltipItems) =>
+            `${tooltipItems.formattedValue} ${APP_CURRENCY_SIGN}`,
           title: () => '',
         },
         bodyFont: {

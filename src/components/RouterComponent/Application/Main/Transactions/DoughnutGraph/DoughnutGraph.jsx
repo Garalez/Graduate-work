@@ -6,6 +6,7 @@ import { Chart as ChartJS, Title, ArcElement, Legend, Tooltip } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import { ReactComponent as IncomeSvg } from '../../../../../../assets/svg/doughnutCircleIncome.svg';
 import { ReactComponent as ExpensesSvg } from '../../../../../../assets/svg/doughnutCircleExpenses.svg';
+import { APP_CURRENCY_SIGN } from '../../../../../../utils/appCurrencySign';
 
 export const DoughnutGraph = ({ accountInfo }) => {
   const [graphData, setGraphData] = useState([]);
@@ -37,7 +38,7 @@ export const DoughnutGraph = ({ accountInfo }) => {
           label: (context) =>
             ` ${context.raw === graphData[0] ? 'Расходы' : 'Доходы'}: ${
               context.raw
-            } ₽`,
+            } ${APP_CURRENCY_SIGN}`,
         },
       },
     },
@@ -135,9 +136,9 @@ export const DoughnutGraph = ({ accountInfo }) => {
           <li className={style.graphBalanceItem}>
             <p
               className={style.graphBalanceItemSum}
-            >{`${accountInfo.balance} ₽`}</p>
-            <p className={style.graphBalanceItemSum}>{`${graphData[1]} ₽`}</p>
-            <p className={style.graphBalanceItemSum}>{`${graphData[0]} ₽`}</p>
+            >{`${accountInfo.balance} ${APP_CURRENCY_SIGN}`}</p>
+            <p className={style.graphBalanceItemSum}>{`${graphData[1]} ${APP_CURRENCY_SIGN}`}</p>
+            <p className={style.graphBalanceItemSum}>{`${graphData[0]} ${APP_CURRENCY_SIGN}`}</p>
           </li>
         </ul>
       </div>

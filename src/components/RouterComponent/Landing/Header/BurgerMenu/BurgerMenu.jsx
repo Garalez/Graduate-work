@@ -13,6 +13,7 @@ export const BurgerMenu = () => {
       {!isBurgerActive ? (
         <button
           className={style.burgerBtnOpen}
+          aria-label='Открыть меню сайта'
           onClick={() => setIsBurgerActive(!isBurgerActive)}
         >
           <BurgerLogoSvg />
@@ -22,6 +23,7 @@ export const BurgerMenu = () => {
           <a
             href='/application'
             className={style.logoWrapper}
+            aria-label='Логотип и переход к приложению'
           >
             <LogoSvg className={style.logo} />
           </a>
@@ -41,6 +43,7 @@ export const BurgerMenu = () => {
           <div className={style.underline} />
           <button
             className={style.burgerBtnClose}
+            aria-label='Закрыть меню сайта'
             onClick={() => setIsBurgerActive(!isBurgerActive)}
           >
             <CloseSvg />

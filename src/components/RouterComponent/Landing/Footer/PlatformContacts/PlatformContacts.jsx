@@ -7,12 +7,11 @@ export const PlatformContacts = () => (
   <div className={style.contactsWrapper}>
     <ul className={style.contactsList}>
       <li className={style.contactsItem}>Контакты:</li>
-      <li className={style.contactsItem}>+7 921 347-49-97</li>
+      <li className={style.contactsItem}>+3 8093 123-45-67</li>
       <li className={style.contactsItem}>C-Money@gmail.com</li>
       <li className={style.contactsItem}>
-        г. Москва
-        <span className={style.contactsStreet}>ул. Новослободская</span> 120/2
-        54
+        <span>г. Харьков </span>
+        <span className={style.contactsStreet}>проспект Науки</span> 10
       </li>
     </ul>
     <ul className={style.contactsSocialList}>
