@@ -1,6 +1,6 @@
 {
-  "name": "graduate",
-  "version": "0.1.0",
+  "name": "C-money",
+  "version": "0.1.1",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.6",
     "@types/react": "^18.0.26",
